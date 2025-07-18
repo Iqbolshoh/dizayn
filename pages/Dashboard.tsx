@@ -373,7 +373,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Mobile-First Header */}
-      <header className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40 shadow-soft">
+      <header className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40 shadow-lg">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo & Brand */}
@@ -383,17 +383,17 @@ const Dashboard: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
             >
               <motion.div
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-glow"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <Layout className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </motion.div>
               <div className="hidden sm:block">
-                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent font-heading">
+                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent font-heading">
                   Templates.uz
                 </h1>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">
                   Mobile Website Builder
                 </p>
               </div>
@@ -403,13 +403,13 @@ const Dashboard: React.FC = () => {
             <div className="flex items-center gap-2 sm:gap-4">
               {/* Search */}
               <div className="hidden md:block relative">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2.5 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm w-64 lg:w-80 font-primary text-sm"
+                  className="pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm w-64 lg:w-80 font-primary text-sm"
                 />
               </div>
 
@@ -418,17 +418,17 @@ const Dashboard: React.FC = () => {
                 onClick={() => navigate('/profile')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-all duration-200 shadow-medium"
+                className="p-2 sm:p-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all duration-200 shadow-md"
               >
                 <UserCircle className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
 
               {/* New Site */}
               <motion.button
-                onClick={() => console.log('Open Create Modal')}
+                onClick={() => setShowCreateModal(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:shadow-glow transition-all duration-200 font-semibold shadow-medium font-heading text-sm sm:text-base"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 font-semibold shadow-md font-heading text-sm sm:text-base"
               >
                 <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="hidden sm:inline">New Site</span>
@@ -440,7 +440,7 @@ const Dashboard: React.FC = () => {
                 onClick={handleLogout}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-200 shadow-medium"
+                className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-200 shadow-md"
               >
                 <LogOut className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
@@ -450,13 +450,13 @@ const Dashboard: React.FC = () => {
           {/* Mobile Search */}
           <div className="md:hidden pb-4">
             <div className="relative">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400" />
+              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm font-primary"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm font-primary"
               />
             </div>
           </div>
@@ -471,15 +471,15 @@ const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-soft hover:shadow-medium transition-all duration-300"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md">
                 <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900 font-heading">{projects.length}</p>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">Total Sites</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">{projects.length}</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Total Sites</p>
               </div>
             </div>
           </motion.div>
@@ -488,17 +488,17 @@ const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-soft hover:shadow-medium transition-all duration-300"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-success-500 to-success-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md">
                 <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900 font-heading">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {projects.filter(p => p.isPublished).length}
                 </p>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">Published</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Published</p>
               </div>
             </div>
           </motion.div>
@@ -507,17 +507,17 @@ const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-soft hover:shadow-medium transition-all duration-300"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-accent-500 to-accent-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-400 to-primary-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md">
                 <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900 font-heading">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {projects.reduce((total, project) => total + project.sections.length, 0)}
                 </p>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">Sections</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Sections</p>
               </div>
             </div>
           </motion.div>
@@ -526,17 +526,17 @@ const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-soft hover:shadow-medium transition-all duration-300"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-warning-500 to-warning-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md">
                 <Smartphone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900 font-heading">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {Math.round((storageInfo.totalSize / (5 * 1024 * 1024)) * 100)}%
                 </p>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">Storage</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Storage</p>
               </div>
             </div>
           </motion.div>
@@ -546,14 +546,14 @@ const Dashboard: React.FC = () => {
         <div className="mb-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-secondary-900 mb-2 font-heading">Your Websites</h2>
-              <p className="text-secondary-600 font-primary">Create and manage your mobile-friendly websites</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-heading">Your Websites</h2>
+              <p className="text-gray-600 font-primary">Create and manage your mobile-friendly websites</p>
             </div>
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'updated' | 'created' | 'name')}
-                className="flex-1 sm:flex-none px-4 py-2.5 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90 backdrop-blur-sm font-primary text-sm"
+                className="flex-1 sm:flex-none px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90 backdrop-blur-sm font-primary text-sm"
               >
                 <option value="updated">Last Updated</option>
                 <option value="created">Date Created</option>
@@ -570,7 +570,7 @@ const Dashboard: React.FC = () => {
             >
               <div className="relative mb-8">
                 <motion.div
-                  className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto shadow-glow"
+                  className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto shadow-lg"
                   animate={{
                     scale: [1, 1.05, 1],
                     rotate: [0, 5, -5, 0]
@@ -584,7 +584,7 @@ const Dashboard: React.FC = () => {
                   <Smartphone className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                 </motion.div>
                 <motion.div
-                  className="absolute -top-2 -right-2 w-8 h-8 sm:w-12 sm:h-12 bg-accent-400 rounded-full flex items-center justify-center"
+                  className="absolute -top-2 -right-2 w-8 h-8 sm:w-12 sm:h-12 bg-primary-400 rounded-full flex items-center justify-center"
                   animate={{
                     y: [0, -10, 0],
                     rotate: [0, 360]
@@ -598,10 +598,10 @@ const Dashboard: React.FC = () => {
                   <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </motion.div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-secondary-900 mb-4 font-heading">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-heading">
                 {searchTerm ? 'No websites found' : 'Create Your First Mobile Website'}
               </h3>
-              <p className="text-secondary-600 mb-8 max-w-lg mx-auto text-base sm:text-lg font-primary px-4">
+              <p className="text-gray-600 mb-8 max-w-lg mx-auto text-base sm:text-lg font-primary px-4">
                 {searchTerm
                   ? `No websites match "${searchTerm}". Try a different search term.`
                   : 'Click the button below to create your first professional website. It\'s easy and takes just a few minutes to get started.'
@@ -612,7 +612,7 @@ const Dashboard: React.FC = () => {
                   onClick={() => setShowCreateModal(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-6 py-4 sm:px-8 sm:py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-2xl hover:shadow-glow transition-all duration-200 font-semibold shadow-medium text-base sm:text-lg font-heading"
+                  className="inline-flex items-center gap-3 px-6 py-4 sm:px-8 sm:py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-semibold shadow-md text-base sm:text-lg font-heading"
                 >
                   <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
                   Create Your First Site
@@ -627,10 +627,10 @@ const Dashboard: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-secondary-200 shadow-soft hover:shadow-hard transition-all duration-500 hover:-translate-y-1"
+                  className="group bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
                 >
                   {/* Project Thumbnail */}
-                  <div className="relative h-40 sm:h-48 lg:h-56 bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 lg:h-56 bg-gradient-to-br from-primary-50 via-white to-primary-100 overflow-hidden">
                     {project.thumbnail ? (
                       <img
                         src={project.thumbnail}
@@ -638,17 +638,17 @@ const Dashboard: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-primary-600/20"></div>
                     )}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 10 }}
-                          className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-medium"
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md"
                         >
                           <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
                         </motion.div>
-                        <p className="text-xs sm:text-sm font-semibold text-secondary-700 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-3 sm:py-1 font-primary">
+                        <p className="text-xs sm:text-sm font-semibold text-gray-700 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-3 sm:py-1 font-primary">
                           {project.sections.length} sections
                         </p>
                       </div>
@@ -660,11 +660,11 @@ const Dashboard: React.FC = () => {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         className={`inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold shadow-medium ${project.isPublished
-                          ? 'bg-success-50 text-success-700 border border-success-200'
-                          : 'bg-warning-50 text-warning-700 border border-warning-200'
+                          ? 'bg-green-50 text-green-700 border border-green-200'
+                          : 'bg-yellow-50 text-yellow-700 border border-yellow-200'
                           }`}
                       >
-                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1.5 sm:mr-2 ${project.isPublished ? 'bg-success-500' : 'bg-warning-500'
+                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1.5 sm:mr-2 ${project.isPublished ? 'bg-green-500' : 'bg-yellow-500'
                           }`}></div>
                         <span className="font-primary">{project.isPublished ? 'Live' : 'Draft'}</span>
                       </motion.span>
@@ -677,9 +677,9 @@ const Dashboard: React.FC = () => {
                           onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="w-8 h-8 sm:w-10 sm:h-10 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-white transition-colors shadow-medium"
+                          className="w-8 h-8 sm:w-10 sm:h-10 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-white transition-colors shadow-md"
                         >
-                          <MoreVertical className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-600" />
+                          <MoreVertical className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                         </motion.button>
 
                         <AnimatePresence>
@@ -688,14 +688,14 @@ const Dashboard: React.FC = () => {
                               initial={{ opacity: 0, scale: 0.95, y: -5 }}
                               animate={{ opacity: 1, scale: 1, y: 0 }}
                               exit={{ opacity: 0, scale: 0.95, y: -5 }}
-                              className="absolute right-0 top-12 w-44 sm:w-48 bg-white rounded-xl sm:rounded-2xl shadow-hard border border-secondary-200 py-2 z-50"
+                              className="absolute right-0 top-12 w-44 sm:w-48 bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200 py-2 z-50"
                             >
                               <button
                                 onClick={() => {
                                   navigate(`/preview/${project.id}`);
                                   setSelectedProject(null);
                                 }}
-                                className="w-full px-4 py-3 text-left text-sm text-secondary-700 hover:bg-secondary-50 flex items-center gap-3 transition-colors font-primary"
+                                className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Eye className="w-4 h-4" />
                                 Preview
@@ -705,18 +705,18 @@ const Dashboard: React.FC = () => {
                                   handleDuplicateProject(project.id);
                                   setSelectedProject(null);
                                 }}
-                                className="w-full px-4 py-3 text-left text-sm text-secondary-700 hover:bg-secondary-50 flex items-center gap-3 transition-colors font-primary"
+                                className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Copy className="w-4 h-4" />
                                 Duplicate
                               </button>
-                              <div className="border-t border-secondary-100 my-1"></div>
+                              <div className="border-t border-gray-100 my-1"></div>
                               <button
                                 onClick={() => {
                                   handleDeleteProject(project.id);
                                   setSelectedProject(null);
                                 }}
-                                className="w-full px-4 py-3 text-left text-sm text-error-600 hover:bg-error-50 flex items-center gap-3 transition-colors font-primary"
+                                className="w-full px-4 py-3 text-left text-sm text-red-600 hover:bg-red-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Trash2 className="w-4 h-4" />
                                 Delete
@@ -731,14 +731,14 @@ const Dashboard: React.FC = () => {
                   {/* Project Info */}
                   <div className="p-4 sm:p-6">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg sm:text-xl font-bold text-secondary-900 truncate flex-1 mr-2 group-hover:text-primary-600 transition-colors font-heading">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 truncate flex-1 mr-2 group-hover:text-primary-600 transition-colors font-heading">
                         {project.name}
                       </h3>
-                      <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-400 hover:text-primary-500 cursor-pointer transition-colors flex-shrink-0" />
+                      <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 hover:text-primary-500 cursor-pointer transition-colors flex-shrink-0" />
                     </div>
 
                     {/* Website URL */}
-                    <div className="flex items-center gap-2 mb-3 p-2 bg-secondary-50 rounded-lg">
+                    <div className="flex items-center gap-2 mb-3 p-2 bg-gray-50 rounded-lg">
                       <LinkIcon className="w-3 h-3 sm:w-4 sm:h-4 text-primary-500 flex-shrink-0" />
                       <span className="text-xs sm:text-sm text-primary-600 font-mono truncate">
                         templates.uz/{project.websiteUrl}
@@ -746,12 +746,12 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     {project.description && (
-                      <p className="text-secondary-600 text-sm mb-4 line-clamp-2 leading-relaxed font-primary">
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed font-primary">
                         {project.description}
                       </p>
                     )}
 
-                    <div className="flex items-center justify-between text-xs text-secondary-500 mb-6">
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-6">
                       <div className="flex items-center gap-2">
                         <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span className="font-medium font-primary">{formatRelativeTime(project.updatedAt)}</span>
@@ -767,7 +767,7 @@ const Dashboard: React.FC = () => {
                         onClick={() => navigate(`/editor/${project.id}`)}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:shadow-glow transition-all duration-200 font-semibold text-sm shadow-medium font-heading"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 font-semibold text-sm shadow-md font-heading"
                       >
                         <Edit className="w-3 h-3 sm:w-4 sm:h-4" />
                         Edit
@@ -776,7 +776,7 @@ const Dashboard: React.FC = () => {
                         onClick={() => navigate(`/preview/${project.id}`)}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="px-3 py-2.5 sm:px-4 sm:py-3 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-colors font-semibold text-sm font-primary"
+                        className="px-3 py-2.5 sm:px-4 sm:py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-semibold text-sm font-primary"
                       >
                         <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
                       </motion.button>
@@ -808,28 +808,28 @@ const Dashboard: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 w-full max-w-2xl shadow-hard border border-secondary-100 max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 w-full max-w-2xl shadow-2xl border border-gray-100 max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-6 sm:mb-8">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <motion.div
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md"
                     whileHover={{ scale: 1.05, rotate: 5 }}
                   >
                     <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-secondary-900 font-heading">Create New Website</h2>
-                    <p className="text-sm sm:text-base text-secondary-600 font-primary">Build your professional website</p>
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">Create New Website</h2>
+                    <p className="text-sm sm:text-base text-gray-600 font-primary">Build your professional website</p>
                   </div>
                 </div>
                 {!isCreating && (
                   <button
                     onClick={() => setShowCreateModal(false)}
-                    className="p-2 hover:bg-secondary-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   >
-                    <X className="w-5 h-5 text-secondary-500" />
+                    <X className="w-5 h-5 text-gray-500" />
                   </button>
                 )}
               </div>
@@ -837,7 +837,7 @@ const Dashboard: React.FC = () => {
               <form onSubmit={handleCreateProject} className="space-y-6">
                 {/* Website Name */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     Website Name *
                   </label>
                   <input
@@ -845,7 +845,7 @@ const Dashboard: React.FC = () => {
                     value={newProjectName}
                     onChange={(e) => setNewProjectName(e.target.value)}
                     placeholder="My Awesome Website"
-                    className="w-full px-4 py-3 sm:py-4 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-primary"
+                    className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-primary"
                     required
                     disabled={isCreating}
                   />
@@ -853,11 +853,11 @@ const Dashboard: React.FC = () => {
 
                 {/* Website URL */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     Website URL *
                   </label>
                   <div className="flex items-center">
-                    <span className="px-3 py-3 sm:py-4 bg-secondary-100 text-secondary-600 rounded-l-xl border border-r-0 border-secondary-300 text-sm sm:text-base font-mono">
+                    <span className="px-3 py-3 sm:py-4 bg-gray-100 text-gray-600 rounded-l-xl border border-r-0 border-gray-300 text-sm sm:text-base font-mono">
                       templates.uz/
                     </span>
                     <input
@@ -865,32 +865,32 @@ const Dashboard: React.FC = () => {
                       value={newWebsiteUrl}
                       onChange={(e) => handleWebsiteUrlChange(e.target.value)}
                       placeholder="my-website"
-                      className={`flex-1 px-4 py-3 sm:py-4 border rounded-r-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-mono ${urlError ? 'border-error-500' : 'border-secondary-300'
+                      className={`flex-1 px-4 py-3 sm:py-4 border rounded-r-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-mono ${urlError ? 'border-red-500' : 'border-gray-300'
                         }`}
                       required
                       disabled={isCreating}
                     />
                   </div>
                   {urlError && (
-                    <div className="flex items-center gap-2 mt-2 text-error-600">
+                    <div className="flex items-center gap-2 mt-2 text-red-600">
                       <AlertCircle className="w-4 h-4" />
                       <span className="text-sm font-primary">{urlError}</span>
                     </div>
                   )}
                   {!urlError && newWebsiteUrl && (
-                    <div className="flex items-center gap-2 mt-2 text-success-600">
+                    <div className="flex items-center gap-2 mt-2 text-green-600">
                       <Check className="w-4 h-4" />
                       <span className="text-sm font-primary">URL is available</span>
                     </div>
                   )}
-                  <p className="text-xs sm:text-sm text-secondary-500 mt-2 font-primary">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
                     Only letters, numbers, hyphens, and underscores allowed
                   </p>
                 </div>
 
                 {/* Category */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     Website Category *
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -906,12 +906,12 @@ const Dashboard: React.FC = () => {
                           disabled={isCreating}
                           className={`p-3 rounded-xl border-2 transition-all text-left ${newCategory === category.id
                             ? 'border-primary-500 bg-primary-50 text-primary-700'
-                            : 'border-secondary-200 hover:border-secondary-300 text-secondary-700'
+                            : 'border-gray-200 hover:border-gray-300 text-gray-700'
                             }`}
                         >
                           <IconComponent className="w-5 h-5 mb-2" />
                           <div className="text-sm font-semibold font-primary">{category.name}</div>
-                          <div className="text-xs text-secondary-500 font-primary">{category.description}</div>
+                          <div className="text-xs text-gray-500 font-primary">{category.description}</div>
                         </motion.button>
                       );
                     })}
@@ -920,7 +920,7 @@ const Dashboard: React.FC = () => {
 
                 {/* SEO Keywords */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     SEO Keywords (Optional)
                   </label>
                   <input
@@ -928,17 +928,17 @@ const Dashboard: React.FC = () => {
                     value={newSeoKeywords}
                     onChange={(e) => setNewSeoKeywords(e.target.value)}
                     placeholder="business, website, professional, services"
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent font-primary text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent font-primary text-base"
                     disabled={isCreating}
                   />
-                  <p className="text-xs sm:text-sm text-secondary-500 mt-2 font-primary">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
                     Separate keywords with commas
                   </p>
                 </div>
 
                 {/* Logo File Upload */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     Logo Upload (Optional)
                   </label>
                   <div className="flex items-center gap-4">
@@ -953,18 +953,18 @@ const Dashboard: React.FC = () => {
                       />
                       <label
                         htmlFor="logo-upload"
-                        className="flex items-center justify-center w-full px-4 py-3 border-2 border-dashed border-secondary-300 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer font-primary text-base"
+                        className="flex items-center justify-center w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer font-primary text-base"
                       >
                         <div className="flex items-center gap-3">
-                          <Upload className="w-5 h-5 text-secondary-500" />
-                          <span className="text-secondary-700">
+                          <Upload className="w-5 h-5 text-gray-500" />
+                          <span className="text-gray-700">
                             {newLogo ? newLogo.name : 'Choose logo file'}
                           </span>
                         </div>
                       </label>
                     </div>
                     {logoPreview && (
-                      <div className="relative w-16 h-16 border border-secondary-200 rounded-lg overflow-hidden bg-white">
+                      <div className="relative w-16 h-16 border border-gray-200 rounded-lg overflow-hidden bg-white">
                         <img
                           src={logoPreview}
                           alt="Logo preview"
@@ -976,21 +976,21 @@ const Dashboard: React.FC = () => {
                             setNewLogo(null);
                             setLogoPreview('');
                           }}
-                          className="absolute -top-2 -right-2 w-6 h-6 bg-error-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-error-600 transition-colors"
+                          className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 transition-colors"
                         >
                           <X className="w-3 h-3" />
                         </button>
                       </div>
                     )}
                   </div>
-                  <p className="text-xs sm:text-sm text-secondary-500 mt-2 font-primary">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
                     Recommended: PNG or SVG format, max 5MB. Will be automatically added to header, footer, and relevant sections.
                   </p>
                 </div>
 
                 {/* Favicon File Upload */}
                 <div>
-                  <label className="block text-sm font-semibold text-secondary-700 mb-3 font-primary">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
                     Favicon Upload (Optional)
                   </label>
                   <div className="flex items-center gap-4">
@@ -1005,18 +1005,18 @@ const Dashboard: React.FC = () => {
                       />
                       <label
                         htmlFor="favicon-upload"
-                        className="flex items-center justify-center w-full px-4 py-3 border-2 border-dashed border-secondary-300 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer font-primary text-base"
+                        className="flex items-center justify-center w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer font-primary text-base"
                       >
                         <div className="flex items-center gap-3">
-                          <ImageIcon className="w-5 h-5 text-secondary-500" />
-                          <span className="text-secondary-700">
+                          <ImageIcon className="w-5 h-5 text-gray-500" />
+                          <span className="text-gray-700">
                             {newFavicon ? newFavicon.name : 'Choose favicon file'}
                           </span>
                         </div>
                       </label>
                     </div>
                     {faviconPreview && (
-                      <div className="relative w-8 h-8 border border-secondary-200 rounded overflow-hidden bg-white">
+                      <div className="relative w-8 h-8 border border-gray-200 rounded overflow-hidden bg-white">
                         <img
                           src={faviconPreview}
                           alt="Favicon preview"
@@ -1028,14 +1028,14 @@ const Dashboard: React.FC = () => {
                             setNewFavicon(null);
                             setFaviconPreview('');
                           }}
-                          className="absolute -top-1 -right-1 w-4 h-4 bg-error-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-error-600 transition-colors"
+                          className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 transition-colors"
                         >
                           <X className="w-2 h-2" />
                         </button>
                       </div>
                     )}
                   </div>
-                  <p className="text-xs sm:text-sm text-secondary-500 mt-2 font-primary">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
                     Recommended: ICO, PNG format, 16x16 or 32x32 pixels, max 1MB. Displayed in browser tabs.
                   </p>
                 </div>
@@ -1047,7 +1047,7 @@ const Dashboard: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={isCreating}
-                    className="flex-1 px-4 py-3 sm:px-6 sm:py-4 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-semibold font-primary text-base disabled:opacity-50"
+                    className="flex-1 px-4 py-3 sm:px-6 sm:py-4 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-semibold font-primary text-base disabled:opacity-50"
                   >
                     Cancel
                   </motion.button>
@@ -1056,7 +1056,7 @@ const Dashboard: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={isCreating || !!urlError || !newProjectName.trim() || !newWebsiteUrl.trim()}
-                    className="flex-1 px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:shadow-glow transition-all duration-200 font-semibold shadow-medium font-heading text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="flex-1 px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 font-semibold shadow-md font-heading text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isCreating ? (
                       <>

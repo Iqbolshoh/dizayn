@@ -173,13 +173,13 @@ const Profile: React.FC = () => {
     const plan = userSubscription?.plan || 'free';
     const colors = {
       free: 'bg-gray-100 text-gray-700 border-gray-200',
-      pro: 'bg-blue-100 text-blue-700 border-blue-200',
+      pro: 'bg-primary-100 text-primary-700 border-primary-200',
       enterprise: 'bg-purple-100 text-purple-700 border-purple-200',
     };
     
     const icons = {
       free: Star,
-      pro: Zap,
+      pro: Crown,
       enterprise: Crown,
     };
     
@@ -196,7 +196,7 @@ const Profile: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-4">
@@ -204,16 +204,16 @@ const Profile: React.FC = () => {
                 onClick={() => navigate('/dashboard')}
                 className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-secondary-600" />
+                <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                   <User className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Profile Settings</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Manage your account and preferences</p>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">Profile Settings</h1>
+                  <p className="text-sm text-gray-600 font-primary">Manage your account and preferences</p>
                 </div>
               </div>
             </div>
@@ -228,13 +228,13 @@ const Profile: React.FC = () => {
               </button>
               <button
                 onClick={() => navigate('/settings')}
-                className="px-4 py-2 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-colors font-medium font-primary"
+                className="px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
               >
                 Settings
               </button>
               <button
                 onClick={() => navigate('/team')}
-                className="px-4 py-2 bg-accent-600 text-white rounded-xl hover:bg-accent-700 transition-colors font-medium font-primary"
+                className="px-4 py-2 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors font-medium font-primary"
               >
                 Team
               </button>
@@ -251,11 +251,11 @@ const Profile: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
               <div className="text-center">
                 <div className="relative inline-block mb-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-r from-primary-500 to-accent-500 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full overflow-hidden bg-primary-600 flex items-center justify-center">
                     {avatarPreview || profile.avatar ? (
                       <img
                         src={avatarPreview || profile.avatar}
@@ -280,20 +280,20 @@ const Profile: React.FC = () => {
                   )}
                 </div>
                 
-                <h2 className="text-xl font-bold text-secondary-900 mb-1 font-heading">{profile.name}</h2>
-                <p className="text-secondary-600 mb-4 font-primary">{profile.email}</p>
+                <h2 className="text-xl font-bold text-gray-900 mb-1 font-heading">{profile.name}</h2>
+                <p className="text-gray-600 mb-4 font-primary">{profile.email}</p>
                 
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600 font-primary">Member since</span>
+                    <span className="text-gray-600 font-primary">Member since</span>
                     <span className="font-medium font-primary">Jan 2024</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600 font-primary">Projects</span>
+                    <span className="text-gray-600 font-primary">Projects</span>
                     <span className="font-medium font-primary">{optimizedStorage.getAllProjects().length}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600 font-primary">Plan</span>
+                    <span className="text-gray-600 font-primary">Plan</span>
                     {getSubscriptionBadge()}
                   </div>
                 </div>
@@ -308,10 +308,10 @@ const Profile: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-secondary-900 font-heading">Personal Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 font-heading">Personal Information</h3>
                 <button
                   onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
                   disabled={isSaving}
@@ -330,60 +330,60 @@ const Profile: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Full Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Full Name</label>
                   <input
                     type="text"
                     value={profile.name}
                     onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Email</label>
                   <input
                     type="email"
                     value={profile.email}
                     onChange={(e) => setProfile({ ...profile, email: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Company</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Company</label>
                   <input
                     type="text"
                     value={profile.company}
                     onChange={(e) => setProfile({ ...profile, company: e.target.value })}
                     disabled={!isEditing}
                     placeholder="Your company name"
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Website</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Website</label>
                   <input
                     type="url"
                     value={profile.website}
                     onChange={(e) => setProfile({ ...profile, website: e.target.value })}
                     disabled={!isEditing}
                     placeholder="https://yourwebsite.com"
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Bio</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Bio</label>
                   <textarea
                     value={profile.bio}
                     onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
                     disabled={!isEditing}
                     placeholder="Tell us about yourself..."
                     rows={3}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 resize-none font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 resize-none font-primary"
                   />
                 </div>
               </div>
@@ -394,14 +394,14 @@ const Profile: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
-              <h3 className="text-lg font-semibold text-secondary-900 mb-6 font-heading">Preferences</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">Preferences</h3>
 
               <div className="space-y-6">
                 {/* Theme */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">Theme</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Theme</label>
                   <div className="grid grid-cols-3 gap-3">
                     {[
                       { value: 'light', label: 'Light', icon: Sun },
@@ -414,7 +414,7 @@ const Profile: React.FC = () => {
                         className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${
                           preferences.theme === value
                             ? 'border-primary-500 bg-primary-50 text-primary-700'
-                            : 'border-secondary-200 hover:border-secondary-300'
+                            : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -426,11 +426,11 @@ const Profile: React.FC = () => {
 
                 {/* Language */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">Language</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Language</label>
                   <select
                     value={preferences.language}
                     onChange={(e) => setPreferences({ ...preferences, language: e.target.value })}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
                     <option value="en">English</option>
                     <option value="es">Español</option>
@@ -442,17 +442,17 @@ const Profile: React.FC = () => {
 
                 {/* Notifications */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">Notifications</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Notifications</label>
                   <div className="space-y-3">
                     {[
                       { key: 'email', label: 'Email notifications', description: 'Receive updates via email' },
                       { key: 'push', label: 'Push notifications', description: 'Browser notifications' },
                       { key: 'marketing', label: 'Marketing emails', description: 'Product updates and tips' },
                     ].map(({ key, label, description }) => (
-                      <div key={key} className="flex items-center justify-between p-3 bg-secondary-50 rounded-xl">
+                      <div key={key} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                         <div>
-                          <div className="font-medium text-secondary-900 font-primary">{label}</div>
-                          <div className="text-sm text-secondary-600 font-primary">{description}</div>
+                          <div className="font-medium text-gray-900 font-primary">{label}</div>
+                          <div className="text-sm text-gray-600 font-primary">{description}</div>
                         </div>
                         <button
                           onClick={() => setPreferences({
@@ -465,7 +465,7 @@ const Profile: React.FC = () => {
                           className={`w-12 h-6 rounded-full transition-colors ${
                             preferences.notifications[key as keyof typeof preferences.notifications]
                               ? 'bg-primary-600'
-                              : 'bg-secondary-300'
+                              : 'bg-gray-300'
                           }`}
                         >
                           <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
@@ -486,37 +486,37 @@ const Profile: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
-              <h3 className="text-lg font-semibold text-secondary-900 mb-6 font-heading">Security</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">Security</h3>
 
               <div className="space-y-4">
                 <button
                   onClick={() => setShowPasswordForm(true)}
-                  className="w-full flex items-center justify-between p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors"
+                  className="w-full flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <Key className="w-5 h-5 text-secondary-600" />
+                    <Key className="w-5 h-5 text-gray-600" />
                     <div className="text-left">
-                      <div className="font-medium text-secondary-900 font-primary">Change Password</div>
-                      <div className="text-sm text-secondary-600 font-primary">Update your account password</div>
+                      <div className="font-medium text-gray-900 font-primary">Change Password</div>
+                      <div className="text-sm text-gray-600 font-primary">Update your account password</div>
                     </div>
                   </div>
-                  <Edit3 className="w-4 h-4 text-secondary-600" />
+                  <Edit3 className="w-4 h-4 text-gray-600" />
                 </button>
 
                 <button
                   onClick={() => setShowDeleteConfirm(true)}
-                  className="w-full flex items-center justify-between p-4 bg-error-50 rounded-xl hover:bg-error-100 transition-colors"
+                  className="w-full flex items-center justify-between p-4 bg-red-50 rounded-xl hover:bg-red-100 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <Trash2 className="w-5 h-5 text-error-600" />
+                    <Trash2 className="w-5 h-5 text-red-600" />
                     <div className="text-left">
-                      <div className="font-medium text-error-900 font-primary">Delete Account</div>
-                      <div className="text-sm text-error-600 font-primary">Permanently delete your account and data</div>
+                      <div className="font-medium text-red-900 font-primary">Delete Account</div>
+                      <div className="text-sm text-red-600 font-primary">Permanently delete your account and data</div>
                     </div>
                   </div>
-                  <AlertCircle className="w-4 h-4 text-error-600" />
+                  <AlertCircle className="w-4 h-4 text-red-600" />
                 </button>
               </div>
             </motion.div>
@@ -533,29 +533,29 @@ const Profile: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-md"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-secondary-900 font-heading">Change Password</h3>
+              <h3 className="text-lg font-semibold text-gray-900 font-heading">Change Password</h3>
               <button
                 onClick={() => setShowPasswordForm(false)}
-                className="p-2 hover:bg-secondary-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <X className="w-5 h-5 text-secondary-600" />
+                <X className="w-5 h-5 text-gray-600" />
               </button>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Current Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Current Password</label>
                 <div className="relative">
                   <input
                     type={showCurrentPassword ? 'text' : 'password'}
                     value={passwordForm.currentPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
-                    className="w-full px-4 py-3 pr-12 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   />
                   <button
                     type="button"
                     onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-500 hover:text-secondary-700"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
                   >
                     {showCurrentPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -563,18 +563,18 @@ const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">New Password</label>
                 <div className="relative">
                   <input
                     type={showNewPassword ? 'text' : 'password'}
                     value={passwordForm.newPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                    className="w-full px-4 py-3 pr-12 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   />
                   <button
                     type="button"
                     onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-500 hover:text-secondary-700"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
                   >
                     {showNewPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -582,18 +582,18 @@ const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Confirm New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Confirm New Password</label>
                 <div className="relative">
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     value={passwordForm.confirmPassword}
                     onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                    className="w-full px-4 py-3 pr-12 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-500 hover:text-secondary-700"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -604,7 +604,7 @@ const Profile: React.FC = () => {
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowPasswordForm(false)}
-                className="flex-1 px-4 py-3 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 Cancel
               </button>
@@ -628,11 +628,11 @@ const Profile: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-md"
           >
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-error-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <AlertCircle className="w-8 h-8 text-error-600" />
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <AlertCircle className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">Delete Account</h3>
-              <p className="text-secondary-600 font-primary">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Delete Account</h3>
+              <p className="text-gray-600 font-primary">
                 This action cannot be undone. All your projects and data will be permanently deleted.
               </p>
             </div>
@@ -640,13 +640,13 @@ const Profile: React.FC = () => {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="flex-1 px-4 py-3 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteAccount}
-                className="flex-1 px-4 py-3 bg-error-600 text-white rounded-xl hover:bg-error-700 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary"
               >
                 Delete Account
               </button>

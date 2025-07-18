@@ -235,9 +235,9 @@ const Billing: React.FC = () => {
 
   const getStatusBadge = (status: string) => {
     const colors = {
-      completed: 'bg-success-100 text-success-700 border-success-200',
-      pending: 'bg-warning-100 text-warning-700 border-warning-200',
-      failed: 'bg-error-100 text-error-700 border-error-200',
+      completed: 'bg-green-100 text-green-700 border-green-200',
+      pending: 'bg-yellow-100 text-yellow-700 border-yellow-200',
+      failed: 'bg-red-100 text-red-700 border-red-200',
     };
     
     const icons = {
@@ -259,20 +259,20 @@ const Billing: React.FC = () => {
   const getCoinTypeIcon = (type: string) => {
     switch (type) {
       case 'purchase':
-        return <Plus className="w-4 h-4 text-success-600" />;
+        return <Plus className="w-4 h-4 text-green-600" />;
       case 'usage':
-        return <Zap className="w-4 h-4 text-warning-600" />;
+        return <Zap className="w-4 h-4 text-yellow-600" />;
       case 'bonus':
         return <Gift className="w-4 h-4 text-purple-600" />;
       default:
-        return <Coins className="w-4 h-4 text-secondary-600" />;
+        return <Coins className="w-4 h-4 text-gray-600" />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-4">
@@ -280,22 +280,22 @@ const Billing: React.FC = () => {
                 onClick={() => navigate('/profile')}
                 className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-secondary-600" />
+                <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
                   <CreditCard className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Billing & Subscription</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Manage your plan and payments</p>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">Billing & Subscription</h1>
+                  <p className="text-sm text-gray-600 font-primary">Manage your plan and payments</p>
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-3 py-2 bg-warning-100 text-warning-700 rounded-xl border border-warning-200">
+              <div className="flex items-center gap-2 px-3 py-2 bg-yellow-100 text-yellow-700 rounded-xl border border-yellow-200">
                 <Coins className="w-4 h-4" />
                 <span className="font-medium font-primary">{coinBalance} coins</span>
               </div>
@@ -312,7 +312,7 @@ const Billing: React.FC = () => {
 
       {/* Tabs */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex space-x-1 bg-secondary-100 rounded-xl p-1 mb-8">
+        <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
           {[
             { id: 'overview', label: 'Overview', icon: TrendingUp },
             { id: 'history', label: 'Payment History', icon: History },
@@ -324,7 +324,7 @@ const Billing: React.FC = () => {
               className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                 activeTab === id
                   ? 'bg-white text-primary-600 shadow-sm'
-                  : 'text-secondary-600 hover:text-secondary-900'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -340,13 +340,13 @@ const Billing: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-secondary-900 font-heading">Current Plan</h2>
+                <h2 className="text-xl font-semibold text-gray-900 font-heading">Current Plan</h2>
                 <div className="flex items-center gap-2">
-                  {currentPlan === 'pro' && <div className="w-2 h-2 bg-success-500 rounded-full animate-pulse" />}
-                  <span className="text-sm text-secondary-600 font-primary">
+                  {currentPlan === 'pro' && <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />}
+                  <span className="text-sm text-gray-600 font-primary">
                     {currentPlan === 'free' ? 'Free Plan' : 'Active'}
                   </span>
                 </div>
@@ -364,10 +364,10 @@ const Billing: React.FC = () => {
                        <Crown className="w-6 h-6 text-purple-600" />}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-secondary-900 font-heading">
+                      <h3 className="text-2xl font-bold text-gray-900 font-heading">
                         {currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1)} Plan
                       </h3>
-                      <p className="text-secondary-600 font-primary">
+                      <p className="text-gray-600 font-primary">
                         {currentPlan === 'free' ? 'Free forever' : 
                          currentPlan === 'pro' ? '$29.99/month' : '$99.99/month'}
                       </p>
@@ -375,24 +375,24 @@ const Billing: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="p-4 bg-secondary-50 rounded-xl">
-                      <div className="text-2xl font-bold text-secondary-900 font-heading">
+                    <div className="p-4 bg-gray-50 rounded-xl">
+                      <div className="text-2xl font-bold text-gray-900 font-heading">
                         {optimizedStorage.getAllProjects().length}
                       </div>
-                      <div className="text-sm text-secondary-600 font-primary">Projects Used</div>
+                      <div className="text-sm text-gray-600 font-primary">Projects Used</div>
                     </div>
-                    <div className="p-4 bg-secondary-50 rounded-xl">
-                      <div className="text-2xl font-bold text-secondary-900 font-heading">
+                    <div className="p-4 bg-gray-50 rounded-xl">
+                      <div className="text-2xl font-bold text-gray-900 font-heading">
                         {optimizedStorage.getAllProjects().reduce((total, project) => total + project.sections.length, 0)}
                       </div>
-                      <div className="text-sm text-secondary-600 font-primary">Total Sections</div>
+                      <div className="text-sm text-gray-600 font-primary">Total Sections</div>
                     </div>
                   </div>
 
                   {currentPlan !== 'enterprise' && (
                     <button
                       onClick={() => handleUpgrade(currentPlan === 'free' ? 'pro' : 'enterprise')}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
                     >
                       {currentPlan === 'free' ? 'Upgrade to Pro' : 'Upgrade to Enterprise'}
                     </button>
@@ -400,7 +400,7 @@ const Billing: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl border border-primary-200">
+                  <div className="p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200">
                     <div className="flex items-center gap-2 mb-2">
                       <Coins className="w-5 h-5 text-primary-600" />
                       <span className="font-semibold text-primary-900 font-primary">Coin Balance</span>
@@ -415,13 +415,13 @@ const Billing: React.FC = () => {
                   </div>
 
                   {currentPlan !== 'free' && (
-                    <div className="p-4 bg-success-50 rounded-xl border border-success-200">
+                    <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                       <div className="flex items-center gap-2 mb-2">
-                        <Calendar className="w-5 h-5 text-success-600" />
-                        <span className="font-semibold text-success-900 font-primary">Next Billing</span>
+                        <Calendar className="w-5 h-5 text-green-600" />
+                        <span className="font-semibold text-green-900 font-primary">Next Billing</span>
                       </div>
-                      <div className="text-sm text-success-700 font-primary">February 15, 2024</div>
-                      <div className="text-lg font-bold text-success-900 font-heading">
+                      <div className="text-sm text-green-700 font-primary">February 15, 2024</div>
+                      <div className="text-lg font-bold text-green-900 font-heading">
                         ${currentPlan === 'pro' ? '29.99' : '99.99'}
                       </div>
                     </div>
@@ -435,9 +435,9 @@ const Billing: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
-              <h2 className="text-xl font-semibold text-secondary-900 mb-6 font-heading">Available Plans</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Available Plans</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {plans.map((plan) => {
@@ -451,13 +451,13 @@ const Billing: React.FC = () => {
                         isCurrentPlan
                           ? 'border-primary-500 bg-primary-50'
                           : plan.popular
-                          ? 'border-accent-500 bg-accent-50'
-                          : 'border-secondary-200 hover:border-secondary-300'
+                          ? 'border-primary-400 bg-primary-50'
+                          : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       {plan.popular && (
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                          <div className="bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold font-primary">
+                          <div className="bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-semibold font-primary">
                             Most Popular
                           </div>
                         </div>
@@ -484,7 +484,7 @@ const Billing: React.FC = () => {
                         <h3 className="text-xl font-bold text-secondary-900 mb-2 font-heading">{plan.name}</h3>
                         <div className="text-3xl font-bold text-secondary-900 font-heading">
                           ${plan.price}
-                          <span className="text-base font-normal text-secondary-600 font-primary">
+                          <span className="text-base font-normal text-gray-600 font-primary">
                             /{plan.period}
                           </span>
                         </div>
@@ -493,14 +493,14 @@ const Billing: React.FC = () => {
                       <ul className="space-y-3 mb-6">
                         {plan.features.map((feature, index) => (
                           <li key={index} className="flex items-center gap-2">
-                            <Check className="w-4 h-4 text-success-600 flex-shrink-0" />
-                            <span className="text-sm text-secondary-700 font-primary">{feature}</span>
+                            <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                            <span className="text-sm text-gray-700 font-primary">{feature}</span>
                           </li>
                         ))}
                         {plan.limitations.map((limitation, index) => (
                           <li key={index} className="flex items-center gap-2">
-                            <X className="w-4 h-4 text-error-600 flex-shrink-0" />
-                            <span className="text-sm text-secondary-500 font-primary">{limitation}</span>
+                            <X className="w-4 h-4 text-red-600 flex-shrink-0" />
+                            <span className="text-sm text-gray-500 font-primary">{limitation}</span>
                           </li>
                         ))}
                       </ul>
@@ -510,9 +510,9 @@ const Billing: React.FC = () => {
                         disabled={isCurrentPlan}
                         className={`w-full py-3 px-4 rounded-xl font-semibold transition-all ${
                           isCurrentPlan
-                            ? 'bg-secondary-100 text-secondary-500 cursor-not-allowed'
+                            ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
                             : plan.popular
-                            ? 'bg-accent-500 text-white hover:bg-accent-600'
+                            ? 'bg-primary-500 text-white hover:bg-primary-600'
                             : 'bg-primary-500 text-white hover:bg-primary-600'
                         } font-heading`}
                       >
@@ -531,11 +531,11 @@ const Billing: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-soft border border-secondary-200"
+            className="bg-white rounded-2xl shadow-lg border border-gray-200"
           >
-            <div className="p-6 border-b border-secondary-200">
+            <div className="p-6 border-b border-gray-200">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-secondary-900 font-heading">Payment History</h2>
+                <h2 className="text-xl font-semibold text-gray-900 font-heading">Payment History</h2>
                 <button className="flex items-center gap-2 px-4 py-2 text-primary-600 hover:bg-primary-50 rounded-xl transition-colors font-medium font-primary">
                   <Download className="w-4 h-4" />
                   Export
@@ -545,25 +545,25 @@ const Billing: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-secondary-50">
+                <thead className="bg-gray-50">
                   <tr>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">Date</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">Description</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">Amount</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">Status</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">Invoice</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Date</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Description</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Amount</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Status</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Invoice</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-secondary-200">
+                <tbody className="divide-y divide-gray-200">
                   {paymentHistory.map((payment) => (
-                    <tr key={payment.id} className="hover:bg-secondary-50">
-                      <td className="px-6 py-4 text-sm text-secondary-900 font-primary">
+                    <tr key={payment.id} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 text-sm text-gray-900 font-primary">
                         {payment.date.toLocaleDateString()}
                       </td>
-                      <td className="px-6 py-4 text-sm text-secondary-900 font-primary">
+                      <td className="px-6 py-4 text-sm text-gray-900 font-primary">
                         {payment.description}
                       </td>
-                      <td className="px-6 py-4 text-sm font-semibold text-secondary-900 font-primary">
+                      <td className="px-6 py-4 text-sm font-semibold text-gray-900 font-primary">
                         ${payment.amount.toFixed(2)}
                       </td>
                       <td className="px-6 py-4">
@@ -585,9 +585,9 @@ const Billing: React.FC = () => {
 
             {paymentHistory.length === 0 && (
               <div className="text-center py-12">
-                <Receipt className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">No payment history</h3>
-                <p className="text-secondary-600 font-primary">Your payment history will appear here once you make your first purchase.</p>
+                <Receipt className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No payment history</h3>
+                <p className="text-gray-600 font-primary">Your payment history will appear here once you make your first purchase.</p>
               </div>
             )}
           </motion.div>
@@ -601,18 +601,18 @@ const Billing: React.FC = () => {
             className="space-y-6"
           >
             {/* Coin Balance Card */}
-            <div className="bg-gradient-to-r from-warning-500 to-orange-500 rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl p-6 text-white">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 font-heading">Coin Balance</h2>
                   <div className="text-4xl font-bold font-heading">{coinBalance}</div>
-                  <p className="text-warning-100 font-primary">Available coins for AI features</p>
+                  <p className="text-yellow-100 font-primary">Available coins for AI features</p>
                 </div>
                 <div className="text-right">
-                  <Coins className="w-16 h-16 text-warning-200 mb-4" />
+                  <Coins className="w-16 h-16 text-yellow-200 mb-4" />
                   <button
                     onClick={() => setShowCoinModal(true)}
-                    className="px-6 py-3 bg-white text-warning-600 rounded-xl hover:bg-warning-50 transition-colors font-semibold font-heading"
+                    className="px-6 py-3 bg-white text-yellow-600 rounded-xl hover:bg-yellow-50 transition-colors font-semibold font-heading"
                   >
                     Buy More Coins
                   </button>
@@ -621,8 +621,8 @@ const Billing: React.FC = () => {
             </div>
 
             {/* Coin Packages */}
-            <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-6 font-heading">Coin Packages</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Coin Packages</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {coinPackages.map((pkg) => (
@@ -630,30 +630,30 @@ const Billing: React.FC = () => {
                     key={pkg.id}
                     className={`relative p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-lg ${
                       pkg.popular
-                        ? 'border-warning-500 bg-warning-50'
-                        : 'border-secondary-200 hover:border-secondary-300'
+                        ? 'border-yellow-500 bg-yellow-50'
+                        : 'border-gray-200 hover:border-gray-300'
                     }`}
                     onClick={() => handlePurchaseCoins(pkg.id)}
                   >
                     {pkg.popular && (
                       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                        <div className="bg-warning-500 text-white px-2 py-1 rounded-full text-xs font-semibold font-primary">
+                        <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold font-primary">
                           Best Value
                         </div>
                       </div>
                     )}
                     
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-secondary-900 mb-1 font-heading">
+                      <div className="text-2xl font-bold text-gray-900 mb-1 font-heading">
                         {pkg.coins + pkg.bonus}
                       </div>
-                      <div className="text-sm text-secondary-600 mb-2 font-primary">
+                      <div className="text-sm text-gray-600 mb-2 font-primary">
                         {pkg.coins} + {pkg.bonus} bonus
                       </div>
-                      <div className="text-lg font-semibold text-secondary-900 mb-3 font-heading">
+                      <div className="text-lg font-semibold text-gray-900 mb-3 font-heading">
                         ${pkg.price}
                       </div>
-                      <div className="text-xs text-secondary-500 font-primary">
+                      <div className="text-xs text-gray-500 font-primary">
                         ${(pkg.price / (pkg.coins + pkg.bonus)).toFixed(3)} per coin
                       </div>
                     </div>
@@ -663,32 +663,32 @@ const Billing: React.FC = () => {
             </div>
 
             {/* Transaction History */}
-            <div className="bg-white rounded-2xl shadow-soft border border-secondary-200">
-              <div className="p-6 border-b border-secondary-200">
-                <h3 className="text-xl font-semibold text-secondary-900 font-heading">Coin Transaction History</h3>
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-6 border-b border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 font-heading">Coin Transaction History</h3>
               </div>
 
-              <div className="divide-y divide-secondary-200">
+              <div className="divide-y divide-gray-200">
                 {coinHistory.map((transaction) => (
                   <div key={transaction.id} className="p-6 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-secondary-100 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
                         {getCoinTypeIcon(transaction.type)}
                       </div>
                       <div>
-                        <div className="font-semibold text-secondary-900 font-primary">{transaction.description}</div>
-                        <div className="text-sm text-secondary-600 font-primary">
+                        <div className="font-semibold text-gray-900 font-primary">{transaction.description}</div>
+                        <div className="text-sm text-gray-600 font-primary">
                           {transaction.date.toLocaleDateString()}
                         </div>
                       </div>
                     </div>
                     <div className="text-right">
                       <div className={`font-semibold font-primary ${
-                        transaction.amount > 0 ? 'text-success-600' : 'text-error-600'
+                        transaction.amount > 0 ? 'text-green-600' : 'text-red-600'
                       }`}>
                         {transaction.amount > 0 ? '+' : ''}{transaction.amount} coins
                       </div>
-                      <div className="text-sm text-secondary-600 font-primary">
+                      <div className="text-sm text-gray-600 font-primary">
                         Balance: {transaction.balance}
                       </div>
                     </div>
@@ -698,9 +698,9 @@ const Billing: React.FC = () => {
 
               {coinHistory.length === 0 && (
                 <div className="text-center py-12">
-                  <Coins className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">No coin transactions</h3>
-                  <p className="text-secondary-600 font-primary">Your coin transaction history will appear here.</p>
+                  <Coins className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No coin transactions</h3>
+                  <p className="text-gray-600 font-primary">Your coin transaction history will appear here.</p>
                 </div>
               )}
             </div>
@@ -729,7 +729,7 @@ const Billing: React.FC = () => {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowUpgradeModal(false)}
-                className="flex-1 px-4 py-3 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 Cancel
               </button>
@@ -753,11 +753,11 @@ const Billing: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-md"
           >
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Coins className="w-8 h-8 text-warning-600" />
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Coins className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">Purchase Coins</h3>
-              <p className="text-secondary-600 font-primary">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Purchase Coins</h3>
+              <p className="text-gray-600 font-primary">
                 Buy coins to use AI features and premium templates.
               </p>
             </div>
@@ -769,18 +769,18 @@ const Billing: React.FC = () => {
                   onClick={() => setSelectedCoinPackage(pkg.id)}
                   className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
                     selectedCoinPackage === pkg.id
-                      ? 'border-warning-500 bg-warning-50'
-                      : 'border-secondary-200 hover:border-secondary-300'
+                      ? 'border-yellow-500 bg-yellow-50'
+                      : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-secondary-900 font-primary">{pkg.name}</div>
-                      <div className="text-sm text-secondary-600 font-primary">
+                      <div className="font-semibold text-gray-900 font-primary">{pkg.name}</div>
+                      <div className="text-sm text-gray-600 font-primary">
                         {pkg.coins} coins + {pkg.bonus} bonus
                       </div>
                     </div>
-                    <div className="text-lg font-bold text-secondary-900 font-heading">
+                    <div className="text-lg font-bold text-gray-900 font-heading">
                       ${pkg.price}
                     </div>
                   </div>
@@ -791,14 +791,14 @@ const Billing: React.FC = () => {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowCoinModal(false)}
-                className="flex-1 px-4 py-3 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 Cancel
               </button>
               <button
                 onClick={confirmCoinPurchase}
                 disabled={!selectedCoinPackage}
-                className="flex-1 px-4 py-3 bg-warning-600 text-white rounded-xl hover:bg-warning-700 transition-colors font-medium disabled:opacity-50 font-primary"
+                className="flex-1 px-4 py-3 bg-yellow-600 text-white rounded-xl hover:bg-yellow-700 transition-colors font-medium disabled:opacity-50 font-primary"
               >
                 Purchase
               </button>

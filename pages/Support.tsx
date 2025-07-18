@@ -160,7 +160,7 @@ const Support: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-4">
@@ -168,16 +168,16 @@ const Support: React.FC = () => {
                 onClick={() => navigate('/dashboard')}
                 className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-secondary-600" />
+                <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                   <HelpCircle className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Help Center</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Get help and support</p>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">Help Center</h1>
+                  <p className="text-sm text-gray-600 font-primary">Get help and support</p>
                 </div>
               </div>
             </div>
@@ -198,21 +198,21 @@ const Support: React.FC = () => {
       {/* Search Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">How can we help you?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">How can we help you?</h2>
           <div className="max-w-2xl mx-auto relative">
-            <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-secondary-400" />
+            <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
               placeholder="Search for help articles, tutorials, or FAQs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border border-secondary-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white shadow-soft text-lg font-primary"
+              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white shadow-lg text-lg font-primary"
             />
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex space-x-1 bg-secondary-100 rounded-xl p-1 mb-8">
+        <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
           {[
             { id: 'faq', label: 'FAQ', icon: HelpCircle },
             { id: 'tickets', label: 'Support Tickets', icon: MessageSquare },
@@ -225,7 +225,7 @@ const Support: React.FC = () => {
               className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                 activeTab === id
                   ? 'bg-white text-primary-600 shadow-sm'
-                  : 'text-secondary-600 hover:text-secondary-900'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -242,8 +242,8 @@ const Support: React.FC = () => {
             className="space-y-6"
           >
             {/* Categories */}
-            <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
-              <h3 className="text-lg font-semibold text-secondary-900 mb-4 font-heading">Browse by Category</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 font-heading">Browse by Category</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {faqCategories.map(({ id, name, icon: Icon }) => (
                   <button
@@ -252,7 +252,7 @@ const Support: React.FC = () => {
                     className={`flex items-center gap-2 p-3 rounded-xl transition-all text-left ${
                       selectedCategory === id
                         ? 'bg-primary-50 text-primary-700 border border-primary-200'
-                        : 'hover:bg-secondary-50 text-secondary-700'
+                        : 'hover:bg-gray-50 text-gray-700'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -269,17 +269,17 @@ const Support: React.FC = () => {
                   key={faq.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl shadow-soft border border-secondary-200 overflow-hidden"
+                  className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
                 >
                   <button
                     onClick={() => setExpandedFAQ(expandedFAQ === faq.id ? null : faq.id)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-secondary-50 transition-colors"
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
                   >
-                    <h3 className="text-lg font-semibold text-secondary-900 font-heading">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 font-heading">{faq.question}</h3>
                     {expandedFAQ === faq.id ? (
-                      <ChevronDown className="w-5 h-5 text-secondary-600" />
+                      <ChevronDown className="w-5 h-5 text-gray-600" />
                     ) : (
-                      <ChevronRight className="w-5 h-5 text-secondary-600" />
+                      <ChevronRight className="w-5 h-5 text-gray-600" />
                     )}
                   </button>
                   
@@ -290,31 +290,31 @@ const Support: React.FC = () => {
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="border-t border-secondary-200"
+                        className="border-t border-gray-200"
                       >
                         <div className="p-6">
-                          <p className="text-secondary-700 leading-relaxed mb-4 font-primary">{faq.answer}</p>
+                          <p className="text-gray-700 leading-relaxed mb-4 font-primary">{faq.answer}</p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                              <span className="text-sm text-secondary-500 font-primary">Was this helpful?</span>
+                              <span className="text-sm text-gray-500 font-primary">Was this helpful?</span>
                               <div className="flex items-center gap-2">
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, true)}
-                                  className="flex items-center gap-1 px-3 py-1 text-sm text-success-600 hover:bg-success-50 rounded-lg transition-colors font-primary"
+                                  className="flex items-center gap-1 px-3 py-1 text-sm text-green-600 hover:bg-green-50 rounded-lg transition-colors font-primary"
                                 >
                                   <ThumbsUp className="w-4 h-4" />
                                   Yes
                                 </button>
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, false)}
-                                  className="flex items-center gap-1 px-3 py-1 text-sm text-error-600 hover:bg-error-50 rounded-lg transition-colors font-primary"
+                                  className="flex items-center gap-1 px-3 py-1 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors font-primary"
                                 >
                                   <ThumbsDown className="w-4 h-4" />
                                   No
                                 </button>
                               </div>
                             </div>
-                            <div className="text-sm text-secondary-500 font-primary">
+                            <div className="text-sm text-gray-500 font-primary">
                               {faq.views} views • {faq.helpful} helpful
                             </div>
                           </div>
@@ -328,9 +328,9 @@ const Support: React.FC = () => {
 
             {filteredFAQ.length === 0 && (
               <div className="text-center py-12">
-                <HelpCircle className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">No results found</h3>
-                <p className="text-secondary-600 font-primary">Try adjusting your search terms or browse different categories.</p>
+                <HelpCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No results found</h3>
+                <p className="text-gray-600 font-primary">Try adjusting your search terms or browse different categories.</p>
               </div>
             )}
           </motion.div>
@@ -343,10 +343,10 @@ const Support: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <div className="bg-white rounded-2xl shadow-soft border border-secondary-200">
-              <div className="p-6 border-b border-secondary-200">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-6 border-b border-gray-200">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-secondary-900 font-heading">Your Support Tickets</h2>
+                  <h2 className="text-lg font-semibold text-gray-900 font-heading">Your Support Tickets</h2>
                   <button
                     onClick={() => setShowTicketForm(true)}
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
@@ -357,26 +357,26 @@ const Support: React.FC = () => {
                 </div>
               </div>
 
-              <div className="divide-y divide-secondary-200">
+              <div className="divide-y divide-gray-200">
                 {supportTickets.length > 0 ? (
                   supportTickets.map((ticket) => (
-                    <div key={ticket.id} className="p-6 hover:bg-secondary-50 transition-colors">
+                    <div key={ticket.id} className="p-6 hover:bg-gray-50 transition-colors">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h3 className="font-semibold text-secondary-900 font-primary">{ticket.subject}</h3>
-                          <p className="text-sm text-secondary-600 font-primary">#{ticket.id}</p>
+                          <h3 className="font-semibold text-gray-900 font-primary">{ticket.subject}</h3>
+                          <p className="text-sm text-gray-600 font-primary">#{ticket.id}</p>
                         </div>
                         <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          ticket.status === 'open' ? 'bg-warning-100 text-warning-700' :
+                          ticket.status === 'open' ? 'bg-yellow-100 text-yellow-700' :
                           ticket.status === 'in-progress' ? 'bg-primary-100 text-primary-700' :
-                          ticket.status === 'resolved' ? 'bg-success-100 text-success-700' :
-                          'bg-secondary-100 text-secondary-700'
+                          ticket.status === 'resolved' ? 'bg-green-100 text-green-700' :
+                          'bg-gray-100 text-gray-700'
                         }`}>
                           {ticket.status.charAt(0).toUpperCase() + ticket.status.slice(1)}
                         </div>
                       </div>
-                      <p className="text-secondary-700 mb-3 font-primary">{ticket.description}</p>
-                      <div className="flex items-center gap-4 text-sm text-secondary-500">
+                      <p className="text-gray-700 mb-3 font-primary">{ticket.description}</p>
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
                         <span className="font-primary">Category: {ticket.category}</span>
                         <span className="font-primary">Priority: {ticket.priority}</span>
                         <span className="font-primary">Created: {ticket.createdAt.toLocaleDateString()}</span>
@@ -385,9 +385,9 @@ const Support: React.FC = () => {
                   ))
                 ) : (
                   <div className="p-12 text-center">
-                    <MessageSquare className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">No support tickets</h3>
-                    <p className="text-secondary-600 mb-4 font-primary">You haven't submitted any support tickets yet.</p>
+                    <MessageSquare className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No support tickets</h3>
+                    <p className="text-gray-600 mb-4 font-primary">You haven't submitted any support tickets yet.</p>
                     <button
                       onClick={() => setShowTicketForm(true)}
                       className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
@@ -414,7 +414,7 @@ const Support: React.FC = () => {
                   key={tutorial.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl shadow-soft border border-secondary-200 overflow-hidden hover:shadow-medium transition-all cursor-pointer"
+                  className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all cursor-pointer"
                 >
                   <div className="relative">
                     <img
@@ -432,11 +432,11 @@ const Support: React.FC = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">{tutorial.title}</h3>
-                    <p className="text-secondary-600 mb-4 font-primary">{tutorial.description}</p>
-                    <div className="flex items-center justify-between text-sm text-secondary-500">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{tutorial.title}</h3>
+                    <p className="text-gray-600 mb-4 font-primary">{tutorial.description}</p>
+                    <div className="flex items-center justify-between text-sm text-gray-500">
                       <span className="font-primary">{tutorial.views} views</span>
-                      <span className="px-2 py-1 bg-secondary-100 text-secondary-700 rounded font-primary">
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded font-primary">
                         {tutorial.category}
                       </span>
                     </div>
@@ -455,17 +455,17 @@ const Support: React.FC = () => {
             className="space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
                     <Mail className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900 font-heading">Email Support</h3>
-                    <p className="text-sm text-secondary-600 font-primary">Get help via email</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">Email Support</h3>
+                    <p className="text-sm text-gray-600 font-primary">Get help via email</p>
                   </div>
                 </div>
-                <p className="text-secondary-700 mb-4 font-primary">
+                <p className="text-gray-700 mb-4 font-primary">
                   Send us an email and we'll respond within 24 hours during business days.
                 </p>
                 <a
@@ -477,24 +477,24 @@ const Support: React.FC = () => {
                 </a>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-accent-100 rounded-xl flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 text-accent-600" />
+                  <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900 font-heading">Telegram Bot</h3>
-                    <p className="text-sm text-secondary-600 font-primary">Instant chat support</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">Telegram Bot</h3>
+                    <p className="text-sm text-gray-600 font-primary">Instant chat support</p>
                   </div>
                 </div>
-                <p className="text-secondary-700 mb-4 font-primary">
+                <p className="text-gray-700 mb-4 font-primary">
                   Chat with our support bot on Telegram for quick answers and assistance.
                 </p>
                 <a
                   href="https://t.me/templates_uz_bot"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-accent-600 text-white rounded-xl hover:bg-accent-700 transition-colors font-medium font-primary"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
                 >
                   <MessageSquare className="w-4 h-4" />
                   Open Telegram Bot
@@ -502,46 +502,46 @@ const Support: React.FC = () => {
                 </a>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-success-100 rounded-xl flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-success-600" />
+                  <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900 font-heading">Response Times</h3>
-                    <p className="text-sm text-secondary-600 font-primary">Our commitment to you</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">Response Times</h3>
+                    <p className="text-sm text-gray-600 font-primary">Our commitment to you</p>
                   </div>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-secondary-600 font-primary">Email Support:</span>
-                    <span className="font-medium text-secondary-900 font-primary">24 hours</span>
+                    <span className="text-gray-600 font-primary">Email Support:</span>
+                    <span className="font-medium text-gray-900 font-primary">24 hours</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-secondary-600 font-primary">Telegram Bot:</span>
-                    <span className="font-medium text-secondary-900 font-primary">Instant</span>
+                    <span className="text-gray-600 font-primary">Telegram Bot:</span>
+                    <span className="font-medium text-gray-900 font-primary">Instant</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-secondary-600 font-primary">Critical Issues:</span>
-                    <span className="font-medium text-secondary-900 font-primary">4 hours</span>
+                    <span className="text-gray-600 font-primary">Critical Issues:</span>
+                    <span className="font-medium text-gray-900 font-primary">4 hours</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-warning-100 rounded-xl flex items-center justify-center">
-                    <Book className="w-5 h-5 text-warning-600" />
+                  <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <Book className="w-5 h-5 text-yellow-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary-900 font-heading">Documentation</h3>
-                    <p className="text-sm text-secondary-600 font-primary">Comprehensive guides</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">Documentation</h3>
+                    <p className="text-sm text-gray-600 font-primary">Comprehensive guides</p>
                   </div>
                 </div>
-                <p className="text-secondary-700 mb-4 font-primary">
+                <p className="text-gray-700 mb-4 font-primary">
                   Browse our detailed documentation for step-by-step guides and tutorials.
                 </p>
-                <button className="inline-flex items-center gap-2 px-4 py-2 bg-warning-600 text-white rounded-xl hover:bg-warning-700 transition-colors font-medium font-primary">
+                <button className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-xl hover:bg-yellow-700 transition-colors font-medium font-primary">
                   <Book className="w-4 h-4" />
                   View Documentation
                 </button>
@@ -560,34 +560,34 @@ const Support: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-secondary-900 font-heading">Submit Support Ticket</h3>
+              <h3 className="text-xl font-semibold text-gray-900 font-heading">Submit Support Ticket</h3>
               <button
                 onClick={() => setShowTicketForm(false)}
-                className="p-2 hover:bg-secondary-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <X className="w-5 h-5 text-secondary-600" />
+                <X className="w-5 h-5 text-gray-600" />
               </button>
             </div>
 
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Subject *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Subject *</label>
                 <input
                   type="text"
                   value={ticketForm.subject}
                   onChange={(e) => setTicketForm({ ...ticketForm, subject: e.target.value })}
                   placeholder="Brief description of your issue"
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Category</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Category</label>
                   <select
                     value={ticketForm.category}
                     onChange={(e) => setTicketForm({ ...ticketForm, category: e.target.value as any })}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
                     <option value="question">General Question</option>
                     <option value="bug">Bug Report</option>
@@ -597,11 +597,11 @@ const Support: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Priority</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Priority</label>
                   <select
                     value={ticketForm.priority}
                     onChange={(e) => setTicketForm({ ...ticketForm, priority: e.target.value as any })}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
@@ -612,24 +612,24 @@ const Support: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Email</label>
                 <input
                   type="email"
                   value={ticketForm.userEmail}
                   onChange={(e) => setTicketForm({ ...ticketForm, userEmail: e.target.value })}
                   placeholder="your@email.com"
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Description *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Description *</label>
                 <textarea
                   value={ticketForm.description}
                   onChange={(e) => setTicketForm({ ...ticketForm, description: e.target.value })}
                   placeholder="Please provide detailed information about your issue..."
                   rows={6}
-                  className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none font-primary"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none font-primary"
                 />
               </div>
             </div>
@@ -637,7 +637,7 @@ const Support: React.FC = () => {
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowTicketForm(false)}
-                className="flex-1 px-4 py-3 text-secondary-700 bg-secondary-100 rounded-xl hover:bg-secondary-200 transition-colors font-medium font-primary"
+                className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 Cancel
               </button>

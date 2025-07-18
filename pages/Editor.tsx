@@ -296,14 +296,14 @@ const Editor: React.FC = () => {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden lg:block bg-white/95 border-b border-gray-200 px-6 py-5 shadow-sm backdrop-blur-xl">
+      <div className="hidden lg:block bg-white/95 border-b border-gray-200 px-6 py-5 shadow-lg backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <button
               onClick={() => navigate('/dashboard')}
               className="p-3 hover:bg-gray-100 rounded-xl transition-colors group"
             >
-              <ArrowLeft className="w-5 h-5 text-secondary-600 group-hover:text-secondary-800" />
+              <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
             </button>
 
             <div className="flex items-center gap-4">
@@ -314,8 +314,8 @@ const Editor: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-secondary-900 font-heading">{currentProject.name}</h1>
-                <p className="text-sm text-secondary-500 font-primary">
+                <h1 className="text-2xl font-bold text-gray-900 font-heading">{currentProject.name}</h1>
+                <p className="text-sm text-gray-500 font-primary">
                   {currentProject.sections.length} sections • Last saved {new Date().toLocaleTimeString()}
                 </p>
               </div>
@@ -325,7 +325,7 @@ const Editor: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleAddSection()}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Plus className="w-4 h-4" />
               Add Section
@@ -333,7 +333,7 @@ const Editor: React.FC = () => {
 
             <button
               onClick={() => setShowThemeCustomizer(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-all font-semibold shadow-lg font-heading"
+             className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Palette className="w-4 h-4" />
               Customize
@@ -387,22 +387,22 @@ const Editor: React.FC = () => {
                   <div className="h-full flex items-center justify-center p-8">
                     <div className="text-center max-w-lg">
                       <div className="relative mb-8">
-                        <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl flex items-center justify-center mx-auto shadow-xl">
+                        <div className="w-24 h-24 bg-primary-600 rounded-3xl flex items-center justify-center mx-auto shadow-xl">
                           <Layers className="w-12 h-12 text-white" />
                         </div>
                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary-400 rounded-full flex items-center justify-center animate-bounce">
                           <Layout className="w-4 h-4 text-white" />
                         </div>
                       </div>
-                      <h3 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
                         Ready to Build Something Amazing?
                       </h3>
-                      <p className="text-secondary-600 mb-8 text-lg leading-relaxed font-primary">
+                      <p className="text-gray-600 mb-8 text-lg leading-relaxed font-primary">
                         Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.
                       </p>
                       <button
                         onClick={() => handleAddSection()}
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg font-heading"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
                       >
                         <Plus className="w-5 h-5" />
                         Add Your First Section
