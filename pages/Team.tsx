@@ -273,7 +273,7 @@ const Team: React.FC = () => {
 
   if (!isPro) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
         {/* Header */}
         <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -281,18 +281,18 @@ const Team: React.FC = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => navigate('/dashboard')}
-                  className="p-2 hover:bg-secondary-100 rounded-xl transition-colors"
+                  className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5 text-secondary-600" />
                 </button>
                 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
                     <Users className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-xl font-bold text-secondary-900">Team Collaboration</h1>
-                    <p className="text-sm text-secondary-600">Pro feature</p>
+                    <h1 className="text-xl font-bold text-secondary-900 font-heading">Team Collaboration</h1>
+                    <p className="text-sm text-secondary-600 font-primary">Pro feature</p>
                   </div>
                 </div>
               </div>
@@ -308,7 +308,7 @@ const Team: React.FC = () => {
             className="text-center"
           >
             <div className="relative mb-8">
-              <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto shadow-elegant">
+              <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto shadow-xl">
                 <Users className="w-12 h-12 text-white" />
               </div>
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-warning-400 rounded-full flex items-center justify-center">
@@ -316,10 +316,10 @@ const Team: React.FC = () => {
               </div>
             </div>
             
-            <h2 className="text-3xl font-bold text-secondary-900 mb-4">
+            <h2 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">
               Team Collaboration
             </h2>
-            <p className="text-lg text-secondary-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary-600 mb-8 max-w-2xl mx-auto font-primary">
               Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together.
             </p>
 
@@ -346,13 +346,13 @@ const Team: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-white rounded-2xl shadow-elegant border border-secondary-200"
+                  className="p-6 bg-white rounded-2xl shadow-soft border border-secondary-200"
                 >
                   <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-6 h-6 text-primary-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-secondary-900 mb-2">{title}</h3>
-                  <p className="text-secondary-600">{description}</p>
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">{title}</h3>
+                  <p className="text-secondary-600 font-primary">{description}</p>
                 </motion.div>
               ))}
             </div>
@@ -360,13 +360,13 @@ const Team: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate('/billing')}
-                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-elegant text-lg"
+                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg font-heading"
               >
                 Upgrade to Pro
               </button>
               <button
                 onClick={() => navigate('/dashboard')}
-                className="px-8 py-4 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-colors font-semibold"
+                className="px-8 py-4 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-colors font-semibold font-primary"
               >
                 Back to Dashboard
               </button>
@@ -378,7 +378,7 @@ const Team: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Header */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -386,18 +386,18 @@ const Team: React.FC = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="p-2 hover:bg-secondary-100 rounded-xl transition-colors"
+                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 text-secondary-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
                   <Users className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900">Team Collaboration</h1>
-                  <p className="text-sm text-secondary-600">{teamMembers.length} members</p>
+                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Team Collaboration</h1>
+                  <p className="text-sm text-secondary-600 font-primary">{teamMembers.length} members</p>
                 </div>
               </div>
             </div>
@@ -405,7 +405,7 @@ const Team: React.FC = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setShowInviteModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
               >
                 <UserPlus className="w-4 h-4" />
                 Invite Member
@@ -433,7 +433,7 @@ const Team: React.FC = () => {
               }`}
             >
               <Icon className="w-4 h-4" />
-              <span>{label}</span>
+              <span className="font-primary">{label}</span>
             </button>
           ))}
         </div>
@@ -454,13 +454,13 @@ const Team: React.FC = () => {
                   placeholder="Search team members..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full pl-10 pr-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                 />
               </div>
               <select
                 value={roleFilter}
                 onChange={(e) => setRoleFilter(e.target.value)}
-                className="px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
               >
                 <option value="all">All Roles</option>
                 {roles.map((role) => (
@@ -481,7 +481,7 @@ const Team: React.FC = () => {
                     key={member.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200 hover:shadow-elegant-lg transition-all"
+                    className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200 hover:shadow-medium transition-all"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-4">
@@ -503,8 +503,8 @@ const Team: React.FC = () => {
                           }`} />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-secondary-900">{member.name}</h3>
-                          <p className="text-sm text-secondary-600">{member.email}</p>
+                          <h3 className="font-semibold text-secondary-900 font-primary">{member.name}</h3>
+                          <p className="text-sm text-secondary-600 font-primary">{member.email}</p>
                         </div>
                       </div>
                       
@@ -520,7 +520,7 @@ const Team: React.FC = () => {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${getRoleColor(member.role)}`}>
                         <RoleIcon className="w-4 h-4" />
                       </div>
-                      <span className="font-medium text-secondary-900">
+                      <span className="font-medium text-secondary-900 font-primary">
                         {roles.find(r => r.id === member.role)?.name}
                       </span>
                     </div>
@@ -528,31 +528,31 @@ const Team: React.FC = () => {
                     <div className="space-y-2 text-sm text-secondary-600 mb-4">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Joined {member.joinedAt.toLocaleDateString()}</span>
+                        <span className="font-primary">Joined {member.joinedAt.toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Activity className="w-4 h-4" />
-                        <span>
+                        <span className="font-primary">
                           Last active {member.lastActive.toLocaleDateString()}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Globe className="w-4 h-4" />
-                        <span>{member.projects.length} projects</span>
+                        <span className="font-primary">{member.projects.length} projects</span>
                       </div>
                     </div>
 
                     <div className="flex gap-2">
                       <button
                         onClick={() => setShowMemberDetails(member.id)}
-                        className="flex-1 px-3 py-2 bg-primary-50 text-primary-600 rounded-lg hover:bg-primary-100 transition-colors font-medium"
+                        className="flex-1 px-3 py-2 bg-primary-50 text-primary-600 rounded-lg hover:bg-primary-100 transition-colors font-medium font-primary"
                       >
                         View Details
                       </button>
                       {member.role !== 'owner' && (
                         <button
                           onClick={() => handleRemoveMember(member.id)}
-                          className="px-3 py-2 bg-error-50 text-error-600 rounded-lg hover:bg-error-100 transition-colors font-medium"
+                          className="px-3 py-2 bg-error-50 text-error-600 rounded-lg hover:bg-error-100 transition-colors font-medium font-primary"
                         >
                           Remove
                         </button>

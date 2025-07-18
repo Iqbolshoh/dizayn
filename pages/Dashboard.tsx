@@ -371,9 +371,9 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Mobile-First Header */}
-      <header className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40 shadow-sm">
+      <header className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40 shadow-soft">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo & Brand */}
@@ -383,17 +383,17 @@ const Dashboard: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
             >
               <motion.div
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-glow"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <Layout className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </motion.div>
               <div className="hidden sm:block">
-                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent font-heading">
                   Templates.uz
                 </h1>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium">
+                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">
                   Mobile Website Builder
                 </p>
               </div>
@@ -409,7 +409,7 @@ const Dashboard: React.FC = () => {
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm"
+                  className="pl-10 pr-4 py-2.5 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm w-64 lg:w-80 font-primary text-sm"
                 />
               </div>
 
@@ -418,7 +418,7 @@ const Dashboard: React.FC = () => {
                 onClick={() => navigate('/profile')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-all duration-200 shadow-sm"
+                className="p-2 sm:p-3 bg-secondary-100 text-secondary-700 rounded-xl hover:bg-secondary-200 transition-all duration-200 shadow-medium"
               >
                 <UserCircle className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
@@ -428,7 +428,7 @@ const Dashboard: React.FC = () => {
                 onClick={() => console.log('Open Create Modal')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-glow transition-all duration-200 font-semibold shadow-sm text-sm sm:text-base"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:shadow-glow transition-all duration-200 font-semibold shadow-medium font-heading text-sm sm:text-base"
               >
                 <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="hidden sm:inline">New Site</span>
@@ -440,7 +440,7 @@ const Dashboard: React.FC = () => {
                 onClick={handleLogout}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-200 shadow-sm"
+                className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-200 shadow-medium"
               >
                 <LogOut className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
@@ -471,15 +471,15 @@ const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-elegant hover:shadow-elegant-lg transition-all duration-300"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-secondary-200 shadow-soft hover:shadow-medium transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-medium">
                 <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900">{projects.length}</p>
-                <p className="text-xs sm:text-sm text-secondary-500 font-medium">Total Sites</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-900 font-heading">{projects.length}</p>
+                <p className="text-xs sm:text-sm text-secondary-500 font-medium font-primary">Total Sites</p>
               </div>
             </div>
           </motion.div>

@@ -194,7 +194,7 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
       {/* Header */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,18 +202,18 @@ const Profile: React.FC = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="p-2 hover:bg-secondary-100 rounded-xl transition-colors"
+                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 text-secondary-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
                   <User className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900">Profile Settings</h1>
-                  <p className="text-sm text-secondary-600">Manage your account and preferences</p>
+                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Profile Settings</h1>
+                  <p className="text-sm text-secondary-600 font-primary">Manage your account and preferences</p>
                 </div>
               </div>
             </div>
@@ -222,19 +222,19 @@ const Profile: React.FC = () => {
               {getSubscriptionBadge()}
               <button
                 onClick={() => navigate('/billing')}
-                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium"
+                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
               >
                 Billing
               </button>
               <button
                 onClick={() => navigate('/settings')}
-                className="px-4 py-2 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-colors font-medium"
+                className="px-4 py-2 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-colors font-medium font-primary"
               >
                 Settings
               </button>
               <button
                 onClick={() => navigate('/team')}
-                className="px-4 py-2 bg-primary-700 text-white rounded-xl hover:bg-primary-800 transition-colors font-medium"
+                className="px-4 py-2 bg-accent-600 text-white rounded-xl hover:bg-accent-700 transition-colors font-medium font-primary"
               >
                 Team
               </button>
@@ -251,11 +251,11 @@ const Profile: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
             >
               <div className="text-center">
                 <div className="relative inline-block mb-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center shadow-sm">
+                  <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-r from-primary-500 to-accent-500 flex items-center justify-center">
                     {avatarPreview || profile.avatar ? (
                       <img
                         src={avatarPreview || profile.avatar}
@@ -280,20 +280,20 @@ const Profile: React.FC = () => {
                   )}
                 </div>
                 
-                <h2 className="text-xl font-bold text-secondary-900 mb-1">{profile.name}</h2>
-                <p className="text-secondary-600 mb-4">{profile.email}</p>
+                <h2 className="text-xl font-bold text-secondary-900 mb-1 font-heading">{profile.name}</h2>
+                <p className="text-secondary-600 mb-4 font-primary">{profile.email}</p>
                 
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600">Member since</span>
-                    <span className="font-medium">Jan 2024</span>
+                    <span className="text-secondary-600 font-primary">Member since</span>
+                    <span className="font-medium font-primary">Jan 2024</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600">Projects</span>
-                    <span className="font-medium">{optimizedStorage.getAllProjects().length}</span>
+                    <span className="text-secondary-600 font-primary">Projects</span>
+                    <span className="font-medium font-primary">{optimizedStorage.getAllProjects().length}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-secondary-600">Plan</span>
+                    <span className="text-secondary-600 font-primary">Plan</span>
                     {getSubscriptionBadge()}
                   </div>
                 </div>
@@ -308,14 +308,14 @@ const Profile: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-secondary-900">Personal Information</h3>
+                <h3 className="text-lg font-semibold text-secondary-900 font-heading">Personal Information</h3>
                 <button
                   onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
                   disabled={isSaving}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium disabled:opacity-50"
+                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary disabled:opacity-50"
                 >
                   {isSaving ? (
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -330,24 +330,24 @@ const Profile: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2">Full Name</label>
+                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Full Name</label>
                   <input
                     type="text"
                     value={profile.name}
                     onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500"
+                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-secondary-700 mb-2 font-primary">Email</label>
                   <input
                     type="email"
                     value={profile.email}
                     onChange={(e) => setProfile({ ...profile, email: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500"
+                    className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-secondary-50 disabled:text-secondary-500 font-primary"
                   />
                 </div>
 

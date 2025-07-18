@@ -296,12 +296,12 @@ const Editor: React.FC = () => {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden lg:block bg-white/95 border-b border-secondary-200 px-6 py-5 shadow-sm backdrop-blur-xl">
+      <div className="hidden lg:block bg-white/95 border-b border-gray-200 px-6 py-5 shadow-sm backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <button
               onClick={() => navigate('/dashboard')}
-              className="p-3 hover:bg-secondary-100 rounded-xl transition-colors group"
+              className="p-3 hover:bg-gray-100 rounded-xl transition-colors group"
             >
               <ArrowLeft className="w-5 h-5 text-secondary-600 group-hover:text-secondary-800" />
             </button>
@@ -314,8 +314,8 @@ const Editor: React.FC = () => {
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-secondary-900">{currentProject.name}</h1>
-                <p className="text-sm text-secondary-500">
+                <h1 className="text-2xl font-bold text-secondary-900 font-heading">{currentProject.name}</h1>
+                <p className="text-sm text-secondary-500 font-primary">
                   {currentProject.sections.length} sections • Last saved {new Date().toLocaleTimeString()}
                 </p>
               </div>
@@ -325,7 +325,7 @@ const Editor: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleAddSection()}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
             >
               <Plus className="w-4 h-4" />
               Add Section
@@ -333,7 +333,7 @@ const Editor: React.FC = () => {
 
             <button
               onClick={() => setShowThemeCustomizer(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-all font-semibold shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Palette className="w-4 h-4" />
               Customize
@@ -341,7 +341,7 @@ const Editor: React.FC = () => {
 
             <button
               onClick={() => navigate(`/preview/${currentProject.id}`)}
-              className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Eye className="w-4 h-4" />
               Preview
@@ -350,7 +350,7 @@ const Editor: React.FC = () => {
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 font-semibold shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 font-semibold shadow-lg font-heading"
             >
               {isSaving ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -364,7 +364,7 @@ const Editor: React.FC = () => {
 
             <button
               onClick={handleExport}
-              className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Code className="w-4 h-4" />
               Export
@@ -394,15 +394,15 @@ const Editor: React.FC = () => {
                           <Layout className="w-4 h-4 text-white" />
                         </div>
                       </div>
-                      <h3 className="text-3xl font-bold text-secondary-900 mb-4">
+                      <h3 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">
                         Ready to Build Something Amazing?
                       </h3>
-                      <p className="text-secondary-600 mb-8 text-lg leading-relaxed">
+                      <p className="text-secondary-600 mb-8 text-lg leading-relaxed font-primary">
                         Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.
                       </p>
                       <button
                         onClick={() => handleAddSection()}
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg font-heading"
                       >
                         <Plus className="w-5 h-5" />
                         Add Your First Section
