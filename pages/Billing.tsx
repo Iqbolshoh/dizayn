@@ -783,7 +783,7 @@ const Billing: React.FC = () => {
                     <div className="text-lg font-bold text-secondary-900 font-heading">
                       ${pkg.price}
                     </div>
-                  <span>{label}</span>
+                  </div>
                 </button>
               ))}
             </div>
