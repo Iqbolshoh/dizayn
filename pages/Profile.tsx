@@ -92,14 +92,14 @@ const Profile: React.FC = () => {
         alert('Please select an image file');
         return;
       }
-      
+
       if (file.size > 5 * 1024 * 1024) {
         alert('Image size must be less than 5MB');
         return;
       }
-      
+
       setAvatarFile(file);
-      
+
       const reader = new FileReader();
       reader.onload = (e) => {
         setAvatarPreview(e.target?.result as string);
@@ -110,10 +110,10 @@ const Profile: React.FC = () => {
 
   const handleSaveProfile = async () => {
     setIsSaving(true);
-    
+
     try {
       let avatarBase64 = profile.avatar;
-      
+
       if (avatarFile) {
         const reader = new FileReader();
         avatarBase64 = await new Promise((resolve) => {
@@ -129,11 +129,11 @@ const Profile: React.FC = () => {
 
       optimizedStorage.saveUser(updatedProfile);
       optimizedStorage.saveUserPreferences(preferences);
-      
+
       setIsEditing(false);
       setAvatarFile(null);
       setAvatarPreview('');
-      
+
       // Show success message
       alert('Profile updated successfully!');
     } catch (error) {
@@ -149,12 +149,12 @@ const Profile: React.FC = () => {
       alert('New passwords do not match');
       return;
     }
-    
+
     if (passwordForm.newPassword.length < 8) {
       alert('Password must be at least 8 characters long');
       return;
     }
-    
+
     // In a real app, you would validate the current password and update it
     alert('Password updated successfully!');
     setShowPasswordForm(false);
@@ -176,15 +176,15 @@ const Profile: React.FC = () => {
       pro: 'bg-primary-100 text-primary-700 border-primary-200',
       enterprise: 'bg-purple-100 text-purple-700 border-purple-200',
     };
-    
+
     const icons = {
       free: Star,
       pro: Crown,
       enterprise: Crown,
     };
-    
+
     const IconComponent = icons[plan as keyof typeof icons];
-    
+
     return (
       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium border ${colors[plan as keyof typeof colors]}`}>
         <IconComponent className="w-4 h-4" />
@@ -206,7 +206,7 @@ const Profile: React.FC = () => {
               >
                 <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                   <User className="w-5 h-5 text-white" />
@@ -266,7 +266,7 @@ const Profile: React.FC = () => {
                       <User className="w-12 h-12 text-white" />
                     )}
                   </div>
-                  
+
                   {isEditing && (
                     <label className="absolute bottom-0 right-0 w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary-700 transition-colors">
                       <Camera className="w-4 h-4 text-white" />
@@ -279,10 +279,10 @@ const Profile: React.FC = () => {
                     </label>
                   )}
                 </div>
-                
+
                 <h2 className="text-xl font-bold text-gray-900 mb-1 font-heading">{profile.name}</h2>
                 <p className="text-gray-600 mb-4 font-primary">{profile.email}</p>
-                
+
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600 font-primary">Member since</span>
@@ -411,11 +411,10 @@ const Profile: React.FC = () => {
                       <button
                         key={value}
                         onClick={() => setPreferences({ ...preferences, theme: value as any })}
-                        className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${
-                          preferences.theme === value
+                        className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${preferences.theme === value
                             ? 'border-primary-500 bg-primary-50 text-primary-700'
                             : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                          }`}
                       >
                         <Icon className="w-4 h-4" />
                         <span className="font-medium font-primary">{label}</span>
@@ -462,17 +461,15 @@ const Profile: React.FC = () => {
                               [key]: !preferences.notifications[key as keyof typeof preferences.notifications]
                             }
                           })}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            preferences.notifications[key as keyof typeof preferences.notifications]
+                          className={`w-12 h-6 rounded-full transition-colors ${preferences.notifications[key as keyof typeof preferences.notifications]
                               ? 'bg-primary-600'
                               : 'bg-gray-300'
-                          }`}
+                            }`}
                         >
-                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                            preferences.notifications[key as keyof typeof preferences.notifications]
+                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${preferences.notifications[key as keyof typeof preferences.notifications]
                               ? 'translate-x-6'
                               : 'translate-x-0.5'
-                          }`} />
+                            }`} />
                         </button>
                       </div>
                     ))}

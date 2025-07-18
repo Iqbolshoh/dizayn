@@ -333,7 +333,7 @@ const Editor: React.FC = () => {
 
             <button
               onClick={() => setShowThemeCustomizer(true)}
-             className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Palette className="w-4 h-4" />
               Customize

@@ -54,7 +54,7 @@ const Settings: React.FC = () => {
     theme: userPreferences?.theme || 'light',
     dateFormat: 'MM/DD/YYYY',
     timeFormat: '12h',
-    
+
     // Notification settings
     emailNotifications: userPreferences?.notifications?.email ?? true,
     pushNotifications: userPreferences?.notifications?.push ?? true,
@@ -63,13 +63,13 @@ const Settings: React.FC = () => {
     teamInvites: true,
     systemAlerts: true,
     weeklyDigest: false,
-    
+
     // Privacy settings
     profileVisibility: 'public',
     showEmail: false,
     allowIndexing: true,
     dataCollection: true,
-    
+
     // Advanced settings
     autoSave: userPreferences?.editor?.autoSave ?? true,
     autoSaveInterval: userPreferences?.editor?.autoSaveInterval || 30,
@@ -111,7 +111,7 @@ const Settings: React.FC = () => {
 
   const handleSave = async () => {
     setIsSaving(true);
-    
+
     try {
       // Update user preferences
       const updatedPreferences = {
@@ -132,7 +132,7 @@ const Settings: React.FC = () => {
       };
 
       optimizedStorage.saveUserPreferences(updatedPreferences);
-      
+
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
@@ -198,7 +198,7 @@ const Settings: React.FC = () => {
               >
                 <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                   <SettingsIcon className="w-5 h-5 text-white" />
@@ -221,7 +221,7 @@ const Settings: React.FC = () => {
                   <span className="font-medium font-primary">Saved!</span>
                 </motion.div>
               )}
-              
+
               <button
                 onClick={handleSave}
                 disabled={isSaving}
@@ -250,11 +250,10 @@ const Settings: React.FC = () => {
                   <button
                     key={id}
                     onClick={() => setActiveTab(id as any)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium ${
-                      activeTab === id
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium ${activeTab === id
                         ? 'bg-primary-50 text-primary-700 border border-primary-200'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                    }`}
+                      }`}
                   >
                     <Icon className="w-5 h-5" />
                     <span className="font-primary">{label}</span>
@@ -275,7 +274,7 @@ const Settings: React.FC = () => {
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">General Settings</h2>
-                  
+
                   <div className="space-y-6">
                     {/* Language */}
                     <div>
@@ -330,11 +329,10 @@ const Settings: React.FC = () => {
                           <button
                             key={value}
                             onClick={() => setSettings({ ...settings, theme: value })}
-                            className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${
-                              settings.theme === value
+                            className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${settings.theme === value
                                 ? 'border-primary-500 bg-primary-50 text-primary-700'
                                 : 'border-gray-200 hover:border-gray-300'
-                            }`}
+                              }`}
                           >
                             <Icon className="w-4 h-4" />
                             <span className="font-medium font-primary">{label}</span>
@@ -388,7 +386,7 @@ const Settings: React.FC = () => {
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Notification Preferences</h2>
-                  
+
                   <div className="space-y-6">
                     {[
                       {
@@ -449,17 +447,15 @@ const Settings: React.FC = () => {
                             ...settings,
                             [key]: !settings[key as keyof typeof settings]
                           })}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            settings[key as keyof typeof settings]
+                          className={`w-12 h-6 rounded-full transition-colors ${settings[key as keyof typeof settings]
                               ? 'bg-primary-600'
                               : 'bg-gray-300'
-                          }`}
+                            }`}
                         >
-                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                            settings[key as keyof typeof settings]
+                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings[key as keyof typeof settings]
                               ? 'translate-x-6'
                               : 'translate-x-0.5'
-                          }`} />
+                            }`} />
                         </button>
                       </div>
                     ))}
@@ -477,7 +473,7 @@ const Settings: React.FC = () => {
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Privacy & Security</h2>
-                  
+
                   <div className="space-y-6">
                     {/* Profile Visibility */}
                     <div>
@@ -494,11 +490,10 @@ const Settings: React.FC = () => {
                           <button
                             key={value}
                             onClick={() => setSettings({ ...settings, profileVisibility: value })}
-                            className={`p-4 rounded-xl border-2 transition-all text-left ${
-                              settings.profileVisibility === value
+                            className={`p-4 rounded-xl border-2 transition-all text-left ${settings.profileVisibility === value
                                 ? 'border-primary-500 bg-primary-50'
                                 : 'border-gray-200 hover:border-gray-300'
-                            }`}
+                              }`}
                           >
                             <div className="font-medium text-gray-900 font-primary">{label}</div>
                             <div className="text-sm text-gray-600 font-primary">{description}</div>
@@ -535,17 +530,15 @@ const Settings: React.FC = () => {
                             ...settings,
                             [key]: !settings[key as keyof typeof settings]
                           })}
-                          className={`w-12 h-6 rounded-full transition-colors ${
-                            settings[key as keyof typeof settings]
+                          className={`w-12 h-6 rounded-full transition-colors ${settings[key as keyof typeof settings]
                               ? 'bg-primary-600'
                               : 'bg-gray-300'
-                          }`}
+                            }`}
                         >
-                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                            settings[key as keyof typeof settings]
+                          <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings[key as keyof typeof settings]
                               ? 'translate-x-6'
                               : 'translate-x-0.5'
-                          }`} />
+                            }`} />
                         </button>
                       </div>
                     ))}
@@ -564,7 +557,7 @@ const Settings: React.FC = () => {
                 {/* Editor Settings */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Editor Settings</h2>
-                  
+
                   <div className="space-y-6">
                     {/* Auto Save */}
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
@@ -574,13 +567,11 @@ const Settings: React.FC = () => {
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, autoSave: !settings.autoSave })}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          settings.autoSave ? 'bg-primary-600' : 'bg-gray-300'
-                        }`}
+                        className={`w-12 h-6 rounded-full transition-colors ${settings.autoSave ? 'bg-primary-600' : 'bg-gray-300'
+                          }`}
                       >
-                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                          settings.autoSave ? 'translate-x-6' : 'translate-x-0.5'
-                        }`} />
+                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings.autoSave ? 'translate-x-6' : 'translate-x-0.5'
+                          }`} />
                       </button>
                     </div>
 
@@ -609,13 +600,11 @@ const Settings: React.FC = () => {
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, showGrid: !settings.showGrid })}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          settings.showGrid ? 'bg-primary-600' : 'bg-gray-300'
-                        }`}
+                        className={`w-12 h-6 rounded-full transition-colors ${settings.showGrid ? 'bg-primary-600' : 'bg-gray-300'
+                          }`}
                       >
-                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                          settings.showGrid ? 'translate-x-6' : 'translate-x-0.5'
-                        }`} />
+                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings.showGrid ? 'translate-x-6' : 'translate-x-0.5'
+                          }`} />
                       </button>
                     </div>
 
@@ -626,13 +615,11 @@ const Settings: React.FC = () => {
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, snapToGrid: !settings.snapToGrid })}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          settings.snapToGrid ? 'bg-primary-600' : 'bg-gray-300'
-                        }`}
+                        className={`w-12 h-6 rounded-full transition-colors ${settings.snapToGrid ? 'bg-primary-600' : 'bg-gray-300'
+                          }`}
                       >
-                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                          settings.snapToGrid ? 'translate-x-6' : 'translate-x-0.5'
-                        }`} />
+                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings.snapToGrid ? 'translate-x-6' : 'translate-x-0.5'
+                          }`} />
                       </button>
                     </div>
 
@@ -643,13 +630,11 @@ const Settings: React.FC = () => {
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, enableShortcuts: !settings.enableShortcuts })}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          settings.enableShortcuts ? 'bg-primary-600' : 'bg-gray-300'
-                        }`}
+                        className={`w-12 h-6 rounded-full transition-colors ${settings.enableShortcuts ? 'bg-primary-600' : 'bg-gray-300'
+                          }`}
                       >
-                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                          settings.enableShortcuts ? 'translate-x-6' : 'translate-x-0.5'
-                        }`} />
+                        <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings.enableShortcuts ? 'translate-x-6' : 'translate-x-0.5'
+                          }`} />
                       </button>
                     </div>
                   </div>
@@ -658,7 +643,7 @@ const Settings: React.FC = () => {
                 {/* Data Management */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Data Management</h2>
-                  
+
                   <div className="space-y-4">
                     <button
                       onClick={handleExportData}
@@ -706,7 +691,7 @@ const Settings: React.FC = () => {
                 {/* Debug Mode */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Developer Options</h2>
-                  
+
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                     <div>
                       <div className="font-medium text-gray-900 font-primary">Debug Mode</div>
@@ -714,13 +699,11 @@ const Settings: React.FC = () => {
                     </div>
                     <button
                       onClick={() => setSettings({ ...settings, debugMode: !settings.debugMode })}
-                      className={`w-12 h-6 rounded-full transition-colors ${
-                        settings.debugMode ? 'bg-primary-600' : 'bg-gray-300'
-                      }`}
+                      className={`w-12 h-6 rounded-full transition-colors ${settings.debugMode ? 'bg-primary-600' : 'bg-gray-300'
+                        }`}
                     >
-                      <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                        settings.debugMode ? 'translate-x-6' : 'translate-x-0.5'
-                      }`} />
+                      <div className={`w-5 h-5 bg-white rounded-full transition-transform ${settings.debugMode ? 'translate-x-6' : 'translate-x-0.5'
+                        }`} />
                     </button>
                   </div>
                 </div>

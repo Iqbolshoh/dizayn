@@ -239,15 +239,15 @@ const Billing: React.FC = () => {
       pending: 'bg-yellow-100 text-yellow-700 border-yellow-200',
       failed: 'bg-red-100 text-red-700 border-red-200',
     };
-    
+
     const icons = {
       completed: CheckCircle,
       pending: Clock,
       failed: AlertCircle,
     };
-    
+
     const IconComponent = icons[status as keyof typeof icons];
-    
+
     return (
       <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${colors[status as keyof typeof colors]}`}>
         <IconComponent className="w-3 h-3" />
@@ -282,7 +282,7 @@ const Billing: React.FC = () => {
               >
                 <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
                   <CreditCard className="w-5 h-5 text-white" />
@@ -321,11 +321,10 @@ const Billing: React.FC = () => {
             <button
               key={id}
               onClick={() => setActiveTab(id as any)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
-                activeTab === id
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${activeTab === id
                   ? 'bg-white text-primary-600 shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
-              }`}
+                }`}
             >
               <Icon className="w-4 h-4" />
               <span className="font-primary">{label}</span>
@@ -355,21 +354,20 @@ const Billing: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      currentPlan === 'free' ? 'bg-gray-100' :
-                      currentPlan === 'pro' ? 'bg-blue-100' : 'bg-purple-100'
-                    }`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${currentPlan === 'free' ? 'bg-gray-100' :
+                        currentPlan === 'pro' ? 'bg-blue-100' : 'bg-purple-100'
+                      }`}>
                       {currentPlan === 'free' ? <Star className="w-6 h-6 text-gray-600" /> :
-                       currentPlan === 'pro' ? <Zap className="w-6 h-6 text-blue-600" /> :
-                       <Crown className="w-6 h-6 text-purple-600" />}
+                        currentPlan === 'pro' ? <Zap className="w-6 h-6 text-blue-600" /> :
+                          <Crown className="w-6 h-6 text-purple-600" />}
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 font-heading">
                         {currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1)} Plan
                       </h3>
                       <p className="text-gray-600 font-primary">
-                        {currentPlan === 'free' ? 'Free forever' : 
-                         currentPlan === 'pro' ? '$29.99/month' : '$99.99/month'}
+                        {currentPlan === 'free' ? 'Free forever' :
+                          currentPlan === 'pro' ? '$29.99/month' : '$99.99/month'}
                       </p>
                     </div>
                   </div>
@@ -438,22 +436,21 @@ const Billing: React.FC = () => {
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
               <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Available Plans</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {plans.map((plan) => {
                   const IconComponent = plan.icon;
                   const isCurrentPlan = currentPlan === plan.id;
-                  
+
                   return (
                     <div
                       key={plan.id}
-                      className={`relative p-6 rounded-2xl border-2 transition-all ${
-                        isCurrentPlan
+                      className={`relative p-6 rounded-2xl border-2 transition-all ${isCurrentPlan
                           ? 'border-primary-500 bg-primary-50'
                           : plan.popular
-                          ? 'border-primary-400 bg-primary-50'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                            ? 'border-primary-400 bg-primary-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
                     >
                       {plan.popular && (
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -462,7 +459,7 @@ const Billing: React.FC = () => {
                           </div>
                         </div>
                       )}
-                      
+
                       {isCurrentPlan && (
                         <div className="absolute -top-3 right-4">
                           <div className="bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-semibold font-primary">
@@ -472,14 +469,12 @@ const Billing: React.FC = () => {
                       )}
 
                       <div className="text-center mb-6">
-                        <div className={`w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center ${
-                          plan.color === 'gray' ? 'bg-gray-100' :
-                          plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'
-                        }`}>
-                          <IconComponent className={`w-6 h-6 ${
-                            plan.color === 'gray' ? 'text-gray-600' :
-                            plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
-                          }`} />
+                        <div className={`w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center ${plan.color === 'gray' ? 'bg-gray-100' :
+                            plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'
+                          }`}>
+                          <IconComponent className={`w-6 h-6 ${plan.color === 'gray' ? 'text-gray-600' :
+                              plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
+                            }`} />
                         </div>
                         <h3 className="text-xl font-bold text-secondary-900 mb-2 font-heading">{plan.name}</h3>
                         <div className="text-3xl font-bold text-secondary-900 font-heading">
@@ -508,13 +503,12 @@ const Billing: React.FC = () => {
                       <button
                         onClick={() => !isCurrentPlan && handleUpgrade(plan.id)}
                         disabled={isCurrentPlan}
-                        className={`w-full py-3 px-4 rounded-xl font-semibold transition-all ${
-                          isCurrentPlan
+                        className={`w-full py-3 px-4 rounded-xl font-semibold transition-all ${isCurrentPlan
                             ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
                             : plan.popular
-                            ? 'bg-primary-500 text-white hover:bg-primary-600'
-                            : 'bg-primary-500 text-white hover:bg-primary-600'
-                        } font-heading`}
+                              ? 'bg-primary-500 text-white hover:bg-primary-600'
+                              : 'bg-primary-500 text-white hover:bg-primary-600'
+                          } font-heading`}
                       >
                         {isCurrentPlan ? 'Current Plan' : `Upgrade to ${plan.name}`}
                       </button>
@@ -623,16 +617,15 @@ const Billing: React.FC = () => {
             {/* Coin Packages */}
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
               <h3 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Coin Packages</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {coinPackages.map((pkg) => (
                   <div
                     key={pkg.id}
-                    className={`relative p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-lg ${
-                      pkg.popular
+                    className={`relative p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-lg ${pkg.popular
                         ? 'border-yellow-500 bg-yellow-50'
                         : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                      }`}
                     onClick={() => handlePurchaseCoins(pkg.id)}
                   >
                     {pkg.popular && (
@@ -642,7 +635,7 @@ const Billing: React.FC = () => {
                         </div>
                       </div>
                     )}
-                    
+
                     <div className="text-center">
                       <div className="text-2xl font-bold text-gray-900 mb-1 font-heading">
                         {pkg.coins + pkg.bonus}
@@ -683,9 +676,8 @@ const Billing: React.FC = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className={`font-semibold font-primary ${
-                        transaction.amount > 0 ? 'text-green-600' : 'text-red-600'
-                      }`}>
+                      <div className={`font-semibold font-primary ${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'
+                        }`}>
                         {transaction.amount > 0 ? '+' : ''}{transaction.amount} coins
                       </div>
                       <div className="text-sm text-gray-600 font-primary">
@@ -767,11 +759,10 @@ const Billing: React.FC = () => {
                 <button
                   key={pkg.id}
                   onClick={() => setSelectedCoinPackage(pkg.id)}
-                  className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-                    selectedCoinPackage === pkg.id
+                  className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedCoinPackage === pkg.id
                       ? 'border-yellow-500 bg-yellow-50'
                       : 'border-gray-200 hover:border-gray-300'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>

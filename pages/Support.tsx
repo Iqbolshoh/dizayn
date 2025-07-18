@@ -119,7 +119,7 @@ const Support: React.FC = () => {
 
   const filteredFAQ = faqItems.filter(item => {
     const matchesSearch = item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.answer.toLowerCase().includes(searchTerm.toLowerCase());
+      item.answer.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -139,7 +139,7 @@ const Support: React.FC = () => {
     };
 
     optimizedStorage.saveSupportTicket(ticket as SupportTicket);
-    
+
     setShowTicketForm(false);
     setTicketForm({
       subject: '',
@@ -170,7 +170,7 @@ const Support: React.FC = () => {
               >
                 <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
-              
+
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                   <HelpCircle className="w-5 h-5 text-white" />
@@ -222,11 +222,10 @@ const Support: React.FC = () => {
             <button
               key={id}
               onClick={() => setActiveTab(id as any)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
-                activeTab === id
-                  ? 'bg-white text-primary-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${activeTab === id
+                ? 'bg-white text-primary-600 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900'
+                }`}
             >
               <Icon className="w-4 h-4" />
               <span className="font-primary">{label}</span>
@@ -249,11 +248,10 @@ const Support: React.FC = () => {
                   <button
                     key={id}
                     onClick={() => setSelectedCategory(id)}
-                    className={`flex items-center gap-2 p-3 rounded-xl transition-all text-left ${
-                      selectedCategory === id
-                        ? 'bg-primary-50 text-primary-700 border border-primary-200'
-                        : 'hover:bg-gray-50 text-gray-700'
-                    }`}
+                    className={`flex items-center gap-2 p-3 rounded-xl transition-all text-left ${selectedCategory === id
+                      ? 'bg-primary-50 text-primary-700 border border-primary-200'
+                      : 'hover:bg-gray-50 text-gray-700'
+                      }`}
                   >
                     <Icon className="w-4 h-4" />
                     <span className="font-medium font-primary text-sm">{name}</span>
@@ -282,7 +280,7 @@ const Support: React.FC = () => {
                       <ChevronRight className="w-5 h-5 text-gray-600" />
                     )}
                   </button>
-                  
+
                   <AnimatePresence>
                     {expandedFAQ === faq.id && (
                       <motion.div
@@ -366,12 +364,11 @@ const Support: React.FC = () => {
                           <h3 className="font-semibold text-gray-900 font-primary">{ticket.subject}</h3>
                           <p className="text-sm text-gray-600 font-primary">#{ticket.id}</p>
                         </div>
-                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          ticket.status === 'open' ? 'bg-yellow-100 text-yellow-700' :
+                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${ticket.status === 'open' ? 'bg-yellow-100 text-yellow-700' :
                           ticket.status === 'in-progress' ? 'bg-primary-100 text-primary-700' :
-                          ticket.status === 'resolved' ? 'bg-green-100 text-green-700' :
-                          'bg-gray-100 text-gray-700'
-                        }`}>
+                            ticket.status === 'resolved' ? 'bg-green-100 text-green-700' :
+                              'bg-gray-100 text-gray-700'
+                          }`}>
                           {ticket.status.charAt(0).toUpperCase() + ticket.status.slice(1)}
                         </div>
                       </div>
