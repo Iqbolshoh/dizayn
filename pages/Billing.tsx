@@ -270,9 +270,9 @@ const Billing: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
+      <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-4">
@@ -284,12 +284,12 @@ const Billing: React.FC = () => {
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-md">
                   <CreditCard className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Billing & Subscription</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Manage your plan and payments</p>
+                  <h1 className="text-xl font-bold text-secondary-900">Billing & Subscription</h1>
+                  <p className="text-sm text-secondary-600">Manage your plan and payments</p>
                 </div>
               </div>
             </div>
@@ -297,11 +297,11 @@ const Billing: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 px-3 py-2 bg-warning-100 text-warning-700 rounded-xl border border-warning-200">
                 <Coins className="w-4 h-4" />
-                <span className="font-medium font-primary">{coinBalance} coins</span>
+                <span className="font-medium">{coinBalance} coins</span>
               </div>
               <button
                 onClick={() => handlePurchaseCoins('standard')}
-                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
+                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium shadow-sm"
               >
                 Buy Coins
               </button>
@@ -340,13 +340,13 @@ const Billing: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200"
+              className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-secondary-900 font-heading">Current Plan</h2>
+                <h2 className="text-xl font-semibold text-secondary-900">Current Plan</h2>
                 <div className="flex items-center gap-2">
                   {currentPlan === 'pro' && <div className="w-2 h-2 bg-success-500 rounded-full animate-pulse" />}
-                  <span className="text-sm text-secondary-600 font-primary">
+                  <span className="text-sm text-secondary-600">
                     {currentPlan === 'free' ? 'Free Plan' : 'Active'}
                   </span>
                 </div>
@@ -364,10 +364,10 @@ const Billing: React.FC = () => {
                        <Crown className="w-6 h-6 text-purple-600" />}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-secondary-900 font-heading">
+                      <h3 className="text-2xl font-bold text-secondary-900">
                         {currentPlan.charAt(0).toUpperCase() + currentPlan.slice(1)} Plan
                       </h3>
-                      <p className="text-secondary-600 font-primary">
+                      <p className="text-secondary-600">
                         {currentPlan === 'free' ? 'Free forever' : 
                          currentPlan === 'pro' ? '$29.99/month' : '$99.99/month'}
                       </p>
@@ -376,23 +376,23 @@ const Billing: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="p-4 bg-secondary-50 rounded-xl">
-                      <div className="text-2xl font-bold text-secondary-900 font-heading">
+                      <div className="text-2xl font-bold text-secondary-900">
                         {optimizedStorage.getAllProjects().length}
                       </div>
-                      <div className="text-sm text-secondary-600 font-primary">Projects Used</div>
+                      <div className="text-sm text-secondary-600">Projects Used</div>
                     </div>
                     <div className="p-4 bg-secondary-50 rounded-xl">
-                      <div className="text-2xl font-bold text-secondary-900 font-heading">
+                      <div className="text-2xl font-bold text-secondary-900">
                         {optimizedStorage.getAllProjects().reduce((total, project) => total + project.sections.length, 0)}
                       </div>
-                      <div className="text-sm text-secondary-600 font-primary">Total Sections</div>
+                      <div className="text-sm text-secondary-600">Total Sections</div>
                     </div>
                   </div>
 
                   {currentPlan !== 'enterprise' && (
                     <button
                       onClick={() => handleUpgrade(currentPlan === 'free' ? 'pro' : 'enterprise')}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg"
                     >
                       {currentPlan === 'free' ? 'Upgrade to Pro' : 'Upgrade to Enterprise'}
                     </button>
@@ -403,12 +403,12 @@ const Billing: React.FC = () => {
                   <div className="p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl border border-primary-200">
                     <div className="flex items-center gap-2 mb-2">
                       <Coins className="w-5 h-5 text-primary-600" />
-                      <span className="font-semibold text-primary-900 font-primary">Coin Balance</span>
+                      <span className="font-semibold text-primary-900">Coin Balance</span>
                     </div>
-                    <div className="text-2xl font-bold text-primary-900 font-heading">{coinBalance}</div>
+                    <div className="text-2xl font-bold text-primary-900">{coinBalance}</div>
                     <button
                       onClick={() => setShowCoinModal(true)}
-                      className="mt-2 text-sm text-primary-600 hover:text-primary-700 font-medium font-primary"
+                      className="mt-2 text-sm text-primary-600 hover:text-primary-700 font-medium"
                     >
                       Buy more coins →
                     </button>
@@ -418,10 +418,10 @@ const Billing: React.FC = () => {
                     <div className="p-4 bg-success-50 rounded-xl border border-success-200">
                       <div className="flex items-center gap-2 mb-2">
                         <Calendar className="w-5 h-5 text-success-600" />
-                        <span className="font-semibold text-success-900 font-primary">Next Billing</span>
+                        <span className="font-semibold text-success-900">Next Billing</span>
                       </div>
-                      <div className="text-sm text-success-700 font-primary">February 15, 2024</div>
-                      <div className="text-lg font-bold text-success-900 font-heading">
+                      <div className="text-sm text-success-700">February 15, 2024</div>
+                      <div className="text-lg font-bold text-success-900">
                         ${currentPlan === 'pro' ? '29.99' : '99.99'}
                       </div>
                     </div>
@@ -783,7 +783,7 @@ const Billing: React.FC = () => {
                     <div className="text-lg font-bold text-secondary-900 font-heading">
                       ${pkg.price}
                     </div>
-                  </div>
+                  <span>{label}</span>
                 </button>
               ))}
             </div>

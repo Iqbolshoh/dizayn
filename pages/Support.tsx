@@ -158,7 +158,7 @@ const Support: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       {/* Header */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,18 +166,18 @@ const Support: React.FC = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+                className="p-2 hover:bg-secondary-100 rounded-xl transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 text-secondary-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
                   <HelpCircle className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Help Center</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Get help and support</p>
+                  <h1 className="text-xl font-bold text-secondary-900">Help Center</h1>
+                  <p className="text-sm text-secondary-600">Get help and support</p>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@ const Support: React.FC = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setShowTicketForm(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
+                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium"
               >
                 <MessageSquare className="w-4 h-4" />
                 Contact Support
@@ -198,7 +198,7 @@ const Support: React.FC = () => {
       {/* Search Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">How can we help you?</h2>
+          <h2 className="text-3xl font-bold text-secondary-900 mb-4">How can we help you?</h2>
           <div className="max-w-2xl mx-auto relative">
             <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-secondary-400" />
             <input
@@ -206,7 +206,7 @@ const Support: React.FC = () => {
               placeholder="Search for help articles, tutorials, or FAQs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border border-secondary-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white shadow-soft text-lg font-primary"
+              className="w-full pl-12 pr-4 py-4 border border-secondary-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white shadow-elegant text-lg"
             />
           </div>
         </div>
@@ -229,7 +229,7 @@ const Support: React.FC = () => {
               }`}
             >
               <Icon className="w-4 h-4" />
-              <span className="font-primary">{label}</span>
+              <span>{label}</span>
             </button>
           ))}
         </div>
@@ -242,8 +242,8 @@ const Support: React.FC = () => {
             className="space-y-6"
           >
             {/* Categories */}
-            <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
-              <h3 className="text-lg font-semibold text-secondary-900 mb-4 font-heading">Browse by Category</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200">
+              <h3 className="text-lg font-semibold text-secondary-900 mb-4">Browse by Category</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {faqCategories.map(({ id, name, icon: Icon }) => (
                   <button
@@ -256,7 +256,7 @@ const Support: React.FC = () => {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    <span className="font-medium font-primary text-sm">{name}</span>
+                    <span className="font-medium text-sm">{name}</span>
                   </button>
                 ))}
               </div>
@@ -269,13 +269,13 @@ const Support: React.FC = () => {
                   key={faq.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl shadow-soft border border-secondary-200 overflow-hidden"
+                  className="bg-white rounded-2xl shadow-elegant border border-secondary-200 overflow-hidden"
                 >
                   <button
                     onClick={() => setExpandedFAQ(expandedFAQ === faq.id ? null : faq.id)}
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-secondary-50 transition-colors"
                   >
-                    <h3 className="text-lg font-semibold text-secondary-900 font-heading">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-secondary-900">{faq.question}</h3>
                     {expandedFAQ === faq.id ? (
                       <ChevronDown className="w-5 h-5 text-secondary-600" />
                     ) : (
@@ -293,28 +293,28 @@ const Support: React.FC = () => {
                         className="border-t border-secondary-200"
                       >
                         <div className="p-6">
-                          <p className="text-secondary-700 leading-relaxed mb-4 font-primary">{faq.answer}</p>
+                          <p className="text-secondary-700 leading-relaxed mb-4">{faq.answer}</p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                              <span className="text-sm text-secondary-500 font-primary">Was this helpful?</span>
+                              <span className="text-sm text-secondary-500">Was this helpful?</span>
                               <div className="flex items-center gap-2">
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, true)}
-                                  className="flex items-center gap-1 px-3 py-1 text-sm text-success-600 hover:bg-success-50 rounded-lg transition-colors font-primary"
+                                  className="flex items-center gap-1 px-3 py-1 text-sm text-success-600 hover:bg-success-50 rounded-lg transition-colors"
                                 >
                                   <ThumbsUp className="w-4 h-4" />
                                   Yes
                                 </button>
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, false)}
-                                  className="flex items-center gap-1 px-3 py-1 text-sm text-error-600 hover:bg-error-50 rounded-lg transition-colors font-primary"
+                                  className="flex items-center gap-1 px-3 py-1 text-sm text-error-600 hover:bg-error-50 rounded-lg transition-colors"
                                 >
                                   <ThumbsDown className="w-4 h-4" />
                                   No
                                 </button>
                               </div>
                             </div>
-                            <div className="text-sm text-secondary-500 font-primary">
+                            <div className="text-sm text-secondary-500">
                               {faq.views} views • {faq.helpful} helpful
                             </div>
                           </div>
@@ -329,8 +329,8 @@ const Support: React.FC = () => {
             {filteredFAQ.length === 0 && (
               <div className="text-center py-12">
                 <HelpCircle className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">No results found</h3>
-                <p className="text-secondary-600 font-primary">Try adjusting your search terms or browse different categories.</p>
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">No results found</h3>
+                <p className="text-secondary-600">Try adjusting your search terms or browse different categories.</p>
               </div>
             )}
           </motion.div>

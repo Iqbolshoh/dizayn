@@ -186,7 +186,7 @@ const Settings: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       {/* Header */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-secondary-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,18 +194,18 @@ const Settings: React.FC = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/profile')}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+                className="p-2 hover:bg-secondary-100 rounded-xl transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 text-secondary-600" />
               </button>
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
                   <SettingsIcon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-secondary-900 font-heading">Settings</h1>
-                  <p className="text-sm text-secondary-600 font-primary">Customize your experience</p>
+                  <h1 className="text-xl font-bold text-secondary-900">Settings</h1>
+                  <p className="text-sm text-secondary-600">Customize your experience</p>
                 </div>
               </div>
             </div>
@@ -218,14 +218,14 @@ const Settings: React.FC = () => {
                   className="flex items-center gap-2 px-3 py-2 bg-success-100 text-success-700 rounded-xl border border-success-200"
                 >
                   <Check className="w-4 h-4" />
-                  <span className="font-medium font-primary">Saved!</span>
+                  <span className="font-medium">Saved!</span>
                 </motion.div>
               )}
               
               <button
                 onClick={handleSave}
                 disabled={isSaving}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium disabled:opacity-50"
               >
                 {isSaving ? (
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -244,7 +244,7 @@ const Settings: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl p-4 shadow-soft border border-secondary-200 sticky top-32">
+            <div className="bg-white rounded-2xl p-4 shadow-elegant border border-secondary-200 sticky top-32">
               <nav className="space-y-2">
                 {tabs.map(({ id, label, icon: Icon }) => (
                   <button
@@ -257,7 +257,7 @@ const Settings: React.FC = () => {
                     }`}
                   >
                     <Icon className="w-5 h-5" />
-                    <span className="font-primary">{label}</span>
+                    <span>{label}</span>
                   </button>
                 ))}
               </nav>
@@ -273,20 +273,20 @@ const Settings: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-6"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-soft border border-secondary-200">
-                  <h2 className="text-xl font-semibold text-secondary-900 mb-6 font-heading">General Settings</h2>
+                <div className="bg-white rounded-2xl p-6 shadow-elegant border border-secondary-200">
+                  <h2 className="text-xl font-semibold text-secondary-900 mb-6">General Settings</h2>
                   
                   <div className="space-y-6">
                     {/* Language */}
                     <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">
+                      <label className="block text-sm font-medium text-secondary-700 mb-3">
                         <Languages className="w-4 h-4 inline mr-2" />
                         Language
                       </label>
                       <select
                         value={settings.language}
                         onChange={(e) => setSettings({ ...settings, language: e.target.value })}
-                        className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                        className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
                       >
                         {languages.map((lang) => (
                           <option key={lang.code} value={lang.code}>
@@ -298,14 +298,14 @@ const Settings: React.FC = () => {
 
                     {/* Timezone */}
                     <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">
+                      <label className="block text-sm font-medium text-secondary-700 mb-3">
                         <Clock className="w-4 h-4 inline mr-2" />
                         Timezone
                       </label>
                       <select
                         value={settings.timezone}
                         onChange={(e) => setSettings({ ...settings, timezone: e.target.value })}
-                        className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                        className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
                       >
                         {timezones.map((tz) => (
                           <option key={tz} value={tz}>
@@ -317,7 +317,7 @@ const Settings: React.FC = () => {
 
                     {/* Theme */}
                     <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">
+                      <label className="block text-sm font-medium text-secondary-700 mb-3">
                         <Palette className="w-4 h-4 inline mr-2" />
                         Theme
                       </label>
@@ -337,7 +337,7 @@ const Settings: React.FC = () => {
                             }`}
                           >
                             <Icon className="w-4 h-4" />
-                            <span className="font-medium font-primary">{label}</span>
+                            <span className="font-medium">{label}</span>
                           </button>
                         ))}
                       </div>
@@ -346,13 +346,13 @@ const Settings: React.FC = () => {
                     {/* Date & Time Format */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">
+                        <label className="block text-sm font-medium text-secondary-700 mb-3">
                           Date Format
                         </label>
                         <select
                           value={settings.dateFormat}
                           onChange={(e) => setSettings({ ...settings, dateFormat: e.target.value })}
-                          className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                          className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
                         >
                           <option value="MM/DD/YYYY">MM/DD/YYYY</option>
                           <option value="DD/MM/YYYY">DD/MM/YYYY</option>
@@ -361,13 +361,13 @@ const Settings: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-secondary-700 mb-3 font-primary">
+                        <label className="block text-sm font-medium text-secondary-700 mb-3">
                           Time Format
                         </label>
                         <select
                           value={settings.timeFormat}
                           onChange={(e) => setSettings({ ...settings, timeFormat: e.target.value })}
-                          className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
+                          className="w-full px-4 py-3 border border-secondary-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
                         >
                           <option value="12h">12 Hour</option>
                           <option value="24h">24 Hour</option>

@@ -107,13 +107,13 @@ const Preview: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: showHeader ? 0 : -100 }}
         transition={{ duration: 0.3 }}
-        className="fixed top-4 left-4 right-4 z-50 bg-white/98 rounded-2xl shadow-hard border border-gray-100 backdrop-blur-xl"
+        className="fixed top-4 left-4 right-4 z-50 bg-white/98 rounded-2xl shadow-elegant border border-secondary-100 backdrop-blur-xl"
       >
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate(`/editor/${currentProject.id}`)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
+              className="p-2 hover:bg-secondary-100 rounded-lg transition-colors group"
             >
               <ArrowLeft className="w-5 h-5 text-secondary-600 group-hover:text-secondary-800" />
             </button>
@@ -123,8 +123,8 @@ const Preview: React.FC = () => {
                 <Eye className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-secondary-900 font-heading">{currentProject.name}</h1>
-                <p className="text-sm text-secondary-600 font-primary">Live Preview Mode</p>
+                <h1 className="text-lg font-semibold text-secondary-900">{currentProject.name}</h1>
+                <p className="text-sm text-secondary-600">Live Preview Mode</p>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ const Preview: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate(`/editor/${currentProject.id}`)}
-              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
             >
               <Edit3 className="w-4 h-4" />
               Edit
@@ -140,7 +140,7 @@ const Preview: React.FC = () => {
 
             <button
               onClick={handleShare}
-              className="flex items-center gap-2 px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors font-medium"
             >
               <Share2 className="w-4 h-4" />
               Share
@@ -148,7 +148,7 @@ const Preview: React.FC = () => {
 
             <button
               onClick={handlePublish}
-              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
             >
               <Globe className="w-4 h-4" />
               Publish
@@ -173,12 +173,12 @@ const Preview: React.FC = () => {
               <h2 className="text-3xl font-bold text-secondary-900 mb-4 font-heading">
                 Your website is empty
               </h2>
-              <p className="text-secondary-600 mb-8 text-lg font-primary">
+              <p className="text-secondary-600 mb-8 text-lg">
                 Add some sections to see your website come to life
               </p>
               <button
                 onClick={() => navigate(`/editor/${currentProject.id}`)}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg font-heading"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg"
               >
                 Start Building
               </button>
@@ -207,10 +207,10 @@ const Preview: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-lg"
+          className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-elegant"
         >
           <div className="w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
-          <span className="font-medium font-primary">Preview Mode Active</span>
+          <span className="font-medium">Preview Mode Active</span>
         </motion.div>
       </div>
     </div>
