@@ -25,7 +25,23 @@
     "download": "Download",
     "upload": "Upload",
     "export": "Export",
-    "import": "Import"
+    "import": "Import",
+    "copy": "Copy",
+    "duplicate": "Duplicate",
+    "share": "Share",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "enable": "Enable",
+    "disable": "Disable",
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "completed": "Completed",
+    "failed": "Failed",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info"
   },
   "header": {
     "language": {
@@ -61,7 +77,29 @@
     },
     "plans": {
       "currentPlan": "Current Plan",
-      "upgradeTo": "Upgrade to {{plan}}"
+      "upgradeTo": "Upgrade to {{plan}}",
+      "free": "Free",
+      "pro": "Pro",
+      "enterprise": "Enterprise",
+      "forever": "forever",
+      "month": "month",
+      "popular": "Most Popular",
+      "features": "Features",
+      "limitations": "Limitations",
+      "projects": "Projects",
+      "sections": "Sections per project",
+      "templates": "Templates",
+      "export": "HTML export",
+      "support": "Support",
+      "analytics": "Analytics",
+      "storage": "Storage",
+      "domain": "Custom domain",
+      "branding": "Remove branding",
+      "collaboration": "Team collaboration",
+      "whiteLabel": "White-label solution",
+      "api": "API access",
+      "integrations": "Custom integrations",
+      "sla": "SLA guarantee"
     },
     "history": {
       "title": "Payment History",
@@ -84,7 +122,10 @@
       "transactionHistory": "Coin Transaction History",
       "coins": "coins",
       "noTransactions": "No coin transactions",
-      "noTransactionsDesc": "Your coin transaction history will appear here."
+      "noTransactionsDesc": "Your coin transaction history will appear here.",
+      "purchase": "Purchase",
+      "usage": "Usage",
+      "bestValue": "Best Value"
     },
     "modals": {
       "upgradePlan": "Upgrade Plan",
@@ -121,7 +162,9 @@
       "preview": "Preview",
       "duplicate": "Duplicate",
       "delete": "Delete",
-      "edit": "Edit"
+      "edit": "Edit",
+      "searchProjects": "Search projects...",
+      "newWebsite": "New Website"
     },
     "createModal": {
       "title": "Create New Website",
@@ -384,9 +427,9 @@
   "team": {
     "title": "Team Collaboration",
     "subtitle": "{{count}} team members • Pro feature",
+    "upgradeTitle": "Team Collaboration",
+    "upgradeDescription": "Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together.",
     "upgrade": {
-      "title": "Team Collaboration",
-      "description": "Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together.",
       "features": {
         "inviteMembers": "Invite Team Members",
         "inviteMembersDesc": "Add designers, editors, and viewers to your projects",
@@ -412,28 +455,9 @@
     "viewDetails": "View Details",
     "remove": "Remove",
     "invites": {
-      "title": "Pending Invitations",
-      "subtitle": "Manage sent invitations and their status",
-      "newInvite": "New Invite",
       "invitedAs": "Invited as",
       "by": "by",
-      "expires": "Expires",
-      "copyLink": "Copy invite link",
-      "cancelInvitation": "Cancel invitation",
-      "cancelConfirm": "Cancel this invitation?",
-      "cancelled": "Invitation cancelled",
-      "noPending": "No pending invites",
-      "noPendingDesc": "All invitations have been accepted or expired."
-    },
-    "settings": {
-      "title": "Team Settings",
-      "allowInvites": "Allow team members to invite others",
-      "allowInvitesDesc": "Let admins and editors send invitations",
-      "requireApproval": "Require approval for new members",
-      "requireApprovalDesc": "Owner must approve all new team members",
-      "enableRealTime": "Enable real-time collaboration",
-      "enableRealTimeDesc": "Allow simultaneous editing of projects",
-      "rolePermissions": "Role Permissions"
+      "expires": "Expires"
     },
     "inviteModal": {
       "title": "Invite Team Member",
