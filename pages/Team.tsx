@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Users,
   Plus,
@@ -69,6 +70,7 @@ interface TeamInvite {
 
 const Team: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'members' | 'invites' | 'settings'>('members');
   const [showInviteModal, setShowInviteModal] = useState(false);
   const [showMemberDetails, setShowMemberDetails] = useState<string | null>(null);
@@ -297,10 +299,10 @@ const Team: React.FC = () => {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
-              Team Collaboration
+              {t('team.upgradeTitle')}
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto font-primary">
-              Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together.
+              {t('team.upgradeDescription')}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -370,8 +372,8 @@ const Team: React.FC = () => {
                 <Users className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Team Collaboration</h1>
-                <p className="text-gray-600 font-primary">{teamMembers.length} team members • Pro feature</p>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">{t('team.title')}</h1>
+                <p className="text-gray-600 font-primary">{t('team.subtitle', { count: teamMembers.length })}</p>
               </div>
             </div>
 

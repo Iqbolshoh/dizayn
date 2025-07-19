@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Search,
   Filter,
@@ -46,6 +47,7 @@ import CommonHeader from '../components/CommonHeader';
 
 const TemplateGallery: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { createProject } = useProject();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -127,8 +129,8 @@ const TemplateGallery: React.FC = () => {
                 <Palette className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Template Gallery</h1>
-                <p className="text-gray-600 font-primary">{allTemplates.length} professional templates</p>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">{t('templates.title')}</h1>
+                <p className="text-gray-600 font-primary">{t('templates.subtitle', { count: allTemplates.length })}</p>
               </div>
             </div>
 

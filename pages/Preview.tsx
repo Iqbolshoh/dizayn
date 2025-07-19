@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft,
   Edit3,
@@ -16,6 +17,7 @@ import SectionRenderer from '../components/SectionRenderer';
 const Preview: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { projects, currentProject, setCurrentProject } = useProject();
   const { currentTheme } = useTheme();
   const [showHeader, setShowHeader] = useState(true);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft,
   Settings as SettingsIcon,
@@ -38,6 +39,7 @@ import { optimizedStorage } from '../utils/optimizedStorage';
 
 const Settings: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'general' | 'notifications' | 'privacy' | 'advanced'>('general');
   const [isSaving, setIsSaving] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -204,8 +206,8 @@ const Settings: React.FC = () => {
                   <SettingsIcon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 font-heading">Settings</h1>
-                  <p className="text-sm text-gray-600 font-primary">Customize your experience</p>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">{t('settings.title')}</h1>
+                  <p className="text-sm text-gray-600 font-primary">{t('settings.subtitle')}</p>
                 </div>
               </div>
             </div>

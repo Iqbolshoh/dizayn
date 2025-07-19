@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft,
   HelpCircle,
@@ -44,6 +45,7 @@ import { optimizedStorage, SupportTicket, FAQItem } from '../utils/optimizedStor
 
 const Support: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'faq' | 'tickets' | 'tutorials' | 'contact'>('faq');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -176,8 +178,8 @@ const Support: React.FC = () => {
                   <HelpCircle className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 font-heading">Help Center</h1>
-                  <p className="text-sm text-gray-600 font-primary">Get help and support</p>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">{t('support.title')}</h1>
+                  <p className="text-sm text-gray-600 font-primary">{t('support.subtitle')}</p>
                 </div>
               </div>
             </div>
@@ -198,7 +200,7 @@ const Support: React.FC = () => {
       {/* Search Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">How can we help you?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">{t('support.helpQuestion')}</h2>
           <div className="max-w-2xl mx-auto relative">
             <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input

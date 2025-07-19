@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import {
@@ -28,6 +29,7 @@ import AddSectionButton from '../components/AddSectionButton';
 const Editor: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { projects, currentProject, setCurrentProject, reorderSections, createProject, isLoading } = useProject();
   const { currentTheme } = useTheme();
   const [showSectionSelector, setShowSectionSelector] = useState(false);

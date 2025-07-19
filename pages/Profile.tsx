@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft,
   User,
@@ -37,6 +38,7 @@ import CommonHeader from '../components/CommonHeader';
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -207,8 +209,8 @@ const Profile: React.FC = () => {
                 <User className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Profile Settings</h1>
-                <p className="text-gray-600 font-primary">Manage your account and preferences</p>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">{t('profile.title')}</h1>
+                <p className="text-gray-600 font-primary">{t('profile.subtitle')}</p>
               </div>
             </div>
 

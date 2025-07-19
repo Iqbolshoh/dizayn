@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Plus,
   Search,
@@ -46,6 +47,7 @@ import CommonHeader from '../components/CommonHeader';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // Check auth token when component mounts
   useEffect(() => {
@@ -384,8 +386,8 @@ const Dashboard: React.FC = () => {
                 <Layout className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Dashboard</h1>
-                <p className="text-gray-600 font-primary">Create and manage your websites</p>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">{t('dashboard.title')}</h1>
+                <p className="text-gray-600 font-primary">{t('dashboard.subtitle')}</p>
               </div>
             </div>
 

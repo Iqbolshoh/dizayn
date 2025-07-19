@@ -1,0 +1,41 @@
+{
+  "header": {
+    "language": {
+      "english": "English",
+      "russian": "Russian", 
+      "uzbek": "Uzbek",
+      "tajik": "Tajik"
+    }
+  },
+  "billing": {
+    "title": "Billing & Subscription",
+    "subtitle": "Manage your plan and payments"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Create and manage your websites"
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "subtitle": "Manage your account and preferences"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize your experience"
+  },
+  "support": {
+    "title": "Help Center",
+    "subtitle": "Get help and support",
+    "helpQuestion": "How can we help you?"
+  },
+  "team": {
+    "title": "Team Collaboration",
+    "subtitle": "{{count}} team members • Pro feature",
+    "upgradeTitle": "Team Collaboration",
+    "upgradeDescription": "Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together."
+  },
+  "templates": {
+    "title": "Template Gallery",
+    "subtitle": "{{count}} professional templates"
+  }
+}

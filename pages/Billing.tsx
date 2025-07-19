@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft,
   CreditCard,
@@ -49,6 +50,7 @@ interface CoinTransaction {
 
 const Billing: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'history' | 'coins'>('overview');
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showCoinModal, setShowCoinModal] = useState(false);
@@ -283,8 +285,8 @@ const Billing: React.FC = () => {
                 <CreditCard className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Billing & Subscription</h1>
-                <p className="text-gray-600 font-primary">Manage your plan and payments</p>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">{t('billing.title')}</h1>
+                <p className="text-gray-600 font-primary">{t('billing.subtitle')}</p>
               </div>
             </div>
 
