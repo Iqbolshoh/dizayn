@@ -42,6 +42,7 @@ import { formatRelativeTime } from '../utils/helpers';
 import { optimizedStorage } from '../utils/optimizedStorage';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import CommonHeader from '../components/CommonHeader';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -372,35 +373,23 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      {/* Mobile-First Header */}
-      <header className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40 shadow-lg">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo & Brand */}
-            <motion.div
-              className="flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
-              <motion.div
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <Layout className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </motion.div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent font-heading">
-                  Templates.uz
-                </h1>
-                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">
-                  Mobile Website Builder
-                </p>
-              </div>
-            </motion.div>
+      <CommonHeader />
 
-            {/* Desktop Actions */}
-            <div className="flex items-center gap-2 sm:gap-4">
+      {/* Page Header */}
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <Layout className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">Dashboard</h1>
+                <p className="text-gray-600 font-primary">Create and manage your websites</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
               {/* Search */}
               <div className="hidden md:block relative">
                 <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -409,46 +398,22 @@ const Dashboard: React.FC = () => {
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm w-64 lg:w-80 font-primary text-sm"
+                  className="pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white w-64 lg:w-80 font-primary text-sm"
                 />
               </div>
 
-              {/* Profile */}
-              <motion.button
-                onClick={() => navigate('/profile')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all duration-200 shadow-md"
-              >
-                <UserCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-              </motion.button>
-
-              {/* New Site */}
-              <motion.button
+              <button
                 onClick={() => setShowCreateModal(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 font-semibold shadow-md font-heading text-sm sm:text-base"
+                className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-semibold shadow-lg font-heading"
               >
-                <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">New Site</span>
-                <span className="sm:hidden">New</span>
-              </motion.button>
-
-              {/* Logout */}
-              <motion.button
-                onClick={handleLogout}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-200 shadow-md"
-              >
-                <LogOut className="w-5 h-5 sm:w-6 sm:h-6" />
-              </motion.button>
+                <Plus className="w-5 h-5" />
+                New Website
+              </button>
             </div>
           </div>
 
           {/* Mobile Search */}
-          <div className="md:hidden pb-4">
+          <div className="md:hidden mt-6">
             <div className="relative">
               <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
@@ -456,17 +421,17 @@ const Dashboard: React.FC = () => {
                 placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white/90 backdrop-blur-sm font-primary"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white font-primary"
               />
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Content */}
-      <main className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-7xl mx-auto">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards - Mobile Optimized */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

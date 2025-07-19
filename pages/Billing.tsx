@@ -27,6 +27,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { optimizedStorage } from '../utils/optimizedStorage';
+import CommonHeader from '../components/CommonHeader';
 
 interface PaymentHistory {
   id: string;
@@ -271,26 +272,19 @@ const Billing: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => navigate('/profile')}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5 text-gray-600" />
-              </button>
+      <CommonHeader />
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
-                  <CreditCard className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900 font-heading">Billing & Subscription</h1>
-                  <p className="text-sm text-gray-600 font-primary">Manage your plan and payments</p>
-                </div>
+      {/* Page Header */}
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <CreditCard className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">Billing & Subscription</h1>
+                <p className="text-gray-600 font-primary">Manage your plan and payments</p>
               </div>
             </div>
 
@@ -301,7 +295,7 @@ const Billing: React.FC = () => {
               </div>
               <button
                 onClick={() => handlePurchaseCoins('standard')}
-                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
+                className="px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary"
               >
                 Buy Coins
               </button>
@@ -311,7 +305,7 @@ const Billing: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
           {[
             { id: 'overview', label: 'Overview', icon: TrendingUp },
@@ -322,7 +316,7 @@ const Billing: React.FC = () => {
               key={id}
               onClick={() => setActiveTab(id as any)}
               className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${activeTab === id
-                  ? 'bg-white text-primary-600 shadow-sm'
+                  ? 'bg-white text-red-600 shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
                 }`}
             >
@@ -390,7 +384,7 @@ const Billing: React.FC = () => {
                   {currentPlan !== 'enterprise' && (
                     <button
                       onClick={() => handleUpgrade(currentPlan === 'free' ? 'pro' : 'enterprise')}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
                     >
                       {currentPlan === 'free' ? 'Upgrade to Pro' : 'Upgrade to Enterprise'}
                     </button>
@@ -400,13 +394,13 @@ const Billing: React.FC = () => {
                 <div className="space-y-4">
                   <div className="p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200">
                     <div className="flex items-center gap-2 mb-2">
-                      <Coins className="w-5 h-5 text-primary-600" />
-                      <span className="font-semibold text-primary-900 font-primary">Coin Balance</span>
+                      <Coins className="w-5 h-5 text-red-600" />
+                      <span className="font-semibold text-red-900 font-primary">Coin Balance</span>
                     </div>
-                    <div className="text-2xl font-bold text-primary-900 font-heading">{coinBalance}</div>
+                    <div className="text-2xl font-bold text-red-900 font-heading">{coinBalance}</div>
                     <button
                       onClick={() => setShowCoinModal(true)}
-                      className="mt-2 text-sm text-primary-600 hover:text-primary-700 font-medium font-primary"
+                      className="mt-2 text-sm text-red-600 hover:text-red-700 font-medium font-primary"
                     >
                       Buy more coins →
                     </button>

@@ -33,6 +33,7 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import { optimizedStorage } from '../utils/optimizedStorage';
+import CommonHeader from '../components/CommonHeader';
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
@@ -195,56 +196,31 @@ const Profile: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      {/* Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5 text-gray-600" />
-              </button>
+      <CommonHeader />
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
-                  <User className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900 font-heading">Profile Settings</h1>
-                  <p className="text-sm text-gray-600 font-primary">Manage your account and preferences</p>
-                </div>
+      {/* Page Header */}
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <User className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 font-heading">Profile Settings</h1>
+                <p className="text-gray-600 font-primary">Manage your account and preferences</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               {getSubscriptionBadge()}
-              <button
-                onClick={() => navigate('/billing')}
-                className="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
-              >
-                Billing
-              </button>
-              <button
-                onClick={() => navigate('/settings')}
-                className="px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
-              >
-                Settings
-              </button>
-              <button
-                onClick={() => navigate('/team')}
-                className="px-4 py-2 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors font-medium font-primary"
-              >
-                Team
-              </button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Profile Card */}
           <div className="lg:col-span-1">
@@ -315,7 +291,7 @@ const Profile: React.FC = () => {
                 <button
                   onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
                   disabled={isSaving}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary disabled:opacity-50"
+                  className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary disabled:opacity-50"
                 >
                   {isSaving ? (
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -336,7 +312,7 @@ const Profile: React.FC = () => {
                     value={profile.name}
                     onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
@@ -347,7 +323,7 @@ const Profile: React.FC = () => {
                     value={profile.email}
                     onChange={(e) => setProfile({ ...profile, email: e.target.value })}
                     disabled={!isEditing}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
