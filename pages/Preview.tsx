@@ -136,7 +136,7 @@ const Preview: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
                 <Eye className="w-5 h-5 text-white" />
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary"
+              </div>
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 font-heading">{currentProject.name}</h1>
                 <p className="text-sm text-gray-600 font-primary">Live Preview Mode</p>
@@ -168,6 +168,32 @@ const Preview: React.FC = () => {
               <Globe className="w-4 h-4" />
               Publish
             </button>
+
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
+              >
+                <span>{languages.find(l => l.code === i18n.language)?.flag || '🇬🇧'}</span>
+                <span>{languages.find(l => l.code === i18n.language)?.name || 'English'}</span>
+              </button>
+
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageChange(language.code)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 w-full text-left transition-colors"
+                    >
+                      <span>{language.flag}</span>
+                      <span>{language.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -199,32 +225,6 @@ const Preview: React.FC = () => {
               </button>
             </div>
           </div>
-              {/* Language Selector */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
-                >
-                  <span>{languages.find(l => l.code === i18n.language)?.flag || '🇬🇧'}</span>
-                  <span>{languages.find(l => l.code === i18n.language)?.name || 'English'}</span>
-                </button>
-
-                {isLanguageDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
-                    {languages.map((language) => (
-                      <button
-                        key={language.code}
-                        onClick={() => handleLanguageChange(language.code)}
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 w-full text-left transition-colors"
-                      >
-                        <span>{language.flag}</span>
-                        <span>{language.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
         ) : (
           currentProject.sections
             .sort((a, b) => a.order - b.order)
