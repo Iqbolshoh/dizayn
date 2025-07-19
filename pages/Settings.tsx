@@ -35,7 +35,6 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { optimizedStorage } from '../utils/optimizedStorage';
-import CommonHeader from '../components/CommonHeader';
 
 const Settings: React.FC = () => {
   const navigate = useNavigate();
@@ -188,19 +187,26 @@ const Settings: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      <CommonHeader />
-
-      {/* Page Header */}
-      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
+      {/* Header */}
+      <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <SettingsIcon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900 font-heading">Settings</h1>
-                <p className="text-gray-600 font-primary">Customize your experience</p>
+              <button
+                onClick={() => navigate('/profile')}
+                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5 text-gray-600" />
+              </button>
+
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
+                  <SettingsIcon className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-gray-900 font-heading">Settings</h1>
+                  <p className="text-sm text-gray-600 font-primary">Customize your experience</p>
+                </div>
               </div>
             </div>
 
@@ -219,7 +225,7 @@ const Settings: React.FC = () => {
               <button
                 onClick={handleSave}
                 disabled={isSaving}
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary disabled:opacity-50"
               >
                 {isSaving ? (
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -234,7 +240,7 @@ const Settings: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
@@ -245,7 +251,7 @@ const Settings: React.FC = () => {
                     key={id}
                     onClick={() => setActiveTab(id as any)}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium ${activeTab === id
-                        ? 'bg-red-50 text-red-700 border border-red-200'
+                        ? 'bg-primary-50 text-primary-700 border border-primary-200'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                       }`}
                   >
@@ -279,7 +285,7 @@ const Settings: React.FC = () => {
                       <select
                         value={settings.language}
                         onChange={(e) => setSettings({ ...settings, language: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                       >
                         {languages.map((lang) => (
                           <option key={lang.code} value={lang.code}>
@@ -298,7 +304,7 @@ const Settings: React.FC = () => {
                       <select
                         value={settings.timezone}
                         onChange={(e) => setSettings({ ...settings, timezone: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                       >
                         {timezones.map((tz) => (
                           <option key={tz} value={tz}>
@@ -324,7 +330,7 @@ const Settings: React.FC = () => {
                             key={value}
                             onClick={() => setSettings({ ...settings, theme: value })}
                             className={`flex items-center gap-2 p-3 rounded-xl border-2 transition-all ${settings.theme === value
-                                ? 'border-red-500 bg-red-50 text-red-700'
+                                ? 'border-primary-500 bg-primary-50 text-primary-700'
                                 : 'border-gray-200 hover:border-gray-300'
                               }`}
                           >
@@ -344,7 +350,7 @@ const Settings: React.FC = () => {
                         <select
                           value={settings.dateFormat}
                           onChange={(e) => setSettings({ ...settings, dateFormat: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                         >
                           <option value="MM/DD/YYYY">MM/DD/YYYY</option>
                           <option value="DD/MM/YYYY">DD/MM/YYYY</option>
@@ -359,7 +365,7 @@ const Settings: React.FC = () => {
                         <select
                           value={settings.timeFormat}
                           onChange={(e) => setSettings({ ...settings, timeFormat: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                         >
                           <option value="12h">12 Hour</option>
                           <option value="24h">24 Hour</option>
