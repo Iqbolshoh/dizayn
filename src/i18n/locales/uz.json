@@ -1,0 +1,186 @@
+{
+  "header": {
+    "nav": {
+      "dashboard": "Boshqaruv paneli",
+      "templates": "Shablonlar",
+      "billing": "To'lovlar",
+      "team": "Jamoa"
+    },
+    "language": {
+      "english": "Inglizcha",
+      "russian": "Ruscha",
+      "uzbek": "O'zbekcha",
+      "tajik": "Tojikcha"
+    },
+    "profile": {
+      "profile": "Profil",
+      "settings": "Sozlamalar",
+      "support": "Yordam",
+      "logout": "Chiqish"
+    }
+  },
+  "editor": {
+    "title": "Veb-sayt muharriri",
+    "addSection": "Bo'lim qo'shish",
+    "customize": "Sozlash",
+    "preview": "Ko'rib chiqish",
+    "save": "Saqlash",
+    "export": "Eksport",
+    "saving": "Saqlanmoqda...",
+    "doneEditing": "Tahrirlashni tugatish",
+    "editingMode": "Tahrirlash rejimi",
+    "addFirstSection": "Birinchi bo'limni qo'shing",
+    "readyToBuild": "Ajoyib narsa yaratishga tayyormisiz?",
+    "startDescription": "Birinchi bo'limni qo'shishdan boshlang. Mukammal veb-sayt yaratish uchun sarlavhalar, qahramonlar, kontent bloklari va boshqalardan tanlang.",
+    "sectionsCount": "bo'limlar",
+    "lastSaved": "Oxirgi saqlangan"
+  },
+  "preview": {
+    "livePreviewMode": "Jonli ko'rib chiqish rejimi",
+    "edit": "Tahrirlash",
+    "share": "Ulashish",
+    "publish": "Nashr qilish",
+    "previewModeActive": "Ko'rib chiqish rejimi faol",
+    "emptyState": {
+      "title": "Sizning veb-saytingiz bo'sh",
+      "description": "Veb-saytingizning jonlanishini ko'rish uchun ba'zi bo'limlar qo'shing.",
+      "startBuilding": "Qurishni boshlash"
+    }
+  },
+  "sectionSelector": {
+    "title": "Bo'lim qo'shish",
+    "description": "Chiroyli, tayyor bo'limlardan tanlang",
+    "searchPlaceholder": "Bo'limlarni qidirish...",
+    "noSectionsFound": "Bo'limlar topilmadi",
+    "tryAdjusting": "Qidiruv shartlarini o'zgartirib ko'ring yoki boshqa toifalarni ko'rib chiqing.",
+    "addToWebsite": "Veb-saytga qo'shish",
+    "sectionsAvailable": "bo'limlar mavjud",
+    "cancel": "Bekor qilish"
+  },
+  "themeCustomizer": {
+    "title": "Mavzu sozlagichi",
+    "description": "Veb-saytingizning ko'rinishini sozlang",
+    "colors": "Ranglar",
+    "fonts": "Shriftlar",
+    "colorThemes": "Rang mavzulari",
+    "fontCollections": "Shrift to'plamlari",
+    "previewChanges": "O'zgarishlarni darhol ko'rib chiqing",
+    "googleFonts": "Google Fonts kiritilgan",
+    "currentTheme": "Joriy mavzu",
+    "done": "Tayyor"
+  },
+  "iconSelector": {
+    "title": "Ikonka tanlash",
+    "currentlySelected": "Hozir tanlangan",
+    "searchPlaceholder": "Ikonkalarni qidirish...",
+    "noIconsFound": "Ikonkalar topilmadi",
+    "tryAdjustingSearch": "Qidiruv shartlarini o'zgartirib ko'ring yoki boshqa toifalarni ko'rib chiqing.",
+    "iconsAvailable": "ikonkalar mavjud",
+    "filteredBy": "Bo'yicha filtrlangan",
+    "cancel": "Bekor qilish",
+    "done": "Tayyor"
+  },
+  "sectionControls": {
+    "addAbove": "Yuqoriga bo'lim qo'shish",
+    "addBelow": "Pastga bo'lim qo'shish",
+    "moveUp": "Yuqoriga ko'chirish",
+    "moveDown": "Pastga ko'chirish",
+    "dragToReorder": "Tartibni o'zgartirish uchun sudrab oling",
+    "editSection": "Bo'limni tahrirlash",
+    "hideSection": "Bo'limni yashirish",
+    "showSection": "Bo'limni ko'rsatish",
+    "duplicateSection": "Bo'limni nusxalash",
+    "deleteSection": "Bo'limni o'chirish"
+  },
+  "auth": {
+    "login": {
+      "title": "Xush kelibsiz",
+      "subtitle": "Davom etish uchun hisobingizga kiring",
+      "email": "Elektron pochta manzili",
+      "password": "Parol",
+      "rememberMe": "Meni eslab qol",
+      "forgotPassword": "Parolni unutdingizmi?",
+      "signIn": "Kirish",
+      "noAccount": "Hisobingiz yo'qmi?",
+      "signUpHere": "Bu yerda ro'yxatdan o'ting",
+      "orContinueWith": "Yoki davom eting",
+      "google": "Google",
+      "facebook": "Facebook",
+      "backToHome": "Bosh sahifaga qaytish"
+    },
+    "register": {
+      "title": "Hisob yaratish",
+      "subtitle": "Bizga qo'shiling va ajoyib veb-saytlar yaratishni boshlang",
+      "fullName": "To'liq ism",
+      "email": "Elektron pochta manzili",
+      "password": "Parol",
+      "confirmPassword": "Parolni tasdiqlang",
+      "createAccount": "Hisob yaratish",
+      "alreadyHaveAccount": "Allaqachon hisobingiz bormi?",
+      "signInHere": "Bu yerda kiring",
+      "acceptTerms": "Men quyidagilar bilan roziman",
+      "termsOfService": "Xizmat shartlari",
+      "and": "va",
+      "privacyPolicy": "Maxfiylik siyosati",
+      "passwordRequirements": {
+        "atLeast8": "Kamida 8 ta belgi",
+        "oneUppercase": "Bitta katta harf",
+        "oneLowercase": "Bitta kichik harf",
+        "oneNumber": "Bitta raqam"
+      },
+      "passwordsDoNotMatch": "Parollar mos kelmaydi",
+      "orContinueWith": "Yoki davom eting",
+      "google": "Google",
+      "facebook": "Facebook",
+      "backToHome": "Bosh sahifaga qaytish"
+    },
+    "forgotPassword": {
+      "title": "Parolni unutdingizmi?",
+      "subtitle": "Xavotir olmang! Elektron pochta manzilingizni kiriting va biz sizga parolni tiklash uchun havola yuboramiz.",
+      "email": "Elektron pochta manzili",
+      "sendResetLink": "Tiklash havolasini yuborish",
+      "sending": "Yuborilmoqda...",
+      "checkEmail": "Elektron pochtangizni tekshiring",
+      "emailSent": "Biz parolni tiklash havolasini yubordik",
+      "checkInbox": "Iltimos, pochta qutingizni tekshiring va parolni tiklash uchun ko'rsatmalarga amal qiling.",
+      "didntReceive": "Elektron pochta olmadingizmi?",
+      "checkSpam": "Spam papkangizni tekshiring yoki bir necha daqiqadan so'ng qayta urinib ko'ring.",
+      "sendAnother": "Boshqa elektron pochta yuborish",
+      "backToLogin": "Kirishga qaytish",
+      "securityNotice": "Xavfsizlik haqida xabar",
+      "linkExpires": "Xavfsizligingiz uchun tiklash havolasi 1 soatdan keyin muddati tugaydi. Agar bir necha daqiqa ichida elektron pochta olmagan bo'lsangiz, spam papkangizni tekshiring.",
+      "rememberPassword": "Parolni eslaysizmi?"
+    }
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xato",
+    "success": "Muvaffaqiyat",
+    "cancel": "Bekor qilish",
+    "save": "Saqlash",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "add": "Qo'shish",
+    "remove": "Olib tashlash",
+    "close": "Yopish",
+    "open": "Ochish",
+    "yes": "Ha",
+    "no": "Yo'q",
+    "ok": "OK",
+    "back": "Orqaga",
+    "next": "Keyingi",
+    "previous": "Oldingi",
+    "search": "Qidirish",
+    "filter": "Filtr",
+    "sort": "Saralash",
+    "view": "Ko'rish",
+    "download": "Yuklab olish",
+    "upload": "Yuklash",
+    "share": "Ulashish",
+    "copy": "Nusxalash",
+    "paste": "Joylashtirish",
+    "cut": "Kesish",
+    "undo": "Bekor qilish",
+    "redo": "Qaytarish"
+  }
+}

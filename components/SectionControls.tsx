@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   GripVertical, 
   Edit, 
@@ -136,6 +137,8 @@ const SectionControls: React.FC<SectionControlsProps> = ({
   isVisible = true,
   dragHandleProps
 }) => {
+  const { t } = useTranslation();
+
   if (!isSelected || isEditing) return null;
 
   return (
@@ -143,7 +146,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
       initial={{ opacity: 0, y: -20, scale: 0.8 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-1 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 px-3 py-2"
+      className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-1 bg-white/95 backdrop-blur-xl rounded-2xl shadow-elegant-lg border border-gray-200/50 px-3 py-2 font-sans"
     >
       {/* Section Info */}
       <div className="flex items-center gap-2 text-xs text-gray-500 mr-2 px-2">
@@ -168,7 +171,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
-        title="Add section above"
+        title={t('sectionControls.addAbove')}
       >
         <Plus className="w-4 h-4" />
       </motion.button>
@@ -184,10 +187,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         disabled={!canMoveUp}
         className={`p-2 rounded-xl transition-colors ${
           canMoveUp 
-            ? 'hover:bg-blue-50 text-blue-600' 
+            ? 'hover:bg-primary-50 text-primary-600' 
             : 'text-gray-300 cursor-not-allowed'
         }`}
-        title="Move up"
+        title={t('sectionControls.moveUp')}
       >
         <ArrowUp className="w-4 h-4" />
       </motion.button>
@@ -203,10 +206,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         disabled={!canMoveDown}
         className={`p-2 rounded-xl transition-colors ${
           canMoveDown 
-            ? 'hover:bg-blue-50 text-blue-600' 
+            ? 'hover:bg-primary-50 text-primary-600' 
             : 'text-gray-300 cursor-not-allowed'
         }`}
-        title="Move down"
+        title={t('sectionControls.moveDown')}
       >
         <ArrowDown className="w-4 h-4" />
       </motion.button>
@@ -219,7 +222,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="p-2 hover:bg-gray-100 rounded-xl cursor-grab active:cursor-grabbing transition-colors"
-        title="Drag to reorder"
+        title={t('sectionControls.dragToReorder')}
       >
         <GripVertical className="w-4 h-4 text-gray-500" />
       </motion.button>
@@ -232,8 +235,8 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-blue-50 rounded-xl text-blue-600 transition-colors"
-        title="Edit section"
+        className="p-2 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors"
+        title={t('sectionControls.editSection')}
       >
         <Edit className="w-4 h-4" />
       </motion.button>
@@ -252,7 +255,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
               ? 'hover:bg-yellow-50 text-yellow-600' 
               : 'hover:bg-gray-50 text-gray-400'
           }`}
-          title={isVisible ? 'Hide section' : 'Show section'}
+          title={isVisible ? t('sectionControls.hideSection') : t('sectionControls.showSection')}
         >
           {isVisible ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
         </motion.button>
@@ -267,7 +270,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
-        title="Duplicate section"
+        title={t('sectionControls.duplicateSection')}
       >
         <Copy className="w-4 h-4" />
       </motion.button>
@@ -283,7 +286,7 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
-        title="Add section below"
+        title={t('sectionControls.addBelow')}
       >
         <Plus className="w-4 h-4" />
       </motion.button>
@@ -296,8 +299,8 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-red-50 rounded-xl text-red-600 transition-colors"
-        title="Delete section"
+        className="p-2 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors"
+        title={t('sectionControls.deleteSection')}
       >
         <Trash2 className="w-4 h-4" />
       </motion.button>

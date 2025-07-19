@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import {
@@ -26,6 +27,7 @@ import { generateCompleteHTML } from '../utils/htmlExporter';
 import AddSectionButton from '../components/AddSectionButton';
 
 const Editor: React.FC = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { projects, currentProject, setCurrentProject, reorderSections, createProject, isLoading } = useProject();
@@ -157,19 +159,19 @@ const Editor: React.FC = () => {
 
     if (id && !projectExists && !isLoading) {
       return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
           <div className="text-center max-w-md">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Layout className="w-8 h-8 text-red-600" />
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-glow">
+              <Layout className="w-8 h-8 text-primary-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Not Found</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 font-display">Project Not Found</h2>
             <p className="text-gray-600 mb-6">
               The project with ID "{id}" doesn't exist.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors shadow-elegant font-display"
               >
                 Go to Dashboard
               </button>
@@ -182,7 +184,7 @@ const Editor: React.FC = () => {
                   );
                   setCurrentProject(project);
                 }}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors shadow-glow font-display"
               >
                 Create Project
               </button>
@@ -193,11 +195,11 @@ const Editor: React.FC = () => {
     }
 
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">
-            {isLoading ? 'Loading your projects...' : 'Loading your project...'}
+            {isLoading ? t('common.loading') + ' your projects...' : t('common.loading') + ' your project...'}
           </p>
         </div>
       </div>
@@ -205,9 +207,9 @@ const Editor: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       {/* Mobile Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-4 lg:hidden shadow-sm">
+      <div className="bg-white border-b border-gray-200 px-4 py-4 lg:hidden shadow-elegant">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
@@ -217,8 +219,8 @@ const Editor: React.FC = () => {
               <ArrowLeft className="w-5 h-5 text-gray-600" />
             </button>
             <div>
-              <h1 className="text-lg font-bold text-gray-900 truncate max-w-32">{currentProject.name}</h1>
-              <p className="text-xs text-gray-500">{currentProject.sections.length} sections</p>
+              <h1 className="text-lg font-bold text-gray-900 truncate max-w-32 font-display">{currentProject.name}</h1>
+              <p className="text-xs text-gray-500">{currentProject.sections.length} {t('editor.sectionsCount')}</p>
             </div>
           </div>
 
@@ -242,10 +244,10 @@ const Editor: React.FC = () => {
               <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => handleAddSection()}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:opacity-90 transition-all text-sm font-semibold shadow-md"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary-600 to-primary-600 text-white rounded-xl hover:opacity-90 transition-all text-sm font-semibold shadow-glow font-display"
                 >
                   <Plus className="w-4 h-4" />
-                  Add Section
+                  {t('editor.addSection')}
                 </button>
 
                 <button
@@ -253,24 +255,24 @@ const Editor: React.FC = () => {
                     setShowThemeCustomizer(true);
                     setShowMobileMenu(false);
                   }}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all text-sm font-semibold shadow-md"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-secondary-600 text-white rounded-xl hover:bg-secondary-700 transition-all text-sm font-semibold shadow-glow font-display"
                 >
                   <Palette className="w-4 h-4" />
-                  Theme
+                  {t('editor.customize')}
                 </button>
 
                 <button
                   onClick={() => navigate(`/preview/${currentProject.id}`)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all text-sm font-semibold shadow-md"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all text-sm font-semibold shadow-glow font-display"
                 >
                   <Eye className="w-4 h-4" />
-                  Preview
+                  {t('editor.preview')}
                 </button>
 
                 <button
                   onClick={handleSave}
                   disabled={isSaving}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 text-sm font-semibold shadow-md"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 text-sm font-semibold shadow-glow font-display"
                 >
                   {isSaving ? (
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -279,16 +281,16 @@ const Editor: React.FC = () => {
                   ) : (
                     <Save className="w-4 h-4" />
                   )}
-                  {isSaving ? 'Saving...' : editingSection ? 'Done' : 'Save'}
+                  {isSaving ? t('editor.saving') : editingSection ? t('editor.doneEditing') : t('editor.save')}
                 </button>
               </div>
 
               <button
                 onClick={handleExport}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all text-sm font-semibold shadow-md"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all text-sm font-semibold shadow-glow font-display"
               >
                 <Download className="w-4 h-4" />
-                Export HTML
+                {t('editor.export')} HTML
               </button>
             </motion.div>
           )}
@@ -296,7 +298,7 @@ const Editor: React.FC = () => {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden lg:block bg-white/95 border-b border-gray-200 px-6 py-5 shadow-lg backdrop-blur-xl">
+      <div className="hidden lg:block bg-white/95 border-b border-gray-200 px-6 py-5 shadow-elegant-lg backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <button
@@ -308,15 +310,15 @@ const Editor: React.FC = () => {
 
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-glow">
                   <Layout className="w-6 h-6 text-white" />
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 font-heading">{currentProject.name}</h1>
-                <p className="text-sm text-gray-500 font-primary">
-                  {currentProject.sections.length} sections • Last saved {new Date().toLocaleTimeString()}
+                <h1 className="text-2xl font-bold text-gray-900 font-display">{currentProject.name}</h1>
+                <p className="text-sm text-gray-500 font-sans">
+                  {currentProject.sections.length} {t('editor.sectionsCount')} • {t('editor.lastSaved')} {new Date().toLocaleTimeString()}
                 </p>
               </div>
             </div>
@@ -325,32 +327,32 @@ const Editor: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleAddSection()}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-glow font-display"
             >
               <Plus className="w-4 h-4" />
-              Add Section
+              {t('editor.addSection')}
             </button>
 
             <button
               onClick={() => setShowThemeCustomizer(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-glow font-display"
             >
               <Palette className="w-4 h-4" />
-              Customize
+              {t('editor.customize')}
             </button>
 
             <button
               onClick={() => navigate(`/preview/${currentProject.id}`)}
-              className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
+              className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-glow font-display"
             >
               <Eye className="w-4 h-4" />
-              Preview
+              {t('editor.preview')}
             </button>
 
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 font-semibold shadow-lg font-heading"
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 font-semibold shadow-glow font-display"
             >
               {isSaving ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -359,15 +361,15 @@ const Editor: React.FC = () => {
               ) : (
                 <Save className="w-4 h-4" />
               )}
-              {isSaving ? 'Saving...' : editingSection ? 'Done Editing' : 'Save'}
+              {isSaving ? t('editor.saving') : editingSection ? t('editor.doneEditing') : t('editor.save')}
             </button>
 
             <button
               onClick={handleExport}
-              className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-lg font-heading"
+              className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-glow font-display"
             >
               <Code className="w-4 h-4" />
-              Export
+              {t('editor.export')}
             </button>
           </div>
         </div>
@@ -387,25 +389,25 @@ const Editor: React.FC = () => {
                   <div className="h-full flex items-center justify-center p-8">
                     <div className="text-center max-w-lg">
                       <div className="relative mb-8">
-                        <div className="w-24 h-24 bg-primary-600 rounded-3xl flex items-center justify-center mx-auto shadow-xl">
+                        <div className="w-24 h-24 bg-primary-600 rounded-3xl flex items-center justify-center mx-auto shadow-glow">
                           <Layers className="w-12 h-12 text-white" />
                         </div>
                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary-400 rounded-full flex items-center justify-center animate-bounce">
                           <Layout className="w-4 h-4 text-white" />
                         </div>
                       </div>
-                      <h3 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
-                        Ready to Build Something Amazing?
+                      <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">
+                        {t('editor.readyToBuild')}
                       </h3>
-                      <p className="text-gray-600 mb-8 text-lg leading-relaxed font-primary">
-                        Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.
+                      <p className="text-gray-600 mb-8 text-lg leading-relaxed font-sans">
+                        {t('editor.startDescription')}
                       </p>
                       <button
                         onClick={() => handleAddSection()}
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-glow text-lg font-display"
                       >
                         <Plus className="w-5 h-5" />
-                        Add Your First Section
+                        {t('editor.addFirstSection')}
                       </button>
                     </div>
                   </div>

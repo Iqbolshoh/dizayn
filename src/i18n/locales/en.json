@@ -1,0 +1,186 @@
+{
+  "header": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "templates": "Templates",
+      "billing": "Billing",
+      "team": "Team"
+    },
+    "language": {
+      "english": "English",
+      "russian": "Russian",
+      "uzbek": "Uzbek",
+      "tajik": "Tajik"
+    },
+    "profile": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "support": "Support",
+      "logout": "Logout"
+    }
+  },
+  "editor": {
+    "title": "Website Editor",
+    "addSection": "Add Section",
+    "customize": "Customize",
+    "preview": "Preview",
+    "save": "Save",
+    "export": "Export",
+    "saving": "Saving...",
+    "doneEditing": "Done Editing",
+    "editingMode": "Editing Mode",
+    "addFirstSection": "Add Your First Section",
+    "readyToBuild": "Ready to Build Something Amazing?",
+    "startDescription": "Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.",
+    "sectionsCount": "sections",
+    "lastSaved": "Last saved"
+  },
+  "preview": {
+    "livePreviewMode": "Live Preview Mode",
+    "edit": "Edit",
+    "share": "Share",
+    "publish": "Publish",
+    "previewModeActive": "Preview Mode Active",
+    "emptyState": {
+      "title": "Your Website is Empty",
+      "description": "Add some sections to see your website come to life.",
+      "startBuilding": "Start Building"
+    }
+  },
+  "sectionSelector": {
+    "title": "Add Section",
+    "description": "Choose from beautiful, pre-built sections",
+    "searchPlaceholder": "Search sections...",
+    "noSectionsFound": "No sections found",
+    "tryAdjusting": "Try adjusting your search terms or browse other categories.",
+    "addToWebsite": "Add to website",
+    "sectionsAvailable": "sections available",
+    "cancel": "Cancel"
+  },
+  "themeCustomizer": {
+    "title": "Theme Customizer",
+    "description": "Customize your website's appearance",
+    "colors": "Colors",
+    "fonts": "Fonts",
+    "colorThemes": "Color Themes",
+    "fontCollections": "Font Collections",
+    "previewChanges": "Preview changes instantly",
+    "googleFonts": "Google Fonts included",
+    "currentTheme": "Current theme",
+    "done": "Done"
+  },
+  "iconSelector": {
+    "title": "Choose Icon",
+    "currentlySelected": "Currently selected",
+    "searchPlaceholder": "Search icons...",
+    "noIconsFound": "No icons found",
+    "tryAdjustingSearch": "Try adjusting your search terms or browse other categories.",
+    "iconsAvailable": "icons available",
+    "filteredBy": "Filtered by",
+    "cancel": "Cancel",
+    "done": "Done"
+  },
+  "sectionControls": {
+    "addAbove": "Add section above",
+    "addBelow": "Add section below",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "dragToReorder": "Drag to reorder",
+    "editSection": "Edit section",
+    "hideSection": "Hide section",
+    "showSection": "Show section",
+    "duplicateSection": "Duplicate section",
+    "deleteSection": "Delete section"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account to continue",
+      "email": "Email Address",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUpHere": "Sign up here",
+      "orContinueWith": "Or continue with",
+      "google": "Google",
+      "facebook": "Facebook",
+      "backToHome": "Back to Home"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us and start building amazing websites",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "createAccount": "Create Account",
+      "alreadyHaveAccount": "Already have an account?",
+      "signInHere": "Sign in here",
+      "acceptTerms": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "passwordRequirements": {
+        "atLeast8": "At least 8 characters",
+        "oneUppercase": "One uppercase letter",
+        "oneLowercase": "One lowercase letter",
+        "oneNumber": "One number"
+      },
+      "passwordsDoNotMatch": "Passwords do not match",
+      "orContinueWith": "Or continue with",
+      "google": "Google",
+      "facebook": "Facebook",
+      "backToHome": "Back to Home"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password?",
+      "subtitle": "No worries! Enter your email address and we'll send you a link to reset your password.",
+      "email": "Email Address",
+      "sendResetLink": "Send Reset Link",
+      "sending": "Sending...",
+      "checkEmail": "Check Your Email",
+      "emailSent": "We've sent a password reset link to",
+      "checkInbox": "Please check your inbox and follow the instructions to reset your password.",
+      "didntReceive": "Didn't receive the email?",
+      "checkSpam": "Check your spam folder or try again in a few minutes.",
+      "sendAnother": "Send Another Email",
+      "backToLogin": "Back to Login",
+      "securityNotice": "Security Notice",
+      "linkExpires": "For your security, the reset link will expire in 1 hour. If you don't receive the email within a few minutes, please check your spam folder.",
+      "rememberPassword": "Remember your password?"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "share": "Share",
+    "copy": "Copy",
+    "paste": "Paste",
+    "cut": "Cut",
+    "undo": "Undo",
+    "redo": "Redo"
+  }
+}

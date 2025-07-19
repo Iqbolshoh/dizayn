@@ -64,25 +64,25 @@ const Preview: React.FC = () => {
 
     if (id && !projectExists) {
       return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
           <div className="text-center max-w-md">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Globe className="w-8 h-8 text-red-600" />
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-glow">
+              <Globe className="w-8 h-8 text-primary-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Website Not Found</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 font-display">Website Not Found</h2>
             <p className="text-gray-600 mb-6">
               The website with ID "{id}" doesn't exist.
             </p>
             <div className="flex gap-3 justify-center">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors shadow-elegant font-display"
               >
                 Go to Dashboard
               </button>
               <button
                 onClick={() => navigate(`/editor/${id}`)}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors shadow-glow font-display"
               >
                 Create Website
               </button>
@@ -93,40 +93,40 @@ const Preview: React.FC = () => {
     }
 
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Loading preview...</p>
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">{t('common.loading')} preview...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-white relative font-sans">
       {/* Floating Header */}
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: showHeader ? 0 : -100 }}
         transition={{ duration: 0.3 }}
-        className="fixed top-4 left-4 right-4 z-50 bg-white/98 rounded-2xl shadow-2xl border border-gray-100 backdrop-blur-xl"
+        className="fixed top-4 left-4 right-4 z-50 bg-white/98 rounded-2xl shadow-elegant-lg border border-gray-200 backdrop-blur-xl"
       >
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate(`/editor/${currentProject.id}`)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
+              className="p-2 hover:bg-gray-100 rounded-xl transition-colors group"
             >
               <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center shadow-glow">
                 <Eye className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-900 font-heading">{currentProject.name}</h1>
-                <p className="text-sm text-gray-600 font-primary">{t('preview.livePreviewMode')}</p>
+                <h1 className="text-lg font-semibold text-gray-900 font-display">{currentProject.name}</h1>
+                <p className="text-sm text-gray-600 font-sans">{t('preview.livePreviewMode')}</p>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ const Preview: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate(`/editor/${currentProject.id}`)}
-              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium shadow-glow font-display"
             >
               <Edit3 className="w-4 h-4" />
               {t('preview.edit')}
@@ -142,7 +142,7 @@ const Preview: React.FC = () => {
 
             <button
               onClick={handleShare}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium shadow-elegant font-display"
             >
               <Share2 className="w-4 h-4" />
               {t('preview.share')}
@@ -150,7 +150,7 @@ const Preview: React.FC = () => {
 
             <button
               onClick={handlePublish}
-              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors font-medium font-primary"
+              className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors font-medium shadow-glow font-display"
             >
               <Globe className="w-4 h-4" />
               {t('preview.publish')}
@@ -165,22 +165,22 @@ const Preview: React.FC = () => {
           <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <div className="text-center max-w-lg">
               <div className="relative mb-8">
-                <div className="w-24 h-24 bg-gray-200 rounded-3xl flex items-center justify-center mx-auto">
+                <div className="w-24 h-24 bg-gray-200 rounded-3xl flex items-center justify-center mx-auto shadow-elegant">
                   <Globe className="w-12 h-12 text-gray-400" />
                 </div>
                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary-400 rounded-full flex items-center justify-center animate-bounce">
                   <Layout className="w-4 h-4 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display">
                 {t('preview.emptyState.title')}
               </h2>
-              <p className="text-gray-600 mb-8 text-lg font-primary">
+              <p className="text-gray-600 mb-8 text-lg font-sans">
                 {t('preview.emptyState.description')}
               </p>
               <button
                 onClick={() => navigate(`/editor/${currentProject.id}`)}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-glow text-lg font-display"
               >
                 {t('preview.emptyState.startBuilding')}
               </button>
@@ -209,10 +209,10 @@ const Preview: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-lg"
+          className="bg-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-glow"
         >
           <div className="w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
-          <span className="font-medium font-primary">{t('preview.previewModeActive')}</span>
+          <span className="font-medium font-sans">{t('preview.previewModeActive')}</span>
         </motion.div>
       </div>
     </div>
