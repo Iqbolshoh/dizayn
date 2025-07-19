@@ -1,0 +1,39 @@
+{
+  "templates": {
+    "title": "Галереяи қолабҳо",
+    "subtitle": "Аз {{count}} қолаби касбӣ интихоб кунед то зуд оғоз кунед",
+    "searchPlaceholder": "Ҷустуҷӯи қолабҳо...",
+    "sortMostPopular": "Маъмултарин",
+    "sortNewest": "Навтарин",
+    "sortHighestRated": "Баландтарин баҳо",
+    "noTemplatesFound": "Қолабҳо ёфт нашуданд",
+    "noTemplatesFoundDesc": "Кӯшиш кунед, ки шартҳои ҷустуҷӯ ё филтрҳоро тағйир диҳед то он чизеро, ки ҷустуҷӯ мекунед, пайдо кунед.",
+    "preview": "Пешнамоиш",
+    "useTemplate": "Истифодаи қолаб",
+    "category": "Категория",
+    "sections": "Қисмҳо",
+    "downloads": "Боргириҳо",
+    "rating": "Рейтинг",
+    "includedSections": "Қисмҳои дохилшуда",
+    "tags": "Тегҳо",
+    "readyToStart": "Омодаед оғоз кунед?",
+    "readyToStartDesc": "Ин қолаб ҳама чизеро, ки барои сохтани вебсайти аҷоиб лозим аст, дар бар мегирад.",
+    "useThisTemplate": "Ин қолабро истифода баред",
+    "categories": {
+      "all": "Ҳамаи қолабҳо",
+      "business": "Тиҷорат",
+      "portfolio": "Портфолио",
+      "ecommerce": "Тиҷорати электронӣ",
+      "personal": "Шахсӣ",
+      "photography": "Аксбардорӣ",
+      "music": "Мусиқӣ",
+      "restaurant": "Ресторан",
+      "education": "Маориф",
+      "automotive": "Автомобилӣ",
+      "realestate": "Амволи ғайриманқул",
+      "gaming": "Бозиҳо"
+    },
+    "filters": "Филтрҳо",
+    "pro": "Про"
+  }
+}

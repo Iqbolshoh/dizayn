@@ -1,0 +1,39 @@
+{
+  "templates": {
+    "title": "Template Gallery",
+    "subtitle": "Choose from {{count}} professional templates to get started quickly",
+    "searchPlaceholder": "Search templates...",
+    "sortMostPopular": "Most Popular",
+    "sortNewest": "Newest",
+    "sortHighestRated": "Highest Rated",
+    "noTemplatesFound": "No templates found",
+    "noTemplatesFoundDesc": "Try adjusting your search terms or filters to find what you're looking for.",
+    "preview": "Preview",
+    "useTemplate": "Use Template",
+    "category": "Category",
+    "sections": "Sections",
+    "downloads": "Downloads",
+    "rating": "Rating",
+    "includedSections": "Included Sections",
+    "tags": "Tags",
+    "readyToStart": "Ready to start?",
+    "readyToStartDesc": "This template includes everything you need to create a stunning website.",
+    "useThisTemplate": "Use This Template",
+    "categories": {
+      "all": "All Templates",
+      "business": "Business",
+      "portfolio": "Portfolio",
+      "ecommerce": "E-commerce",
+      "personal": "Personal",
+      "photography": "Photography",
+      "music": "Music",
+      "restaurant": "Restaurant",
+      "education": "Education",
+      "automotive": "Automotive",
+      "realestate": "Real Estate",
+      "gaming": "Gaming"
+    },
+    "filters": "Filters",
+    "pro": "Pro"
+  }
+}

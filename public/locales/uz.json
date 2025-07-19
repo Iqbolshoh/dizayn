@@ -1,0 +1,39 @@
+{
+  "templates": {
+    "title": "Shablon galereyasi",
+    "subtitle": "Tez boshlash uchun {{count}} ta professional shablondan tanlang",
+    "searchPlaceholder": "Shablonlarni qidirish...",
+    "sortMostPopular": "Eng mashhur",
+    "sortNewest": "Eng yangi",
+    "sortHighestRated": "Eng yuqori baholangan",
+    "noTemplatesFound": "Shablonlar topilmadi",
+    "noTemplatesFoundDesc": "Qidirayotgan narsangizni topish uchun qidiruv so'zlarini yoki filtrlarni o'zgartirib ko'ring.",
+    "preview": "Ko'rib chiqish",
+    "useTemplate": "Shablondan foydalanish",
+    "category": "Kategoriya",
+    "sections": "Bo'limlar",
+    "downloads": "Yuklab olishlar",
+    "rating": "Reyting",
+    "includedSections": "Kiritilgan bo'limlar",
+    "tags": "Teglar",
+    "readyToStart": "Boshlashga tayyormisiz?",
+    "readyToStartDesc": "Ushbu shablon ajoyib veb-sayt yaratish uchun kerak bo'lgan hamma narsani o'z ichiga oladi.",
+    "useThisTemplate": "Ushbu shablondan foydalaning",
+    "categories": {
+      "all": "Barcha shablonlar",
+      "business": "Biznes",
+      "portfolio": "Portfolio",
+      "ecommerce": "Elektron tijorat",
+      "personal": "Shaxsiy",
+      "photography": "Fotografiya",
+      "music": "Musiqa",
+      "restaurant": "Restoran",
+      "education": "Ta'lim",
+      "automotive": "Avtomobil",
+      "realestate": "Ko'chmas mulk",
+      "gaming": "O'yinlar"
+    },
+    "filters": "Filtrlar",
+    "pro": "Pro"
+  }
+}

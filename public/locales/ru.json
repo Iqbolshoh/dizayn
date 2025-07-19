@@ -1,0 +1,39 @@
+{
+  "templates": {
+    "title": "Галерея шаблонов",
+    "subtitle": "Выберите из {{count}} профессиональных шаблонов для быстрого старта",
+    "searchPlaceholder": "Поиск шаблонов...",
+    "sortMostPopular": "Самые популярные",
+    "sortNewest": "Новейшие",
+    "sortHighestRated": "Высоко оцененные",
+    "noTemplatesFound": "Шаблоны не найдены",
+    "noTemplatesFoundDesc": "Попробуйте изменить поисковые запросы или фильтры, чтобы найти то, что вы ищете.",
+    "preview": "Предпросмотр",
+    "useTemplate": "Использовать шаблон",
+    "category": "Категория",
+    "sections": "Разделы",
+    "downloads": "Загрузки",
+    "rating": "Рейтинг",
+    "includedSections": "Включенные разделы",
+    "tags": "Теги",
+    "readyToStart": "Готовы начать?",
+    "readyToStartDesc": "Этот шаблон включает все необходимое для создания потрясающего веб-сайта.",
+    "useThisTemplate": "Использовать этот шаблон",
+    "categories": {
+      "all": "Все шаблоны",
+      "business": "Бизнес",
+      "portfolio": "Портфолио",
+      "ecommerce": "Электронная коммерция",
+      "personal": "Личные",
+      "photography": "Фотография",
+      "music": "Музыка",
+      "restaurant": "Ресторан",
+      "education": "Образование",
+      "automotive": "Автомобильная",
+      "realestate": "Недвижимость",
+      "gaming": "Игры"
+    },
+    "filters": "Фильтры",
+    "pro": "Про"
+  }
+}

@@ -47,18 +47,18 @@ const TemplateGallery: React.FC = () => {
   const allTemplates = optimizedStorage.getTemplateGallery();
 
   const categories = [
-    { id: 'all', name: 'All Templates', icon: Grid, count: allTemplates.length },
-    { id: 'business', name: 'Business', icon: Building, count: allTemplates.filter(t => t.category === 'business').length },
-    { id: 'portfolio', name: 'Portfolio', icon: Briefcase, count: allTemplates.filter(t => t.category === 'portfolio').length },
-    { id: 'ecommerce', name: 'E-commerce', icon: ShoppingBag, count: allTemplates.filter(t => t.category === 'ecommerce').length },
-    { id: 'personal', name: 'Personal', icon: User, count: allTemplates.filter(t => t.category === 'personal').length },
-    { id: 'photography', name: 'Photography', icon: Camera, count: allTemplates.filter(t => t.category === 'photography').length },
-    { id: 'music', name: 'Music', icon: Music, count: allTemplates.filter(t => t.category === 'music').length },
-    { id: 'restaurant', name: 'Restaurant', icon: Utensils, count: allTemplates.filter(t => t.category === 'restaurant').length },
-    { id: 'education', name: 'Education', icon: GraduationCap, count: allTemplates.filter(t => t.category === 'education').length },
-    { id: 'automotive', name: 'Automotive', icon: Car, count: allTemplates.filter(t => t.category === 'automotive').length },
-    { id: 'realestate', name: 'Real Estate', icon: Home, count: allTemplates.filter(t => t.category === 'realestate').length },
-    { id: 'gaming', name: 'Gaming', icon: Gamepad2, count: allTemplates.filter(t => t.category === 'gaming').length },
+    { id: 'all', name: t('templates.categories.all'), icon: Grid, count: allTemplates.length },
+    { id: 'business', name: t('templates.categories.business'), icon: Building, count: allTemplates.filter(t => t.category === 'business').length },
+    { id: 'portfolio', name: t('templates.categories.portfolio'), icon: Briefcase, count: allTemplates.filter(t => t.category === 'portfolio').length },
+    { id: 'ecommerce', name: t('templates.categories.ecommerce'), icon: ShoppingBag, count: allTemplates.filter(t => t.category === 'ecommerce').length },
+    { id: 'personal', name: t('templates.categories.personal'), icon: User, count: allTemplates.filter(t => t.category === 'personal').length },
+    { id: 'photography', name: t('templates.categories.photography'), icon: Camera, count: allTemplates.filter(t => t.category === 'photography').length },
+    { id: 'music', name: t('templates.categories.music'), icon: Music, count: allTemplates.filter(t => t.category === 'music').length },
+    { id: 'restaurant', name: t('templates.categories.restaurant'), icon: Utensils, count: allTemplates.filter(t => t.category === 'restaurant').length },
+    { id: 'education', name: t('templates.categories.education'), icon: GraduationCap, count: allTemplates.filter(t => t.category === 'education').length },
+    { id: 'automotive', name: t('templates.categories.automotive'), icon: Car, count: allTemplates.filter(t => t.category === 'automotive').length },
+    { id: 'realestate', name: t('templates.categories.realestate'), icon: Home, count: allTemplates.filter(t => t.category === 'realestate').length },
+    { id: 'gaming', name: t('templates.categories.gaming'), icon: Gamepad2, count: allTemplates.filter(t => t.category === 'gaming').length },
   ];
 
   // Filter and sort templates
@@ -144,7 +144,7 @@ const TemplateGallery: React.FC = () => {
                 className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
                 <Filter className="w-4 h-4" />
-                Filters
+                {t('templates.filters')}
               </button>
             </div>
           </div>
@@ -265,7 +265,7 @@ const TemplateGallery: React.FC = () => {
                     {template.isPremium && (
                       <div className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 bg-yellow-500 text-white rounded-full text-xs font-semibold">
                         <Crown className="w-3 h-3" />
-                        Pro
+                        {t('templates.pro')}
                       </div>
                     )}
 
@@ -320,7 +320,7 @@ const TemplateGallery: React.FC = () => {
                         </div>
                       </div>
                       <span className="text-xs text-gray-400 font-primary">
-                        {template.sections.length} sections
+                        {template.sections.length} {t('templates.sections').toLowerCase()}
                       </span>
                     </div>
 
@@ -378,11 +378,11 @@ const TemplateGallery: React.FC = () => {
             <div className="p-6 max-h-[70vh] overflow-y-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3 font-heading">Template Details</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3 font-heading">{t('templates.category')} {t('templates.sections')}</h4>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600 font-primary">{t('templates.category')}:</span>
-                      <span className="font-medium text-gray-900 font-primary">{selectedTemplate.category}</span>
+                      <span className="font-medium text-gray-900 font-primary">{t(`templates.categories.${selectedTemplate.category}`)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600 font-primary">{t('templates.sections')}:</span>
