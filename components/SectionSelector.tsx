@@ -190,23 +190,23 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-primary-50 via-secondary-50 to-primary-50 flex-shrink-0">
+          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-primary-50 via-secondary-50 to-primary-50 flex-shrink-0">
             <div className="flex items-center gap-4">
               <motion.div
-                className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-glow"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-glow"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Plus className="w-6 h-6 text-white" />
+                <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </motion.div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 font-display">
+                <h2 className="text-lg sm:text-2xl font-bold text-gray-900 font-display">
                   {insertPosition
                     ? `${t('sectionSelector.title')} ${insertPosition.position === 'above' ? t('sectionControls.addAbove').split(' ')[2] : t('sectionControls.addBelow').split(' ')[2]} #${insertPosition.index + 1}`
                     : t('sectionSelector.title')
                   }
                 </h2>
-                <p className="text-base text-gray-600 font-sans">
+                <p className="text-sm sm:text-base text-gray-600 font-sans">
                   {insertPosition
                     ? `Insert a new section ${insertPosition.position} the current position`
                     : t('sectionSelector.description')
@@ -218,15 +218,15 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
               onClick={onClose}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 hover:bg-white/90 rounded-2xl transition-colors"
+              className="p-2 sm:p-3 hover:bg-white/90 rounded-2xl transition-colors"
             >
-              <X className="w-6 h-6 text-gray-500" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
             </motion.button>
           </div>
 
           {/* Categories */}
-          <div className="px-6 py-4 border-b border-gray-200 bg-white flex-shrink-0">
-            <div className="flex flex-wrap gap-2">
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 bg-white flex-shrink-0">
+            <div className="flex flex-wrap gap-1 sm:gap-2">
               {categories.map((category) => {
                 const colors = categoryColors[category.id] || categoryColors.headers;
                 const isSelected = selectedCategory === category.id;
@@ -238,13 +238,15 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
                     onClick={() => setSelectedCategory(category.id)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all text-sm font-sans ${isSelected
+                    className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl font-medium transition-all text-xs sm:text-sm font-sans ${isSelected
                         ? `${colors.bg} ${colors.text} ${colors.border} border-2 shadow-glow`
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border-2 border-transparent'
                       }`}
                   >
-                    <IconComponent className="w-4 h-4" />
-                    {category.name} ({category.count})
+                    <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <span className="sm:hidden">{category.name.slice(0, 3)}</span>
+                    <span className="hidden sm:inline">({category.count})</span>
                   </motion.button>
                 );
               })}
@@ -252,38 +254,38 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
           </div>
 
           {/* Search Bar */}
-          <div className="p-6 border-b border-gray-200 bg-white flex-shrink-0">
+          <div className="p-4 sm:p-6 border-b border-gray-200 bg-white flex-shrink-0">
             <div className="relative">
-              <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder={t('sectionSelector.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 text-lg font-sans"
+                className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 text-base sm:text-lg font-sans"
               />
             </div>
           </div>
 
           {/* Content - Scrollable */}
           <div className="flex-1">
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {filteredSections.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-16"
+                  className="text-center py-8 sm:py-16"
                 >
-                  <div className="w-20 h-20 bg-gray-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                    <Search className="w-10 h-10 text-gray-400" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-100 rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <Search className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-display">{t('sectionSelector.noSectionsFound')}</h3>
-                  <p className="text-base text-gray-600 max-w-md mx-auto font-sans">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 font-display">{t('sectionSelector.noSectionsFound')}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 max-w-md mx-auto font-sans">
                     {t('sectionSelector.tryAdjusting')}
                   </p>
                 </motion.div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {filteredSections.map((template, index) => {
                     const colors = categoryColors[template.category] || categoryColors.headers;
                     const IconComponent = getIconComponent(template.icon);
@@ -300,7 +302,7 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
                         whileTap={{ scale: 0.98 }}
                       >
                         {/* Thumbnail */}
-                        <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200">
+                        <div className="relative h-32 sm:h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-3xl overflow-hidden">
                           <img
                             src={template.thumbnail}
                             alt={template.name}
@@ -309,43 +311,43 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                           {/* Category Badge */}
-                          <div className={`absolute top-3 left-3 px-2 py-1 rounded-lg text-xs font-medium ${colors.bg} ${colors.text} border ${colors.border} font-sans`}>
+                          <div className={`absolute top-2 sm:top-3 left-2 sm:left-3 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg text-xs font-medium ${colors.bg} ${colors.text} border ${colors.border} font-sans`}>
                             {template.category}
                           </div>
 
                           {/* Add Button */}
-                          <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-glow">
-                            <Plus className="w-5 h-5 text-gray-700" />
+                          <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-glow">
+                            <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                           </div>
 
                           {/* Icon */}
-                          <div className="absolute bottom-3 left-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                            <IconComponent className="w-4 h-4 text-gray-700" />
+                          <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 w-6 h-6 sm:w-8 sm:h-8 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                            <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
                           </div>
                         </div>
 
                         {/* Content */}
-                        <div className="p-6">
-                          <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors text-lg mb-2 font-display">
+                        <div className="p-4 sm:p-6">
+                          <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors text-base sm:text-lg mb-2 font-display">
                             {template.name}
                           </h3>
-                          <p className="text-gray-600 text-base line-clamp-2 mb-4 font-sans">{template.description}</p>
+                          <p className="text-gray-600 text-sm sm:text-base line-clamp-2 mb-3 sm:mb-4 font-sans">{template.description}</p>
 
                           {/* Tags */}
-                          <div className="flex flex-wrap gap-1 mb-4">
+                          <div className="flex flex-wrap gap-1 mb-3 sm:mb-4">
                             {template.tags.slice(0, 3).map((tag) => (
-                              <span key={tag} className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-lg font-sans">
+                              <span key={tag} className="text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-600 rounded-lg font-sans">
                                 {tag}
                               </span>
                             ))}
                           </div>
 
                           {/* Action */}
-                          <div className={`flex items-center justify-between p-3 rounded-xl ${colors.bg} group-hover:bg-opacity-80 transition-all`}>
-                            <span className={`text-sm font-medium ${colors.text} font-sans`}>
+                          <div className={`flex items-center justify-between p-2 sm:p-3 rounded-xl ${colors.bg} group-hover:bg-opacity-80 transition-all`}>
+                            <span className={`text-xs sm:text-sm font-medium ${colors.text} font-sans`}>
                               {t('sectionSelector.addToWebsite')}
                             </span>
-                            <ChevronRight className={`w-4 h-4 ${colors.icon} group-hover:translate-x-1 transition-transform`} />
+                            <ChevronRight className={`w-3 h-3 sm:w-4 sm:h-4 ${colors.icon} group-hover:translate-x-1 transition-transform`} />
                           </div>
                         </div>
                       </motion.div>
@@ -357,9 +359,9 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
           </div>
 
           {/* Footer */}
-          <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between flex-shrink-0">
-            <div className="flex items-center gap-3 text-sm text-gray-600 font-sans">
-              <Sparkles className="w-5 h-5 text-primary-600" />
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 bg-gray-50 flex flex-col sm:flex-row items-center justify-between gap-3 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600 font-sans">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600" />
               <span className="font-medium">
                 {filteredSections.length} {t('sectionSelector.sectionsAvailable')}
               </span>
@@ -368,7 +370,7 @@ const SectionSelector: React.FC<SectionSelectorProps> = ({ onClose, onSelect, in
               onClick={onClose}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors font-medium font-sans"
+              className="px-4 sm:px-6 py-2 sm:py-3 text-gray-600 hover:text-gray-800 transition-colors font-medium font-sans text-sm sm:text-base"
             >
               {t('sectionSelector.cancel')}
             </motion.button>
