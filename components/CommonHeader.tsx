@@ -13,6 +13,7 @@ import {
   Palette,
   Globe,
 } from 'lucide-react';
+import Support from '../pages/Support';
 
 interface Language {
   code: string;
@@ -43,12 +44,9 @@ const CommonHeader: React.FC = () => {
 
   const navItems = [
     { label: 'Dashboard', href: '/dashboard', icon: Layout },
-    { label: 'My Templates', href: '/templates', icon: Palette },
+    { label: 'Templates', href: '/my-templates', icon: Palette },
     { label: 'Billing', href: '/billing', icon: CreditCard },
     { label: 'Team', href: '/team', icon: Users },
-    { label: 'Profile', href: '/profile', icon: User },
-    { label: 'Settings', href: '/settings', icon: Settings },
-    { label: 'Support', href: '/support', icon: HelpCircle },
   ];
 
   const isActive = (path: string) => {
@@ -74,10 +72,10 @@ const CommonHeader: React.FC = () => {
           <div className="flex items-center">
             <Link to="/dashboard" className="flex items-center space-x-2 sm:space-x-3 group">
               <div className="relative">
-                <img 
-                  src="/images/logo_2.png" 
-                  className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl shadow-lg group-hover:shadow-glow-red transition-all duration-300 group-hover:scale-105" 
-                  alt="Logo" 
+                <img
+                  src="/images/logo_2.png"
+                  className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl shadow-lg group-hover:shadow-glow-red transition-all duration-300 group-hover:scale-105"
+                  alt="Logo"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -97,17 +95,15 @@ const CommonHeader: React.FC = () => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className={`relative px-3 sm:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group flex items-center gap-2 ${
-                      isActive(item.href)
-                        ? 'text-red-600 bg-red-50'
-                        : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
-                    }`}
+                    className={`relative px-3 sm:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group flex items-center gap-2 ${isActive(item.href)
+                      ? 'text-red-600 bg-red-50'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
+                      }`}
                   >
                     <IconComponent className="w-4 h-4" />
                     {item.label}
-                    <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 transition-all duration-300 group-hover:w-3/4 ${
-                      isActive(item.href) ? 'w-3/4' : ''
-                    }`}></span>
+                    <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 transition-all duration-300 group-hover:w-3/4 ${isActive(item.href) ? 'w-3/4' : ''
+                      }`}></span>
                   </Link>
                 );
               })}
@@ -133,9 +129,8 @@ const CommonHeader: React.FC = () => {
                 )}
                 <span className="text-xs sm:text-sm font-medium">{selectedLanguage.name}</span>
                 <ChevronDown
-                  className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${
-                    isLanguageDropdownOpen ? 'rotate-180' : ''
-                  }`}
+                  className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
 
@@ -173,9 +168,8 @@ const CommonHeader: React.FC = () => {
                   <User className="w-4 h-4 text-white" />
                 </div>
                 <ChevronDown
-                  className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${
-                    isProfileDropdownOpen ? 'rotate-180' : ''
-                  }`}
+                  className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${isProfileDropdownOpen ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
 
@@ -189,6 +183,7 @@ const CommonHeader: React.FC = () => {
                     <User className="w-4 h-4 mr-3" />
                     Profile
                   </Link>
+
                   <Link
                     to="/settings"
                     className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors"
@@ -197,7 +192,18 @@ const CommonHeader: React.FC = () => {
                     <Settings className="w-4 h-4 mr-3" />
                     Settings
                   </Link>
+
+                  <Link
+                    to="/support"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors"
+                    onClick={() => setIsProfileDropdownOpen(false)}
+                  >
+                    <HelpCircle className="w-4 h-4 mr-3" />
+                    Support
+                  </Link>
+
                   <div className="border-t border-gray-100 my-1"></div>
+
                   <button
                     onClick={handleLogout}
                     className="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 w-full text-left transition-colors"
