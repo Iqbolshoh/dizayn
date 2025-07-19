@@ -11,14 +11,29 @@ import {
 } from 'lucide-react';
 import { useProject } from '../contexts/ProjectContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 import SectionRenderer from '../components/SectionRenderer';
 
 const Preview: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const { projects, currentProject, setCurrentProject } = useProject();
   const { currentTheme } = useTheme();
   const [showHeader, setShowHeader] = useState(true);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'uz', name: 'O\'zbek', flag: '🇺🇿' },
+    { code: 'tj', name: 'Тоҷикӣ', flag: '🇹🇯' },
+  ];
+
+  const handleLanguageChange = (languageCode: string) => {
+    i18n.changeLanguage(languageCode);
+    setIsLanguageDropdownOpen(false);
+  };
 
   useEffect(() => {
     if (id) {
@@ -153,6 +168,32 @@ const Preview: React.FC = () => {
               <Globe className="w-4 h-4" />
               Publish
             </button>
+
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
+              >
+                <span>{languages.find(l => l.code === i18n.language)?.flag || '🇬🇧'}</span>
+                <span>{languages.find(l => l.code === i18n.language)?.name || 'English'}</span>
+              </button>
+
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageChange(language.code)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 w-full text-left transition-colors"
+                    >
+                      <span>{language.flag}</span>
+                      <span>{language.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -178,7 +219,7 @@ const Preview: React.FC = () => {
               </p>
               <button
                 onClick={() => navigate(`/editor/${currentProject.id}`)}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all font-semibold shadow-lg text-lg font-heading"
               >
                 Start Building
               </button>
@@ -207,7 +248,7 @@ const Preview: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-lg"
+          className="bg-red-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-lg"
         >
           <div className="w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
           <span className="font-medium font-primary">Preview Mode Active</span>

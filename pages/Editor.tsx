@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useProject } from '../contexts/ProjectContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 import SectionSelector from '../components/SectionSelector';
 import SectionRenderer from '../components/SectionRenderer';
 import ThemeCustomizer from '../components/ThemeCustomizer';
@@ -28,6 +29,7 @@ import AddSectionButton from '../components/AddSectionButton';
 const Editor: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const { projects, currentProject, setCurrentProject, reorderSections, createProject, isLoading } = useProject();
   const { currentTheme } = useTheme();
   const [showSectionSelector, setShowSectionSelector] = useState(false);
@@ -37,6 +39,19 @@ const Editor: React.FC = () => {
   const [editingSection, setEditingSection] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'uz', name: 'O\'zbek', flag: '🇺🇿' },
+    { code: 'tj', name: 'Тоҷикӣ', flag: '🇹🇯' },
+  ];
+
+  const handleLanguageChange = (languageCode: string) => {
+    i18n.changeLanguage(languageCode);
+    setIsLanguageDropdownOpen(false);
+  };
 
   useEffect(() => {
     if (id) {
@@ -283,6 +298,32 @@ const Editor: React.FC = () => {
                 </button>
               </div>
 
+              {/* Language Selector */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
+                >
+                  <span>{languages.find(l => l.code === i18n.language)?.flag || '🇬🇧'}</span>
+                  <span>{languages.find(l => l.code === i18n.language)?.name || 'English'}</span>
+                </button>
+
+                {isLanguageDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                    {languages.map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => handleLanguageChange(language.code)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 w-full text-left transition-colors"
+                      >
+                        <span>{language.flag}</span>
+                        <span>{language.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <button
                 onClick={handleExport}
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all text-sm font-semibold shadow-md"
@@ -310,7 +351,7 @@ const Editor: React.FC = () => {
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-lg">
                   <Layout className="w-6 h-6 text-white" />
-                </div>
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all disabled:opacity-50 font-semibold shadow-lg font-heading"
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
