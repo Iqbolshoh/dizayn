@@ -309,18 +309,18 @@ const Team: React.FC = () => {
               {[
                 {
                   icon: UserPlus,
-                  title: 'Invite Team Members',
-                  description: 'Add designers, editors, and viewers to your projects',
+                  title: t('team.upgrade.features.inviteMembers'),
+                  description: t('team.upgrade.features.inviteMembersDesc'),
                 },
                 {
                   icon: Shield,
-                  title: 'Role-Based Access',
-                  description: 'Control what each team member can see and edit',
+                  title: t('team.upgrade.features.roleBasedAccess'),
+                  description: t('team.upgrade.features.roleBasedAccessDesc'),
                 },
                 {
                   icon: Activity,
-                  title: 'Real-Time Collaboration',
-                  description: 'Work together simultaneously on the same project',
+                  title: t('team.upgrade.features.realTimeCollab'),
+                  description: t('team.upgrade.features.realTimeCollabDesc'),
                 },
               ].map(({ icon: Icon, title, description }, index) => (
                 <motion.div
@@ -344,13 +344,13 @@ const Team: React.FC = () => {
                 onClick={() => navigate('/billing')}
                 className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg text-lg font-heading"
               >
-                Upgrade to Pro
+               {t('team.upgrade.upgradeToPro')}
               </button>
               <button
                 onClick={() => navigate('/dashboard')}
                 className="px-8 py-4 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-semibold font-primary"
               >
-                Back to Dashboard
+               {t('team.upgrade.backToDashboard')}
               </button>
             </div>
           </motion.div>
@@ -361,12 +361,12 @@ const Team: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      <CommonHeader />
+               {t('team.inviteModal.personalMessage')}
 
       {/* Page Header */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
+               placeholder={t('team.inviteModal.messagePlaceholder')}
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
                 <Users className="w-6 h-6 text-white" />
@@ -378,13 +378,13 @@ const Team: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <button
+             {t('common.cancel')}
                 onClick={() => setShowInviteModal(true)}
                 className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-semibold shadow-lg font-heading"
               >
                 <UserPlus className="w-5 h-5" />
-                Invite Member
-              </button>
+               {t('team.inviteMember')}
+             {t('team.inviteModal.sendInvite')}
             </div>
           </div>
         </div>
@@ -395,10 +395,10 @@ const Team: React.FC = () => {
         {/* Tabs */}
         <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
           {[
-            { id: 'members', label: 'Team Members', icon: Users },
-            { id: 'invites', label: 'Pending Invites', icon: Mail },
-            { id: 'settings', label: 'Team Settings', icon: Settings },
-          ].map(({ id, label, icon: Icon }) => (
+           { id: 'members', label: t('team.tabs.members'), icon: Users },
+           { id: 'invites', label: t('team.tabs.invites'), icon: Mail },
+           { id: 'settings', label: t('team.tabs.settings'), icon: Settings },
+           <h3 className="text-lg font-semibold text-gray-900 font-heading">{t('team.inviteModal.title')}</h3>
             <button
               key={id}
               onClick={() => setActiveTab(id as any)}
@@ -427,7 +427,7 @@ const Team: React.FC = () => {
                   <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="text"
-                    placeholder="Search team members..."
+                   placeholder={t('team.searchMembers')}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
@@ -438,7 +438,7 @@ const Team: React.FC = () => {
                   onChange={(e) => setRoleFilter(e.target.value)}
                   className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 font-primary"
                 >
-                  <option value="all">All Roles</option>
+                 <option value="all">{t('team.allRoles')}</option>
                   {roles.map((role) => (
                     <option key={role.id} value={role.id}>
                       {role.name}
@@ -502,17 +502,17 @@ const Team: React.FC = () => {
                     <div className="space-y-2 text-sm text-gray-600 mb-4">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span className="font-primary">Joined {member.joinedAt.toLocaleDateString()}</span>
+                       <span className="font-primary">{t('team.joined')} {member.joinedAt.toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Activity className="w-4 h-4" />
                         <span className="font-primary">
-                          Last active {member.lastActive.toLocaleDateString()}
+                         {t('team.lastActive')} {member.lastActive.toLocaleDateString()}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Globe className="w-4 h-4" />
-                        <span className="font-primary">{member.projects.length} projects</span>
+                       <span className="font-primary">{member.projects.length} {t('team.projects')}</span>
                       </div>
                     </div>
 
@@ -521,14 +521,14 @@ const Team: React.FC = () => {
                         onClick={() => setShowMemberDetails(member.id)}
                         className="flex-1 px-3 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-medium font-primary"
                       >
-                        View Details
+                       {t('team.viewDetails')}
                       </button>
                       {member.role !== 'owner' && (
                         <button
                           onClick={() => handleRemoveMember(member.id)}
                           className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors font-medium font-primary"
                         >
-                          Remove
+                         {t('team.remove')}
                         </button>
                       )}
                     </div>
@@ -589,24 +589,24 @@ const Team: React.FC = () => {
                         {invite.status.charAt(0).toUpperCase() + invite.status.slice(1)}
                       </div>
 
-                      <button
+             <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('team.inviteModal.emailAddress')}</label>
                         onClick={() => handleCopyInviteLink(invite.id)}
                         className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                         title="Copy invite link"
                       >
-                        <Copy className="w-4 h-4 text-gray-600" />
+               placeholder={t('team.inviteModal.emailPlaceholder')}
                       </button>
 
                       <button
                         onClick={() => {
                           if (window.confirm('Cancel this invitation?')) {
-                            alert('Invitation cancelled');
+             <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('team.inviteModal.role')}</label>
                           }
                         }}
-                        className="p-2 hover:bg-red-100 rounded-lg transition-colors"
+                       {t('team.invites.invitedAs')} {invite.role} {t('team.invites.by')} {invite.invitedBy}
                         title="Cancel invitation"
                       >
-                        <X className="w-4 h-4 text-red-600" />
+                       {t('team.invites.expires')} {invite.expiresAt.toLocaleDateString()}
                       </button>
                     </div>
                   </div>

@@ -282,7 +282,7 @@ const Editor: React.FC = () => {
                     <Save className="w-4 h-4" />
                   )}
                   {isSaving ? 'Saving...' : editingSection ? 'Done' : 'Save'}
-                </button>
+                {t('editor.addSection')}
               </div>
 
               <button
@@ -290,7 +290,7 @@ const Editor: React.FC = () => {
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all text-sm font-semibold shadow-md"
               >
                 <Download className="w-4 h-4" />
-                Export HTML
+                {t('editor.theme')}
               </button>
             </motion.div>
           )}
@@ -330,7 +330,7 @@ const Editor: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Plus className="w-4 h-4" />
-              Add Section
+             {t('editor.addSection')}
             </button>
 
             <button
@@ -338,7 +338,7 @@ const Editor: React.FC = () => {
               className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Palette className="w-4 h-4" />
-              Customize
+             {t('editor.customize')}
             </button>
 
             <button
@@ -346,7 +346,7 @@ const Editor: React.FC = () => {
               className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Eye className="w-4 h-4" />
-              Preview
+             {t('editor.preview')}
             </button>
 
             <button
@@ -361,7 +361,7 @@ const Editor: React.FC = () => {
               ) : (
                 <Save className="w-4 h-4" />
               )}
-              {isSaving ? 'Saving...' : editingSection ? 'Done Editing' : 'Save'}
+             {isSaving ? t('editor.saving') : editingSection ? t('editor.doneEditing') : t('editor.save')}
             </button>
 
             <button
@@ -369,7 +369,7 @@ const Editor: React.FC = () => {
               className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-lg font-heading"
             >
               <Code className="w-4 h-4" />
-              Export
+             {t('editor.export')}
             </button>
           </div>
         </div>
@@ -397,17 +397,17 @@ const Editor: React.FC = () => {
                         </div>
                       </div>
                       <h3 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
-                        Ready to Build Something Amazing?
+                       {t('editor.emptyState.title')}
                       </h3>
-                      <p className="text-gray-600 mb-8 text-lg leading-relaxed font-primary">
-                        Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.
+                {t('editor.preview')}
+                       {t('editor.emptyState.description')}
                       </p>
                       <button
                         onClick={() => handleAddSection()}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
                       >
                         <Plus className="w-5 h-5" />
-                        Add Your First Section
+                       {t('editor.emptyState.addFirstSection')}
                       </button>
                     </div>
                   </div>
@@ -452,7 +452,7 @@ const Editor: React.FC = () => {
                       </React.Fragment>
                     ))
                 )}
-              </div>
+                {isSaving ? t('editor.saving') : editingSection ? t('editor.done') : t('editor.save')}
             </SortableContext>
           </DndContext>
         </div>

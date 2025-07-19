@@ -289,7 +289,7 @@ const Profile: React.FC = () => {
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900 font-heading">Personal Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 font-heading">{t('profile.personalInfo.title')}</h3>
                 <button
                   onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
                   disabled={isSaving}
@@ -302,13 +302,13 @@ const Profile: React.FC = () => {
                   ) : (
                     <Edit3 className="w-4 h-4" />
                   )}
-                  {isSaving ? 'Saving...' : isEditing ? 'Save' : 'Edit'}
+                  {isSaving ? t('profile.personalInfo.saving') : isEditing ? t('profile.personalInfo.save') : t('profile.personalInfo.edit')}
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Full Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.personalInfo.fullName')}</label>
                   <input
                     type="text"
                     value={profile.name}
@@ -319,7 +319,7 @@ const Profile: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.personalInfo.email')}</label>
                   <input
                     type="email"
                     value={profile.email}
@@ -330,36 +330,36 @@ const Profile: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Company</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.personalInfo.company')}</label>
                   <input
                     type="text"
                     value={profile.company}
                     onChange={(e) => setProfile({ ...profile, company: e.target.value })}
                     disabled={!isEditing}
-                    placeholder="Your company name"
+                    placeholder={t('profile.personalInfo.companyPlaceholder')}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Website</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.personalInfo.website')}</label>
                   <input
                     type="url"
                     value={profile.website}
                     onChange={(e) => setProfile({ ...profile, website: e.target.value })}
                     disabled={!isEditing}
-                    placeholder="https://yourwebsite.com"
+                    placeholder={t('profile.personalInfo.websitePlaceholder')}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 font-primary"
                   />
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Bio</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.personalInfo.bio')}</label>
                   <textarea
                     value={profile.bio}
                     onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
                     disabled={!isEditing}
-                    placeholder="Tell us about yourself..."
+                    placeholder={t('profile.personalInfo.bioPlaceholder')}
                     rows={3}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500 resize-none font-primary"
                   />
@@ -374,17 +374,17 @@ const Profile: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">Preferences</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">{t('profile.preferences.title')}</h3>
 
               <div className="space-y-6">
                 {/* Theme */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Theme</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">{t('profile.preferences.theme')}</label>
                   <div className="grid grid-cols-3 gap-3">
                     {[
-                      { value: 'light', label: 'Light', icon: Sun },
-                      { value: 'dark', label: 'Dark', icon: Moon },
-                      { value: 'auto', label: 'Auto', icon: Monitor },
+                      { value: 'light', label: t('profile.preferences.light'), icon: Sun },
+                      { value: 'dark', label: t('profile.preferences.dark'), icon: Moon },
+                      { value: 'auto', label: t('profile.preferences.auto'), icon: Monitor },
                     ].map(({ value, label, icon: Icon }) => (
                       <button
                         key={value}
@@ -403,28 +403,28 @@ const Profile: React.FC = () => {
 
                 {/* Language */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Language</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">{t('profile.preferences.language')}</label>
                   <select
                     value={preferences.language}
                     onChange={(e) => setPreferences({ ...preferences, language: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="uz">O'zbek</option>
+                    <option value="en">{t('profile.preferences.english')}</option>
+                    <option value="es">{t('profile.preferences.spanish')}</option>
+                    <option value="fr">{t('profile.preferences.french')}</option>
+                    <option value="de">{t('profile.preferences.german')}</option>
+                    <option value="uz">{t('profile.preferences.uzbek')}</option>
                   </select>
                 </div>
 
                 {/* Notifications */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">Notifications</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">{t('profile.preferences.notifications')}</label>
                   <div className="space-y-3">
                     {[
-                      { key: 'email', label: 'Email notifications', description: 'Receive updates via email' },
-                      { key: 'push', label: 'Push notifications', description: 'Browser notifications' },
-                      { key: 'marketing', label: 'Marketing emails', description: 'Product updates and tips' },
+                      { key: 'email', label: t('profile.preferences.emailNotifications'), description: t('profile.preferences.emailNotificationsDesc') },
+                      { key: 'push', label: t('profile.preferences.pushNotifications'), description: t('profile.preferences.pushNotificationsDesc') },
+                      { key: 'marketing', label: t('profile.preferences.marketingEmails'), description: t('profile.preferences.marketingEmailsDesc') },
                     ].map(({ key, label, description }) => (
                       <div key={key} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                         <div>
@@ -463,7 +463,7 @@ const Profile: React.FC = () => {
               transition={{ delay: 0.3 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">Security</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-6 font-heading">{t('profile.security.title')}</h3>
 
               <div className="space-y-4">
                 <button
@@ -473,8 +473,8 @@ const Profile: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <Key className="w-5 h-5 text-gray-600" />
                     <div className="text-left">
-                      <div className="font-medium text-gray-900 font-primary">Change Password</div>
-                      <div className="text-sm text-gray-600 font-primary">Update your account password</div>
+                      <div className="font-medium text-gray-900 font-primary">{t('profile.security.changePassword')}</div>
+                      <div className="text-sm text-gray-600 font-primary">{t('profile.security.changePasswordDesc')}</div>
                     </div>
                   </div>
                   <Edit3 className="w-4 h-4 text-gray-600" />
@@ -487,8 +487,8 @@ const Profile: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <Trash2 className="w-5 h-5 text-red-600" />
                     <div className="text-left">
-                      <div className="font-medium text-red-900 font-primary">Delete Account</div>
-                      <div className="text-sm text-red-600 font-primary">Permanently delete your account and data</div>
+                      <div className="font-medium text-red-900 font-primary">{t('profile.security.deleteAccount')}</div>
+                      <div className="text-sm text-red-600 font-primary">{t('profile.security.deleteAccountDesc')}</div>
                     </div>
                   </div>
                   <AlertCircle className="w-4 h-4 text-red-600" />
@@ -508,7 +508,7 @@ const Profile: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-md"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 font-heading">Change Password</h3>
+              <h3 className="text-lg font-semibold text-gray-900 font-heading">{t('profile.security.changePassword')}</h3>
               <button
                 onClick={() => setShowPasswordForm(false)}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -519,7 +519,7 @@ const Profile: React.FC = () => {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Current Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.security.currentPassword')}</label>
                 <div className="relative">
                   <input
                     type={showCurrentPassword ? 'text' : 'password'}
@@ -538,7 +538,7 @@ const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.security.newPassword')}</label>
                 <div className="relative">
                   <input
                     type={showNewPassword ? 'text' : 'password'}
@@ -557,7 +557,7 @@ const Profile: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Confirm New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('profile.security.confirmNewPassword')}</label>
                 <div className="relative">
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
@@ -581,13 +581,13 @@ const Profile: React.FC = () => {
                 onClick={() => setShowPasswordForm(false)}
                 className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handlePasswordChange}
                 className="flex-1 px-4 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
               >
-                Update Password
+                {t('profile.security.updatePassword')}
               </button>
             </div>
           </motion.div>
@@ -606,9 +606,9 @@ const Profile: React.FC = () => {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Delete Account</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('profile.security.deleteAccount')}</h3>
               <p className="text-gray-600 font-primary">
-                This action cannot be undone. All your projects and data will be permanently deleted.
+                {t('profile.security.deleteAccountWarning')}
               </p>
             </div>
 
@@ -617,13 +617,13 @@ const Profile: React.FC = () => {
                 onClick={() => setShowDeleteConfirm(false)}
                 className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleDeleteAccount}
                 className="flex-1 px-4 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary"
               >
-                Delete Account
+                {t('profile.security.deleteAccount')}
               </button>
             </div>
           </motion.div>

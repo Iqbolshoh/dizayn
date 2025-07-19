@@ -205,7 +205,7 @@ const Support: React.FC = () => {
             <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Search for help articles, tutorials, or FAQs..."
+              placeholder={t('support.searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white shadow-lg text-lg font-primary"
@@ -216,10 +216,10 @@ const Support: React.FC = () => {
         {/* Tabs */}
         <div className="flex space-x-1 bg-gray-100 rounded-xl p-1 mb-8">
           {[
-            { id: 'faq', label: 'FAQ', icon: HelpCircle },
-            { id: 'tickets', label: 'Support Tickets', icon: MessageSquare },
-            { id: 'tutorials', label: 'Video Tutorials', icon: Video },
-            { id: 'contact', label: 'Contact Us', icon: Mail },
+            { id: 'faq', label: t('support.tabs.faq'), icon: HelpCircle },
+            { id: 'tickets', label: t('support.tabs.tickets'), icon: MessageSquare },
+            { id: 'tutorials', label: t('support.tabs.tutorials'), icon: Video },
+            { id: 'contact', label: t('support.tabs.contact'), icon: Mail },
           ].map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -244,7 +244,7 @@ const Support: React.FC = () => {
           >
             {/* Categories */}
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 font-heading">Browse by Category</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 font-heading">{t('support.faq.browseByCategory')}</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {faqCategories.map(({ id, name, icon: Icon }) => (
                   <button
@@ -296,26 +296,26 @@ const Support: React.FC = () => {
                           <p className="text-gray-700 leading-relaxed mb-4 font-primary">{faq.answer}</p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                              <span className="text-sm text-gray-500 font-primary">Was this helpful?</span>
+                              <span className="text-sm text-gray-500 font-primary">{t('support.faq.wasHelpful')}</span>
                               <div className="flex items-center gap-2">
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, true)}
                                   className="flex items-center gap-1 px-3 py-1 text-sm text-green-600 hover:bg-green-50 rounded-lg transition-colors font-primary"
                                 >
                                   <ThumbsUp className="w-4 h-4" />
-                                  Yes
+                                  {t('support.faq.yes')}
                                 </button>
                                 <button
                                   onClick={() => handleFAQHelpful(faq.id, false)}
                                   className="flex items-center gap-1 px-3 py-1 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors font-primary"
                                 >
                                   <ThumbsDown className="w-4 h-4" />
-                                  No
+                                  {t('support.faq.no')}
                                 </button>
                               </div>
                             </div>
                             <div className="text-sm text-gray-500 font-primary">
-                              {faq.views} views • {faq.helpful} helpful
+                              {faq.views} {t('support.faq.views')} • {faq.helpful} {t('support.faq.helpful')}
                             </div>
                           </div>
                         </div>
@@ -329,8 +329,8 @@ const Support: React.FC = () => {
             {filteredFAQ.length === 0 && (
               <div className="text-center py-12">
                 <HelpCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No results found</h3>
-                <p className="text-gray-600 font-primary">Try adjusting your search terms or browse different categories.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('support.faq.noResults')}</h3>
+                <p className="text-gray-600 font-primary">{t('support.faq.noResultsDesc')}</p>
               </div>
             )}
           </motion.div>
@@ -346,13 +346,13 @@ const Support: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
               <div className="p-6 border-b border-gray-200">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-gray-900 font-heading">Your Support Tickets</h2>
+                  <h2 className="text-lg font-semibold text-gray-900 font-heading">{t('support.tickets.yourTickets')}</h2>
                   <button
                     onClick={() => setShowTicketForm(true)}
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
                   >
                     <Plus className="w-4 h-4" />
-                    New Ticket
+                    {t('support.tickets.newTicket')}
                   </button>
                 </div>
               </div>
@@ -376,22 +376,22 @@ const Support: React.FC = () => {
                       </div>
                       <p className="text-gray-700 mb-3 font-primary">{ticket.description}</p>
                       <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <span className="font-primary">Category: {ticket.category}</span>
-                        <span className="font-primary">Priority: {ticket.priority}</span>
-                        <span className="font-primary">Created: {ticket.createdAt.toLocaleDateString()}</span>
+                        <span className="font-primary">{t('support.tickets.category')}: {ticket.category}</span>
+                        <span className="font-primary">{t('support.tickets.priority')}: {ticket.priority}</span>
+                        <span className="font-primary">{t('support.tickets.created')}: {ticket.createdAt.toLocaleDateString()}</span>
                       </div>
                     </div>
                   ))
                 ) : (
                   <div className="p-12 text-center">
                     <MessageSquare className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No support tickets</h3>
-                    <p className="text-gray-600 mb-4 font-primary">You haven't submitted any support tickets yet.</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('support.tickets.noTickets')}</h3>
+                    <p className="text-gray-600 mb-4 font-primary">{t('support.tickets.noTicketsDesc')}</p>
                     <button
                       onClick={() => setShowTicketForm(true)}
                       className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
                     >
-                      Submit Your First Ticket
+                      {t('support.tickets.submitFirst')}
                     </button>
                   </div>
                 )}
@@ -434,7 +434,7 @@ const Support: React.FC = () => {
                     <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4 font-primary">{tutorial.description}</p>
                     <div className="flex items-center justify-between text-sm text-gray-500">
-                      <span className="font-primary">{tutorial.views} views</span>
+                      <span className="font-primary">{tutorial.views} {t('support.tutorials.views')}</span>
                       <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded font-primary">
                         {tutorial.category}
                       </span>
@@ -460,12 +460,12 @@ const Support: React.FC = () => {
                     <Mail className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 font-heading">Email Support</h3>
-                    <p className="text-sm text-gray-600 font-primary">Get help via email</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">{t('support.contact.emailSupport')}</h3>
+                    <p className="text-sm text-gray-600 font-primary">{t('support.contact.emailSupportDesc')}</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4 font-primary">
-                  Send us an email and we'll respond within 24 hours during business days.
+                  {t('support.contact.emailSupportText')}
                 </p>
                 <a
                   href="mailto:support@templates.uz"
@@ -482,12 +482,12 @@ const Support: React.FC = () => {
                     <MessageSquare className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 font-heading">Telegram Bot</h3>
-                    <p className="text-sm text-gray-600 font-primary">Instant chat support</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">{t('support.contact.telegramBot')}</h3>
+                    <p className="text-sm text-gray-600 font-primary">{t('support.contact.telegramBotDesc')}</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4 font-primary">
-                  Chat with our support bot on Telegram for quick answers and assistance.
+                  {t('support.contact.telegramBotText')}
                 </p>
                 <a
                   href="https://t.me/templates_uz_bot"
@@ -496,7 +496,7 @@ const Support: React.FC = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  Open Telegram Bot
+                  {t('support.contact.openTelegramBot')}
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
@@ -507,22 +507,22 @@ const Support: React.FC = () => {
                     <Clock className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 font-heading">Response Times</h3>
-                    <p className="text-sm text-gray-600 font-primary">Our commitment to you</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">{t('support.contact.responseTimes')}</h3>
+                    <p className="text-sm text-gray-600 font-primary">{t('support.contact.responseTimesDesc')}</p>
                   </div>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600 font-primary">Email Support:</span>
-                    <span className="font-medium text-gray-900 font-primary">24 hours</span>
+                    <span className="text-gray-600 font-primary">{t('support.contact.emailSupport')}:</span>
+                    <span className="font-medium text-gray-900 font-primary">{t('support.contact.24hours')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 font-primary">Telegram Bot:</span>
-                    <span className="font-medium text-gray-900 font-primary">Instant</span>
+                    <span className="text-gray-600 font-primary">{t('support.contact.telegramBot')}:</span>
+                    <span className="font-medium text-gray-900 font-primary">{t('support.contact.instant')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 font-primary">Critical Issues:</span>
-                    <span className="font-medium text-gray-900 font-primary">4 hours</span>
+                    <span className="text-gray-600 font-primary">{t('support.contact.criticalIssues')}:</span>
+                    <span className="font-medium text-gray-900 font-primary">{t('support.contact.4hours')}</span>
                   </div>
                 </div>
               </div>
@@ -533,16 +533,16 @@ const Support: React.FC = () => {
                     <Book className="w-5 h-5 text-yellow-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 font-heading">Documentation</h3>
-                    <p className="text-sm text-gray-600 font-primary">Comprehensive guides</p>
+                    <h3 className="font-semibold text-gray-900 font-heading">{t('support.contact.documentation')}</h3>
+                    <p className="text-sm text-gray-600 font-primary">{t('support.contact.documentationDesc')}</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4 font-primary">
-                  Browse our detailed documentation for step-by-step guides and tutorials.
+                  {t('support.contact.documentationText')}
                 </p>
                 <button className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-xl hover:bg-yellow-700 transition-colors font-medium font-primary">
                   <Book className="w-4 h-4" />
-                  View Documentation
+                  {t('support.contact.viewDocumentation')}
                 </button>
               </div>
             </div>
@@ -559,7 +559,7 @@ const Support: React.FC = () => {
             className="bg-white rounded-2xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 font-heading">Submit Support Ticket</h3>
+              <h3 className="text-xl font-semibold text-gray-900 font-heading">{t('support.ticketForm.title')}</h3>
               <button
                 onClick={() => setShowTicketForm(false)}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -570,63 +570,63 @@ const Support: React.FC = () => {
 
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Subject *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('support.ticketForm.subject')} *</label>
                 <input
                   type="text"
                   value={ticketForm.subject}
                   onChange={(e) => setTicketForm({ ...ticketForm, subject: e.target.value })}
-                  placeholder="Brief description of your issue"
+                  placeholder={t('support.ticketForm.subjectPlaceholder')}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Category</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('support.ticketForm.category')}</label>
                   <select
                     value={ticketForm.category}
                     onChange={(e) => setTicketForm({ ...ticketForm, category: e.target.value as any })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
-                    <option value="question">General Question</option>
-                    <option value="bug">Bug Report</option>
-                    <option value="feature">Feature Request</option>
-                    <option value="billing">Billing Issue</option>
+                    <option value="question">{t('support.ticketForm.generalQuestion')}</option>
+                    <option value="bug">{t('support.ticketForm.bugReport')}</option>
+                    <option value="feature">{t('support.ticketForm.featureRequest')}</option>
+                    <option value="billing">{t('support.ticketForm.billingIssue')}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Priority</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('support.ticketForm.priority')}</label>
                   <select
                     value={ticketForm.priority}
                     onChange={(e) => setTicketForm({ ...ticketForm, priority: e.target.value as any })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                   >
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                    <option value="urgent">Urgent</option>
+                    <option value="low">{t('support.ticketForm.low')}</option>
+                    <option value="medium">{t('support.ticketForm.medium')}</option>
+                    <option value="high">{t('support.ticketForm.high')}</option>
+                    <option value="urgent">{t('support.ticketForm.urgent')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('support.ticketForm.email')}</label>
                 <input
                   type="email"
                   value={ticketForm.userEmail}
                   onChange={(e) => setTicketForm({ ...ticketForm, userEmail: e.target.value })}
-                  placeholder="your@email.com"
+                  placeholder={t('support.ticketForm.emailPlaceholder')}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">Description *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2 font-primary">{t('support.ticketForm.description')} *</label>
                 <textarea
                   value={ticketForm.description}
                   onChange={(e) => setTicketForm({ ...ticketForm, description: e.target.value })}
-                  placeholder="Please provide detailed information about your issue..."
+                  placeholder={t('support.ticketForm.descriptionPlaceholder')}
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none font-primary"
                 />
@@ -638,13 +638,13 @@ const Support: React.FC = () => {
                 onClick={() => setShowTicketForm(false)}
                 className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSubmitTicket}
                 className="flex-1 px-4 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
               >
-                Submit Ticket
+                {t('support.ticketForm.submitTicket')}
               </button>
             </div>
           </motion.div>

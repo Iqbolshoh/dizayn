@@ -373,13 +373,13 @@ const Billing: React.FC = () => {
                       <div className="text-2xl font-bold text-gray-900 font-heading">
                         {optimizedStorage.getAllProjects().length}
                       </div>
-                      <div className="text-sm text-gray-600 font-primary">Projects Used</div>
+                      <div className="text-sm text-gray-600 font-primary">{t('billing.overview.projectsUsed')}</div>
                     </div>
                     <div className="p-4 bg-gray-50 rounded-xl">
                       <div className="text-2xl font-bold text-gray-900 font-heading">
                         {optimizedStorage.getAllProjects().reduce((total, project) => total + project.sections.length, 0)}
                       </div>
-                      <div className="text-sm text-gray-600 font-primary">Total Sections</div>
+                      <div className="text-sm text-gray-600 font-primary">{t('billing.overview.totalSections')}</div>
                     </div>
                   </div>
 
@@ -388,7 +388,7 @@ const Billing: React.FC = () => {
                       onClick={() => handleUpgrade(currentPlan === 'free' ? 'pro' : 'enterprise')}
                       className="w-full px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl hover:opacity-90 transition-all font-semibold shadow-lg font-heading"
                     >
-                      {currentPlan === 'free' ? 'Upgrade to Pro' : 'Upgrade to Enterprise'}
+                      {currentPlan === 'free' ? t('billing.overview.upgradeToPro') : t('billing.overview.upgradeToEnterprise')}
                     </button>
                   )}
                 </div>
@@ -404,7 +404,7 @@ const Billing: React.FC = () => {
                       onClick={() => setShowCoinModal(true)}
                       className="mt-2 text-sm text-red-600 hover:text-red-700 font-medium font-primary"
                     >
-                      Buy more coins →
+                      {t('billing.overview.buyMoreCoins')} →
                     </button>
                   </div>
 
@@ -412,9 +412,9 @@ const Billing: React.FC = () => {
                     <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                       <div className="flex items-center gap-2 mb-2">
                         <Calendar className="w-5 h-5 text-green-600" />
-                        <span className="font-semibold text-green-900 font-primary">Next Billing</span>
+                        <span className="font-semibold text-green-900 font-primary">{t('billing.overview.nextBilling')}</span>
                       </div>
-                      <div className="text-sm text-green-700 font-primary">February 15, 2024</div>
+                      <div className="text-sm text-green-700 font-primary">{t('billing.overview.nextBillingDate')}</div>
                       <div className="text-lg font-bold text-green-900 font-heading">
                         ${currentPlan === 'pro' ? '29.99' : '99.99'}
                       </div>
@@ -506,7 +506,7 @@ const Billing: React.FC = () => {
                               : 'bg-primary-500 text-white hover:bg-primary-600'
                           } font-heading`}
                       >
-                        {isCurrentPlan ? 'Current Plan' : `Upgrade to ${plan.name}`}
+                        {isCurrentPlan ? t('billing.plans.currentPlan') : t('billing.plans.upgradeTo', { plan: plan.name })}
                       </button>
                     </div>
                   );
@@ -525,10 +525,10 @@ const Billing: React.FC = () => {
           >
             <div className="p-6 border-b border-gray-200">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-gray-900 font-heading">Payment History</h2>
+                <h2 className="text-xl font-semibold text-gray-900 font-heading">{t('billing.history.title')}</h2>
                 <button className="flex items-center gap-2 px-4 py-2 text-primary-600 hover:bg-primary-50 rounded-xl transition-colors font-medium font-primary">
                   <Download className="w-4 h-4" />
-                  Export
+                  {t('billing.history.export')}
                 </button>
               </div>
             </div>
@@ -537,11 +537,11 @@ const Billing: React.FC = () => {
               <table className="w-full">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Date</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Description</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Amount</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Status</th>
-                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">Invoice</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">{t('billing.history.date')}</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">{t('billing.history.description')}</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">{t('billing.history.amount')}</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">{t('billing.history.status')}</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900 font-primary">{t('billing.history.invoice')}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -576,8 +576,8 @@ const Billing: React.FC = () => {
             {paymentHistory.length === 0 && (
               <div className="text-center py-12">
                 <Receipt className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No payment history</h3>
-                <p className="text-gray-600 font-primary">Your payment history will appear here once you make your first purchase.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('billing.history.noHistory')}</h3>
+                <p className="text-gray-600 font-primary">{t('billing.history.noHistoryDesc')}</p>
               </div>
             )}
           </motion.div>
@@ -594,9 +594,9 @@ const Billing: React.FC = () => {
             <div className="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl p-6 text-white">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold mb-2 font-heading">Coin Balance</h2>
+                  <h2 className="text-2xl font-bold mb-2 font-heading">{t('billing.coins.balance')}</h2>
                   <div className="text-4xl font-bold font-heading">{coinBalance}</div>
-                  <p className="text-yellow-100 font-primary">Available coins for AI features</p>
+                  <p className="text-yellow-100 font-primary">{t('billing.coins.description')}</p>
                 </div>
                 <div className="text-right">
                   <Coins className="w-16 h-16 text-yellow-200 mb-4" />
@@ -604,7 +604,7 @@ const Billing: React.FC = () => {
                     onClick={() => setShowCoinModal(true)}
                     className="px-6 py-3 bg-white text-yellow-600 rounded-xl hover:bg-yellow-50 transition-colors font-semibold font-heading"
                   >
-                    Buy More Coins
+                    {t('billing.coins.buyMore')}
                   </button>
                 </div>
               </div>
@@ -612,7 +612,7 @@ const Billing: React.FC = () => {
 
             {/* Coin Packages */}
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Coin Packages</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('billing.coins.packages')}</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {coinPackages.map((pkg) => (
@@ -637,13 +637,13 @@ const Billing: React.FC = () => {
                         {pkg.coins + pkg.bonus}
                       </div>
                       <div className="text-sm text-gray-600 mb-2 font-primary">
-                        {pkg.coins} + {pkg.bonus} bonus
+                        {pkg.coins} + {pkg.bonus} {t('billing.coins.bonus')}
                       </div>
                       <div className="text-lg font-semibold text-gray-900 mb-3 font-heading">
                         ${pkg.price}
                       </div>
                       <div className="text-xs text-gray-500 font-primary">
-                        ${(pkg.price / (pkg.coins + pkg.bonus)).toFixed(3)} per coin
+                        ${(pkg.price / (pkg.coins + pkg.bonus)).toFixed(3)} {t('billing.coins.perCoin')}
                       </div>
                     </div>
                   </div>
@@ -654,7 +654,7 @@ const Billing: React.FC = () => {
             {/* Transaction History */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
               <div className="p-6 border-b border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-900 font-heading">Coin Transaction History</h3>
+                <h3 className="text-xl font-semibold text-gray-900 font-heading">{t('billing.coins.transactionHistory')}</h3>
               </div>
 
               <div className="divide-y divide-gray-200">
@@ -674,10 +674,10 @@ const Billing: React.FC = () => {
                     <div className="text-right">
                       <div className={`font-semibold font-primary ${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'
                         }`}>
-                        {transaction.amount > 0 ? '+' : ''}{transaction.amount} coins
+                        {transaction.amount > 0 ? '+' : ''}{transaction.amount} {t('billing.coins.coins')}
                       </div>
                       <div className="text-sm text-gray-600 font-primary">
-                        Balance: {transaction.balance}
+                        {t('billing.coins.balance')}: {transaction.balance}
                       </div>
                     </div>
                   </div>
@@ -687,8 +687,8 @@ const Billing: React.FC = () => {
               {coinHistory.length === 0 && (
                 <div className="text-center py-12">
                   <Coins className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">No coin transactions</h3>
-                  <p className="text-gray-600 font-primary">Your coin transaction history will appear here.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('billing.coins.noTransactions')}</h3>
+                  <p className="text-gray-600 font-primary">{t('billing.coins.noTransactionsDesc')}</p>
                 </div>
               )}
             </div>
@@ -708,9 +708,9 @@ const Billing: React.FC = () => {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">Upgrade Plan</h3>
+              <h3 className="text-lg font-semibold text-secondary-900 mb-2 font-heading">{t('billing.modals.upgradePlan')}</h3>
               <p className="text-secondary-600 font-primary">
-                Upgrade to {selectedPlan} plan and unlock premium features.
+                {t('billing.modals.upgradeDescription', { plan: selectedPlan })}
               </p>
             </div>
 
@@ -719,13 +719,13 @@ const Billing: React.FC = () => {
                 onClick={() => setShowUpgradeModal(false)}
                 className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={confirmUpgrade}
                 className="flex-1 px-4 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
               >
-                Upgrade Now
+                {t('billing.modals.upgradeNow')}
               </button>
             </div>
           </motion.div>
@@ -744,9 +744,9 @@ const Billing: React.FC = () => {
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Coins className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">Purchase Coins</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">{t('billing.modals.purchaseCoins')}</h3>
               <p className="text-gray-600 font-primary">
-                Buy coins to use AI features and premium templates.
+                {t('billing.modals.purchaseCoinsDesc')}
               </p>
             </div>
 
@@ -764,7 +764,7 @@ const Billing: React.FC = () => {
                     <div>
                       <div className="font-semibold text-gray-900 font-primary">{pkg.name}</div>
                       <div className="text-sm text-gray-600 font-primary">
-                        {pkg.coins} coins + {pkg.bonus} bonus
+                        {pkg.coins} {t('billing.coins.coins')} + {pkg.bonus} {t('billing.coins.bonus')}
                       </div>
                     </div>
                     <div className="text-lg font-bold text-gray-900 font-heading">
@@ -780,14 +780,14 @@ const Billing: React.FC = () => {
                 onClick={() => setShowCoinModal(false)}
                 className="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={confirmCoinPurchase}
                 disabled={!selectedCoinPackage}
                 className="flex-1 px-4 py-3 bg-yellow-600 text-white rounded-xl hover:bg-yellow-700 transition-colors font-medium disabled:opacity-50 font-primary"
               >
-                Purchase
+                {t('billing.modals.purchase')}
               </button>
             </div>
           </motion.div>

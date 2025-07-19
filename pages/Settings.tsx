@@ -220,7 +220,7 @@ const Settings: React.FC = () => {
                   className="flex items-center gap-2 px-3 py-2 bg-green-100 text-green-700 rounded-xl border border-green-200"
                 >
                   <Check className="w-4 h-4" />
-                  <span className="font-medium font-primary">Saved!</span>
+                  <span className="font-medium font-primary">{t('settings.saved')}</span>
                 </motion.div>
               )}
 
@@ -234,7 +234,7 @@ const Settings: React.FC = () => {
                 ) : (
                   <Save className="w-4 h-4" />
                 )}
-                {isSaving ? 'Saving...' : 'Save Changes'}
+                {isSaving ? t('settings.saving') : t('settings.saveChanges')}
               </button>
             </div>
           </div>
@@ -258,7 +258,7 @@ const Settings: React.FC = () => {
                       }`}
                   >
                     <Icon className="w-5 h-5" />
-                    <span className="font-primary">{label}</span>
+                    <span className="font-primary">{t(`settings.tabs.${id}`)}</span>
                   </button>
                 ))}
               </nav>
@@ -275,14 +275,14 @@ const Settings: React.FC = () => {
                 className="space-y-6"
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">General Settings</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.general.title')}</h2>
 
                   <div className="space-y-6">
                     {/* Language */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
                         <Languages className="w-4 h-4 inline mr-2" />
-                        Language
+                        {t('settings.general.language')}
                       </label>
                       <select
                         value={settings.language}
@@ -301,7 +301,7 @@ const Settings: React.FC = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
                         <Clock className="w-4 h-4 inline mr-2" />
-                        Timezone
+                        {t('settings.general.timezone')}
                       </label>
                       <select
                         value={settings.timezone}
@@ -320,13 +320,13 @@ const Settings: React.FC = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
                         <Palette className="w-4 h-4 inline mr-2" />
-                        Theme
+                        {t('settings.general.theme')}
                       </label>
                       <div className="grid grid-cols-3 gap-3">
                         {[
-                          { value: 'light', label: 'Light', icon: Sun },
-                          { value: 'dark', label: 'Dark', icon: Moon },
-                          { value: 'auto', label: 'Auto', icon: Monitor },
+                          { value: 'light', label: t('settings.general.light'), icon: Sun },
+                          { value: 'dark', label: t('settings.general.dark'), icon: Moon },
+                          { value: 'auto', label: t('settings.general.auto'), icon: Monitor },
                         ].map(({ value, label, icon: Icon }) => (
                           <button
                             key={value}
@@ -347,7 +347,7 @@ const Settings: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
-                          Date Format
+                          {t('settings.general.dateFormat')}
                         </label>
                         <select
                           value={settings.dateFormat}
@@ -362,15 +362,15 @@ const Settings: React.FC = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
-                          Time Format
+                          {t('settings.general.timeFormat')}
                         </label>
                         <select
                           value={settings.timeFormat}
                           onChange={(e) => setSettings({ ...settings, timeFormat: e.target.value })}
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 font-primary"
                         >
-                          <option value="12h">12 Hour</option>
-                          <option value="24h">24 Hour</option>
+                          <option value="12h">{t('settings.general.12hour')}</option>
+                          <option value="24h">{t('settings.general.24hour')}</option>
                         </select>
                       </div>
                     </div>
@@ -387,50 +387,50 @@ const Settings: React.FC = () => {
                 className="space-y-6"
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Notification Preferences</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.notifications.title')}</h2>
 
                   <div className="space-y-6">
                     {[
                       {
                         key: 'emailNotifications',
-                        label: 'Email Notifications',
-                        description: 'Receive important updates via email',
+                        label: t('settings.notifications.emailNotifications'),
+                        description: t('settings.notifications.emailNotificationsDesc'),
                         icon: Mail,
                       },
                       {
                         key: 'pushNotifications',
-                        label: 'Push Notifications',
-                        description: 'Browser notifications for real-time updates',
+                        label: t('settings.notifications.pushNotifications'),
+                        description: t('settings.notifications.pushNotificationsDesc'),
                         icon: Smartphone,
                       },
                       {
                         key: 'marketingEmails',
-                        label: 'Marketing Emails',
-                        description: 'Product updates, tips, and promotional content',
+                        label: t('settings.notifications.marketingEmails'),
+                        description: t('settings.notifications.marketingEmailsDesc'),
                         icon: Bell,
                       },
                       {
                         key: 'projectUpdates',
-                        label: 'Project Updates',
-                        description: 'Notifications when projects are modified',
+                        label: t('settings.notifications.projectUpdates'),
+                        description: t('settings.notifications.projectUpdatesDesc'),
                         icon: Layout,
                       },
                       {
                         key: 'teamInvites',
-                        label: 'Team Invitations',
-                        description: 'Notifications for team collaboration requests',
+                        label: t('settings.notifications.teamInvites'),
+                        description: t('settings.notifications.teamInvitesDesc'),
                         icon: Globe,
                       },
                       {
                         key: 'systemAlerts',
-                        label: 'System Alerts',
-                        description: 'Important system maintenance and security updates',
+                        label: t('settings.notifications.systemAlerts'),
+                        description: t('settings.notifications.systemAlertsDesc'),
                         icon: AlertCircle,
                       },
                       {
                         key: 'weeklyDigest',
-                        label: 'Weekly Digest',
-                        description: 'Summary of your activity and achievements',
+                        label: t('settings.notifications.weeklyDigest'),
+                        description: t('settings.notifications.weeklyDigestDesc'),
                         icon: Clock,
                       },
                     ].map(({ key, label, description, icon: Icon }) => (
@@ -474,20 +474,20 @@ const Settings: React.FC = () => {
                 className="space-y-6"
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Privacy & Security</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.privacy.title')}</h2>
 
                   <div className="space-y-6">
                     {/* Profile Visibility */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
                         <Eye className="w-4 h-4 inline mr-2" />
-                        Profile Visibility
+                        {t('settings.privacy.profileVisibility')}
                       </label>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                         {[
-                          { value: 'public', label: 'Public', description: 'Visible to everyone' },
-                          { value: 'private', label: 'Private', description: 'Only visible to you' },
-                          { value: 'team', label: 'Team Only', description: 'Visible to team members' },
+                          { value: 'public', label: t('settings.privacy.public'), description: t('settings.privacy.publicDesc') },
+                          { value: 'private', label: t('settings.privacy.private'), description: t('settings.privacy.privateDesc') },
+                          { value: 'team', label: t('settings.privacy.teamOnly'), description: t('settings.privacy.teamOnlyDesc') },
                         ].map(({ value, label, description }) => (
                           <button
                             key={value}
@@ -508,18 +508,18 @@ const Settings: React.FC = () => {
                     {[
                       {
                         key: 'showEmail',
-                        label: 'Show Email Address',
-                        description: 'Display your email on your public profile',
+                        label: t('settings.privacy.showEmail'),
+                        description: t('settings.privacy.showEmailDesc'),
                       },
                       {
                         key: 'allowIndexing',
-                        label: 'Allow Search Engine Indexing',
-                        description: 'Let search engines index your public projects',
+                        label: t('settings.privacy.allowIndexing'),
+                        description: t('settings.privacy.allowIndexingDesc'),
                       },
                       {
                         key: 'dataCollection',
-                        label: 'Analytics Data Collection',
-                        description: 'Help improve our service with anonymous usage data',
+                        label: t('settings.privacy.dataCollection'),
+                        description: t('settings.privacy.dataCollectionDesc'),
                       },
                     ].map(({ key, label, description }) => (
                       <div key={key} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
@@ -558,14 +558,14 @@ const Settings: React.FC = () => {
               >
                 {/* Editor Settings */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Editor Settings</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.advanced.editorSettings')}</h2>
 
                   <div className="space-y-6">
                     {/* Auto Save */}
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                       <div>
-                        <div className="font-medium text-gray-900 font-primary">Auto Save</div>
-                        <div className="text-sm text-gray-600 font-primary">Automatically save changes while editing</div>
+                        <div className="font-medium text-gray-900 font-primary">{t('settings.advanced.autoSave')}</div>
+                        <div className="text-sm text-gray-600 font-primary">{t('settings.advanced.autoSaveDesc')}</div>
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, autoSave: !settings.autoSave })}
@@ -581,7 +581,7 @@ const Settings: React.FC = () => {
                     {settings.autoSave && (
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-3 font-primary">
-                          Auto Save Interval (seconds)
+                          {t('settings.advanced.autoSaveInterval')}
                         </label>
                         <input
                           type="number"
@@ -597,8 +597,8 @@ const Settings: React.FC = () => {
                     {/* Grid Settings */}
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                       <div>
-                        <div className="font-medium text-gray-900 font-primary">Show Grid</div>
-                        <div className="text-sm text-gray-600 font-primary">Display alignment grid in editor</div>
+                        <div className="font-medium text-gray-900 font-primary">{t('settings.advanced.showGrid')}</div>
+                        <div className="text-sm text-gray-600 font-primary">{t('settings.advanced.showGridDesc')}</div>
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, showGrid: !settings.showGrid })}
@@ -612,8 +612,8 @@ const Settings: React.FC = () => {
 
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                       <div>
-                        <div className="font-medium text-gray-900 font-primary">Snap to Grid</div>
-                        <div className="text-sm text-gray-600 font-primary">Automatically align elements to grid</div>
+                        <div className="font-medium text-gray-900 font-primary">{t('settings.advanced.snapToGrid')}</div>
+                        <div className="text-sm text-gray-600 font-primary">{t('settings.advanced.snapToGridDesc')}</div>
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, snapToGrid: !settings.snapToGrid })}
@@ -627,8 +627,8 @@ const Settings: React.FC = () => {
 
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                       <div>
-                        <div className="font-medium text-gray-900 font-primary">Keyboard Shortcuts</div>
-                        <div className="text-sm text-gray-600 font-primary">Enable keyboard shortcuts for faster editing</div>
+                        <div className="font-medium text-gray-900 font-primary">{t('settings.advanced.keyboardShortcuts')}</div>
+                        <div className="text-sm text-gray-600 font-primary">{t('settings.advanced.keyboardShortcutsDesc')}</div>
                       </div>
                       <button
                         onClick={() => setSettings({ ...settings, enableShortcuts: !settings.enableShortcuts })}
@@ -644,7 +644,7 @@ const Settings: React.FC = () => {
 
                 {/* Data Management */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Data Management</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.advanced.dataManagement')}</h2>
 
                   <div className="space-y-4">
                     <button
@@ -653,16 +653,16 @@ const Settings: React.FC = () => {
                     >
                       <Download className="w-5 h-5" />
                       <div className="text-left">
-                        <div className="font-medium font-primary">Export Settings</div>
-                        <div className="text-sm font-primary">Download your settings as a backup file</div>
+                        <div className="font-medium font-primary">{t('settings.advanced.exportSettings')}</div>
+                        <div className="text-sm font-primary">{t('settings.advanced.exportSettingsDesc')}</div>
                       </div>
                     </button>
 
                     <label className="w-full flex items-center gap-3 p-4 bg-gray-50 text-gray-700 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
                       <Upload className="w-5 h-5" />
                       <div className="text-left">
-                        <div className="font-medium font-primary">Import Settings</div>
-                        <div className="text-sm font-primary">Restore settings from a backup file</div>
+                        <div className="font-medium font-primary">{t('settings.advanced.importSettings')}</div>
+                        <div className="text-sm font-primary">{t('settings.advanced.importSettingsDesc')}</div>
                       </div>
                       <input
                         type="file"
@@ -674,7 +674,7 @@ const Settings: React.FC = () => {
 
                     <button
                       onClick={() => {
-                        if (window.confirm('Are you sure you want to reset all settings to default? This action cannot be undone.')) {
+                        if (window.confirm(t('settings.advanced.resetConfirm'))) {
                           optimizedStorage.clearCache();
                           window.location.reload();
                         }
@@ -683,8 +683,8 @@ const Settings: React.FC = () => {
                     >
                       <RefreshCw className="w-5 h-5" />
                       <div className="text-left">
-                        <div className="font-medium font-primary">Reset to Defaults</div>
-                        <div className="text-sm font-primary">Restore all settings to their default values</div>
+                        <div className="font-medium font-primary">{t('settings.advanced.resetToDefaults')}</div>
+                        <div className="text-sm font-primary">{t('settings.advanced.resetToDefaultsDesc')}</div>
                       </div>
                     </button>
                   </div>
@@ -692,12 +692,12 @@ const Settings: React.FC = () => {
 
                 {/* Debug Mode */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">Developer Options</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6 font-heading">{t('settings.advanced.developerOptions')}</h2>
 
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                     <div>
-                      <div className="font-medium text-gray-900 font-primary">Debug Mode</div>
-                      <div className="text-sm text-gray-600 font-primary">Show additional debugging information</div>
+                      <div className="font-medium text-gray-900 font-primary">{t('settings.advanced.debugMode')}</div>
+                      <div className="text-sm text-gray-600 font-primary">{t('settings.advanced.debugModeDesc')}</div>
                     </div>
                     <button
                       onClick={() => setSettings({ ...settings, debugMode: !settings.debugMode })}

@@ -1,41 +1,469 @@
 {
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "preview": "Preview",
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "confirm": "Confirm",
+    "submit": "Submit",
+    "create": "Create",
+    "update": "Update",
+    "remove": "Remove",
+    "add": "Add",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "export": "Export",
+    "import": "Import"
+  },
   "header": {
     "language": {
       "english": "English",
       "russian": "Russian", 
       "uzbek": "Uzbek",
       "tajik": "Tajik"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "templates": "Templates",
+      "billing": "Billing",
+      "team": "Team"
+    },
+    "profile": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "support": "Support",
+      "logout": "Logout"
     }
   },
   "billing": {
     "title": "Billing & Subscription",
-    "subtitle": "Manage your plan and payments"
+    "subtitle": "Manage your plan and payments",
+    "overview": {
+      "projectsUsed": "Projects Used",
+      "totalSections": "Total Sections",
+      "upgradeToPro": "Upgrade to Pro",
+      "upgradeToEnterprise": "Upgrade to Enterprise",
+      "buyMoreCoins": "Buy more coins",
+      "nextBilling": "Next Billing",
+      "nextBillingDate": "February 15, 2024"
+    },
+    "plans": {
+      "currentPlan": "Current Plan",
+      "upgradeTo": "Upgrade to {{plan}}"
+    },
+    "history": {
+      "title": "Payment History",
+      "export": "Export",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Amount",
+      "status": "Status",
+      "invoice": "Invoice",
+      "noHistory": "No payment history",
+      "noHistoryDesc": "Your payment history will appear here once you make your first purchase."
+    },
+    "coins": {
+      "balance": "Coin Balance",
+      "description": "Available coins for AI features",
+      "buyMore": "Buy More Coins",
+      "packages": "Coin Packages",
+      "bonus": "bonus",
+      "perCoin": "per coin",
+      "transactionHistory": "Coin Transaction History",
+      "coins": "coins",
+      "noTransactions": "No coin transactions",
+      "noTransactionsDesc": "Your coin transaction history will appear here."
+    },
+    "modals": {
+      "upgradePlan": "Upgrade Plan",
+      "upgradeDescription": "Upgrade to {{plan}} plan and unlock premium features.",
+      "upgradeNow": "Upgrade Now",
+      "purchaseCoins": "Purchase Coins",
+      "purchaseCoinsDesc": "Buy coins to use AI features and premium templates.",
+      "purchase": "Purchase"
+    }
   },
   "dashboard": {
     "title": "Dashboard",
-    "subtitle": "Create and manage your websites"
+    "subtitle": "Create and manage your websites",
+    "stats": {
+      "totalSites": "Total Sites",
+      "published": "Published",
+      "sections": "Sections",
+      "storage": "Storage"
+    },
+    "projects": {
+      "title": "Your Websites",
+      "subtitle": "Create and manage your mobile-friendly websites",
+      "sortLastUpdated": "Last Updated",
+      "sortDateCreated": "Date Created",
+      "sortName": "Name",
+      "noWebsitesFound": "No websites found",
+      "createFirst": "Create Your First Mobile Website",
+      "noMatch": "No websites match \"{{searchTerm}}\". Try a different search term.",
+      "createFirstDesc": "Click the button below to create your first professional website. It's easy and takes just a few minutes to get started.",
+      "createFirstButton": "Create Your First Site",
+      "sectionsCount": "{{count}} sections",
+      "live": "Live",
+      "draft": "Draft",
+      "preview": "Preview",
+      "duplicate": "Duplicate",
+      "delete": "Delete",
+      "edit": "Edit"
+    },
+    "createModal": {
+      "title": "Create New Website",
+      "subtitle": "Build your professional website",
+      "websiteName": "Website Name",
+      "websiteNamePlaceholder": "My Awesome Website",
+      "websiteUrl": "Website URL",
+      "websiteUrlPlaceholder": "my-website",
+      "urlAvailable": "URL is available",
+      "urlRules": "Only letters, numbers, hyphens, and underscores allowed",
+      "websiteCategory": "Website Category",
+      "seoKeywords": "SEO Keywords (Optional)",
+      "seoKeywordsPlaceholder": "business, website, professional, services",
+      "seoKeywordsDesc": "Separate keywords with commas",
+      "logoUpload": "Logo Upload (Optional)",
+      "chooseLogoFile": "Choose logo file",
+      "logoUploadDesc": "Recommended: PNG or SVG format, max 5MB. Will be automatically added to header, footer, and relevant sections.",
+      "faviconUpload": "Favicon Upload (Optional)",
+      "chooseFaviconFile": "Choose favicon file",
+      "faviconUploadDesc": "Recommended: ICO, PNG format, 16x16 or 32x32 pixels, max 1MB. Displayed in browser tabs.",
+      "creating": "Creating...",
+      "createWebsite": "Create Website"
+    }
+  },
+  "editor": {
+    "addSection": "Add Section",
+    "theme": "Theme",
+    "preview": "Preview",
+    "save": "Save",
+    "saving": "Saving...",
+    "done": "Done",
+    "doneEditing": "Done Editing",
+    "customize": "Customize",
+    "export": "Export",
+    "exportHtml": "Export HTML",
+    "emptyState": {
+      "title": "Ready to Build Something Amazing?",
+      "description": "Start by adding your first section. Choose from headers, heroes, content blocks, and more to create your perfect website.",
+      "addFirstSection": "Add Your First Section"
+    }
+  },
+  "preview": {
+    "livePreviewMode": "Live Preview Mode",
+    "edit": "Edit",
+    "share": "Share",
+    "publish": "Publish",
+    "emptyState": {
+      "title": "Your website is empty",
+      "description": "Add some sections to see your website come to life",
+      "startBuilding": "Start Building"
+    },
+    "previewModeActive": "Preview Mode Active"
   },
   "profile": {
     "title": "Profile Settings",
-    "subtitle": "Manage your account and preferences"
+    "subtitle": "Manage your account and preferences",
+    "personalInfo": {
+      "title": "Personal Information",
+      "saving": "Saving...",
+      "save": "Save",
+      "edit": "Edit",
+      "fullName": "Full Name",
+      "email": "Email",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "website": "Website",
+      "websitePlaceholder": "https://yourwebsite.com",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us about yourself..."
+    },
+    "preferences": {
+      "title": "Preferences",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "auto": "Auto",
+      "language": "Language",
+      "english": "English",
+      "spanish": "Español",
+      "french": "Français",
+      "german": "Deutsch",
+      "uzbek": "O'zbek",
+      "notifications": "Notifications",
+      "emailNotifications": "Email notifications",
+      "emailNotificationsDesc": "Receive updates via email",
+      "pushNotifications": "Push notifications",
+      "pushNotificationsDesc": "Browser notifications",
+      "marketingEmails": "Marketing emails",
+      "marketingEmailsDesc": "Product updates and tips"
+    },
+    "security": {
+      "title": "Security",
+      "changePassword": "Change Password",
+      "changePasswordDesc": "Update your account password",
+      "deleteAccount": "Delete Account",
+      "deleteAccountDesc": "Permanently delete your account and data",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "updatePassword": "Update Password",
+      "deleteAccountWarning": "This action cannot be undone. All your projects and data will be permanently deleted."
+    }
   },
   "settings": {
     "title": "Settings",
-    "subtitle": "Customize your experience"
+    "subtitle": "Customize your experience",
+    "saved": "Saved!",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes",
+    "tabs": {
+      "general": "General",
+      "notifications": "Notifications",
+      "privacy": "Privacy",
+      "advanced": "Advanced"
+    },
+    "general": {
+      "title": "General Settings",
+      "language": "Language",
+      "timezone": "Timezone",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "auto": "Auto",
+      "dateFormat": "Date Format",
+      "timeFormat": "Time Format",
+      "12hour": "12 Hour",
+      "24hour": "24 Hour"
+    },
+    "notifications": {
+      "title": "Notification Preferences",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDesc": "Receive important updates via email",
+      "pushNotifications": "Push Notifications",
+      "pushNotificationsDesc": "Browser notifications for real-time updates",
+      "marketingEmails": "Marketing Emails",
+      "marketingEmailsDesc": "Product updates, tips, and promotional content",
+      "projectUpdates": "Project Updates",
+      "projectUpdatesDesc": "Notifications when projects are modified",
+      "teamInvites": "Team Invitations",
+      "teamInvitesDesc": "Notifications for team collaboration requests",
+      "systemAlerts": "System Alerts",
+      "systemAlertsDesc": "Important system maintenance and security updates",
+      "weeklyDigest": "Weekly Digest",
+      "weeklyDigestDesc": "Summary of your activity and achievements"
+    },
+    "privacy": {
+      "title": "Privacy & Security",
+      "profileVisibility": "Profile Visibility",
+      "public": "Public",
+      "publicDesc": "Visible to everyone",
+      "private": "Private",
+      "privateDesc": "Only visible to you",
+      "teamOnly": "Team Only",
+      "teamOnlyDesc": "Visible to team members",
+      "showEmail": "Show Email Address",
+      "showEmailDesc": "Display your email on your public profile",
+      "allowIndexing": "Allow Search Engine Indexing",
+      "allowIndexingDesc": "Let search engines index your public projects",
+      "dataCollection": "Analytics Data Collection",
+      "dataCollectionDesc": "Help improve our service with anonymous usage data"
+    },
+    "advanced": {
+      "editorSettings": "Editor Settings",
+      "autoSave": "Auto Save",
+      "autoSaveDesc": "Automatically save changes while editing",
+      "autoSaveInterval": "Auto Save Interval (seconds)",
+      "showGrid": "Show Grid",
+      "showGridDesc": "Display alignment grid in editor",
+      "snapToGrid": "Snap to Grid",
+      "snapToGridDesc": "Automatically align elements to grid",
+      "keyboardShortcuts": "Keyboard Shortcuts",
+      "keyboardShortcutsDesc": "Enable keyboard shortcuts for faster editing",
+      "dataManagement": "Data Management",
+      "exportSettings": "Export Settings",
+      "exportSettingsDesc": "Download your settings as a backup file",
+      "importSettings": "Import Settings",
+      "importSettingsDesc": "Restore settings from a backup file",
+      "resetToDefaults": "Reset to Defaults",
+      "resetToDefaultsDesc": "Restore all settings to their default values",
+      "resetConfirm": "Are you sure you want to reset all settings to default? This action cannot be undone.",
+      "developerOptions": "Developer Options",
+      "debugMode": "Debug Mode",
+      "debugModeDesc": "Show additional debugging information"
+    }
   },
   "support": {
     "title": "Help Center",
     "subtitle": "Get help and support",
-    "helpQuestion": "How can we help you?"
+    "helpQuestion": "How can we help you?",
+    "searchPlaceholder": "Search for help articles, tutorials, or FAQs...",
+    "tabs": {
+      "faq": "FAQ",
+      "tickets": "Support Tickets",
+      "tutorials": "Video Tutorials",
+      "contact": "Contact Us"
+    },
+    "faq": {
+      "browseByCategory": "Browse by Category",
+      "noResults": "No results found",
+      "noResultsDesc": "Try adjusting your search terms or browse different categories.",
+      "wasHelpful": "Was this helpful?",
+      "yes": "Yes",
+      "no": "No",
+      "views": "views",
+      "helpful": "helpful"
+    },
+    "tickets": {
+      "yourTickets": "Your Support Tickets",
+      "newTicket": "New Ticket",
+      "category": "Category",
+      "priority": "Priority",
+      "created": "Created",
+      "noTickets": "No support tickets",
+      "noTicketsDesc": "You haven't submitted any support tickets yet.",
+      "submitFirst": "Submit Your First Ticket"
+    },
+    "tutorials": {
+      "views": "views"
+    },
+    "contact": {
+      "emailSupport": "Email Support",
+      "emailSupportDesc": "Get help via email",
+      "emailSupportText": "Send us an email and we'll respond within 24 hours during business days.",
+      "telegramBot": "Telegram Bot",
+      "telegramBotDesc": "Instant chat support",
+      "telegramBotText": "Chat with our support bot on Telegram for quick answers and assistance.",
+      "openTelegramBot": "Open Telegram Bot",
+      "responseTimes": "Response Times",
+      "responseTimesDesc": "Our commitment to you",
+      "24hours": "24 hours",
+      "instant": "Instant",
+      "criticalIssues": "Critical Issues",
+      "4hours": "4 hours",
+      "documentation": "Documentation",
+      "documentationDesc": "Comprehensive guides",
+      "documentationText": "Browse our detailed documentation for step-by-step guides and tutorials.",
+      "viewDocumentation": "View Documentation"
+    },
+    "ticketForm": {
+      "title": "Submit Support Ticket",
+      "subject": "Subject",
+      "subjectPlaceholder": "Brief description of your issue",
+      "category": "Category",
+      "generalQuestion": "General Question",
+      "bugReport": "Bug Report",
+      "featureRequest": "Feature Request",
+      "billingIssue": "Billing Issue",
+      "priority": "Priority",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "description": "Description",
+      "descriptionPlaceholder": "Please provide detailed information about your issue...",
+      "submitTicket": "Submit Ticket"
+    }
   },
   "team": {
     "title": "Team Collaboration",
     "subtitle": "{{count}} team members • Pro feature",
-    "upgradeTitle": "Team Collaboration",
-    "upgradeDescription": "Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together."
+    "upgrade": {
+      "title": "Team Collaboration",
+      "description": "Collaborate with your team in real-time. Invite members, assign roles, and build amazing websites together.",
+      "features": {
+        "inviteMembers": "Invite Team Members",
+        "inviteMembersDesc": "Add designers, editors, and viewers to your projects",
+        "roleBasedAccess": "Role-Based Access",
+        "roleBasedAccessDesc": "Control what each team member can see and edit",
+        "realTimeCollab": "Real-Time Collaboration",
+        "realTimeCollabDesc": "Work together simultaneously on the same project"
+      },
+      "upgradeToPro": "Upgrade to Pro",
+      "backToDashboard": "Back to Dashboard"
+    },
+    "inviteMember": "Invite Member",
+    "tabs": {
+      "members": "Team Members",
+      "invites": "Pending Invites",
+      "settings": "Team Settings"
+    },
+    "searchMembers": "Search team members...",
+    "allRoles": "All Roles",
+    "joined": "Joined",
+    "lastActive": "Last active",
+    "projects": "projects",
+    "viewDetails": "View Details",
+    "remove": "Remove",
+    "invites": {
+      "title": "Pending Invitations",
+      "subtitle": "Manage sent invitations and their status",
+      "newInvite": "New Invite",
+      "invitedAs": "Invited as",
+      "by": "by",
+      "expires": "Expires",
+      "copyLink": "Copy invite link",
+      "cancelInvitation": "Cancel invitation",
+      "cancelConfirm": "Cancel this invitation?",
+      "cancelled": "Invitation cancelled",
+      "noPending": "No pending invites",
+      "noPendingDesc": "All invitations have been accepted or expired."
+    },
+    "settings": {
+      "title": "Team Settings",
+      "allowInvites": "Allow team members to invite others",
+      "allowInvitesDesc": "Let admins and editors send invitations",
+      "requireApproval": "Require approval for new members",
+      "requireApprovalDesc": "Owner must approve all new team members",
+      "enableRealTime": "Enable real-time collaboration",
+      "enableRealTimeDesc": "Allow simultaneous editing of projects",
+      "rolePermissions": "Role Permissions"
+    },
+    "inviteModal": {
+      "title": "Invite Team Member",
+      "emailAddress": "Email Address",
+      "emailPlaceholder": "colleague@company.com",
+      "role": "Role",
+      "personalMessage": "Personal Message (Optional)",
+      "messagePlaceholder": "Welcome to our team! Looking forward to working with you.",
+      "sendInvite": "Send Invite"
+    }
   },
   "templates": {
     "title": "Template Gallery",
-    "subtitle": "{{count}} professional templates"
+    "subtitle": "{{count}} professional templates",
+    "searchPlaceholder": "Search templates by name, category, or tags...",
+    "sortMostPopular": "Most Popular",
+    "sortNewest": "Newest",
+    "sortHighestRated": "Highest Rated",
+    "noTemplatesFound": "No templates found",
+    "noTemplatesFoundDesc": "Try adjusting your search terms or browse different categories to find the perfect template.",
+    "preview": "Preview",
+    "useTemplate": "Use Template",
+    "category": "Category",
+    "sections": "Sections",
+    "downloads": "Downloads",
+    "rating": "Rating",
+    "includedSections": "Included Sections",
+    "tags": "Tags",
+    "readyToStart": "Ready to get started?",
+    "readyToStartDesc": "Use this template to create your website in minutes. All sections are fully customizable.",
+    "useThisTemplate": "Use This Template"
   }
 }

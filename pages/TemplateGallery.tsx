@@ -40,6 +40,7 @@ import {
   Globe,
   Shield,
   Target,
+  X,
 } from 'lucide-react';
 import { optimizedStorage, TemplateGalleryItem } from '../utils/optimizedStorage';
 import { useProject } from '../contexts/ProjectContext';
@@ -174,7 +175,7 @@ const TemplateGallery: React.FC = () => {
               <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search templates by name, category, or tags..."
+                placeholder={t('templates.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white shadow-lg font-primary"
@@ -189,9 +190,9 @@ const TemplateGallery: React.FC = () => {
               onChange={(e) => setSortBy(e.target.value as any)}
               className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 bg-white shadow-lg font-primary"
             >
-              <option value="popular">Most Popular</option>
-              <option value="newest">Newest</option>
-              <option value="rating">Highest Rated</option>
+              <option value="popular">{t('templates.sortMostPopular')}</option>
+              <option value="newest">{t('templates.sortNewest')}</option>
+              <option value="rating">{t('templates.sortHighestRated')}</option>
             </select>
           </div>
         </div>
@@ -228,9 +229,9 @@ const TemplateGallery: React.FC = () => {
               <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="w-10 h-10 text-gray-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 font-heading">No templates found</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 font-heading">{t('templates.noTemplatesFound')}</h3>
               <p className="text-gray-600 max-w-md mx-auto font-primary">
-                Try adjusting your search terms or browse different categories to find the perfect template.
+                {t('templates.noTemplatesFoundDesc')}
               </p>
             </div>
           ) : (
@@ -343,13 +344,13 @@ const TemplateGallery: React.FC = () => {
                         onClick={() => handlePreviewTemplate(template)}
                         className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-medium font-primary"
                       >
-                        Preview
+                        {t('templates.preview')}
                       </button>
                       <button
                         onClick={() => handleUseTemplate(template)}
                         className="flex-1 px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-medium font-primary"
                       >
-                        Use Template
+                        {t('templates.useTemplate')}
                       </button>
                     </div>
                   </div>
@@ -394,19 +395,19 @@ const TemplateGallery: React.FC = () => {
                   <h4 className="font-semibold text-gray-900 mb-3 font-heading">Template Details</h4>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 font-primary">Category:</span>
+                      <span className="text-gray-600 font-primary">{t('templates.category')}:</span>
                       <span className="font-medium text-gray-900 font-primary">{selectedTemplate.category}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 font-primary">Sections:</span>
+                      <span className="text-gray-600 font-primary">{t('templates.sections')}:</span>
                       <span className="font-medium text-gray-900 font-primary">{selectedTemplate.sections.length}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 font-primary">Downloads:</span>
+                      <span className="text-gray-600 font-primary">{t('templates.downloads')}:</span>
                       <span className="font-medium text-gray-900 font-primary">{selectedTemplate.downloads}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 font-primary">Rating:</span>
+                      <span className="text-gray-600 font-primary">{t('templates.rating')}:</span>
                       <div className="flex items-center gap-1">
                         {getRatingStars(selectedTemplate.rating)}
                         <span className="font-medium text-gray-900 font-primary ml-1">
@@ -416,7 +417,7 @@ const TemplateGallery: React.FC = () => {
                     </div>
                   </div>
 
-                  <h4 className="font-semibold text-gray-900 mb-3 mt-6 font-heading">Included Sections</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3 mt-6 font-heading">{t('templates.includedSections')}</h4>
                   <div className="space-y-2">
                     {selectedTemplate.sections.map((sectionId) => (
                       <div key={sectionId} className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
@@ -428,7 +429,7 @@ const TemplateGallery: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3 font-heading">Tags</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3 font-heading">{t('templates.tags')}</h4>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {selectedTemplate.tags.map((tag) => (
                       <span
@@ -441,9 +442,9 @@ const TemplateGallery: React.FC = () => {
                   </div>
 
                   <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl p-6 border border-red-200">
-                    <h4 className="font-semibold text-gray-900 mb-3 font-heading">Ready to get started?</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3 font-heading">{t('templates.readyToStart')}</h4>
                     <p className="text-gray-600 mb-4 font-primary">
-                      Use this template to create your website in minutes. All sections are fully customizable.
+                      {t('templates.readyToStartDesc')}
                     </p>
                     <button
                       onClick={() => {
@@ -452,7 +453,7 @@ const TemplateGallery: React.FC = () => {
                       }}
                       className="w-full px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors font-semibold font-heading"
                     >
-                      Use This Template
+                      {t('templates.useThisTemplate')}
                     </button>
                   </div>
                 </div>

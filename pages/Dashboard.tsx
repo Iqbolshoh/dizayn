@@ -446,7 +446,7 @@ const Dashboard: React.FC = () => {
               </div>
               <div>
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">{projects.length}</p>
-                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Total Sites</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">{t('dashboard.stats.totalSites')}</p>
               </div>
             </div>
           </motion.div>
@@ -465,7 +465,7 @@ const Dashboard: React.FC = () => {
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {projects.filter(p => p.isPublished).length}
                 </p>
-                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Published</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">{t('dashboard.stats.published')}</p>
               </div>
             </div>
           </motion.div>
@@ -484,7 +484,7 @@ const Dashboard: React.FC = () => {
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {projects.reduce((total, project) => total + project.sections.length, 0)}
                 </p>
-                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Sections</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">{t('dashboard.stats.sections')}</p>
               </div>
             </div>
           </motion.div>
@@ -503,7 +503,7 @@ const Dashboard: React.FC = () => {
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-heading">
                   {Math.round((storageInfo.totalSize / (5 * 1024 * 1024)) * 100)}%
                 </p>
-                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">Storage</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium font-primary">{t('dashboard.stats.storage')}</p>
               </div>
             </div>
           </motion.div>
@@ -513,8 +513,8 @@ const Dashboard: React.FC = () => {
         <div className="mb-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-heading">Your Websites</h2>
-              <p className="text-gray-600 font-primary">Create and manage your mobile-friendly websites</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-heading">{t('dashboard.projects.title')}</h2>
+              <p className="text-gray-600 font-primary">{t('dashboard.projects.subtitle')}</p>
             </div>
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <select
@@ -522,9 +522,9 @@ const Dashboard: React.FC = () => {
                 onChange={(e) => setSortBy(e.target.value as 'updated' | 'created' | 'name')}
                 className="flex-1 sm:flex-none px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90 backdrop-blur-sm font-primary text-sm"
               >
-                <option value="updated">Last Updated</option>
-                <option value="created">Date Created</option>
-                <option value="name">Name</option>
+                <option value="updated">{t('dashboard.projects.sortLastUpdated')}</option>
+                <option value="created">{t('dashboard.projects.sortDateCreated')}</option>
+                <option value="name">{t('dashboard.projects.sortName')}</option>
               </select>
             </div>
           </div>
@@ -566,12 +566,12 @@ const Dashboard: React.FC = () => {
                 </motion.div>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-heading">
-                {searchTerm ? 'No websites found' : 'Create Your First Mobile Website'}
+                {searchTerm ? t('dashboard.projects.noWebsitesFound') : t('dashboard.projects.createFirst')}
               </h3>
               <p className="text-gray-600 mb-8 max-w-lg mx-auto text-base sm:text-lg font-primary px-4">
                 {searchTerm
-                  ? `No websites match "${searchTerm}". Try a different search term.`
-                  : 'Click the button below to create your first professional website. It\'s easy and takes just a few minutes to get started.'
+                  ? t('dashboard.projects.noMatch', { searchTerm })
+                  : t('dashboard.projects.createFirstDesc')
                 }
               </p>
               {!searchTerm && (
@@ -582,7 +582,7 @@ const Dashboard: React.FC = () => {
                   className="inline-flex items-center gap-3 px-6 py-4 sm:px-8 sm:py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-semibold shadow-md text-base sm:text-lg font-heading"
                 >
                   <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
-                  Create Your First Site
+                  {t('dashboard.projects.createFirstButton')}
                 </motion.button>
               )}
             </motion.div>
@@ -616,7 +616,7 @@ const Dashboard: React.FC = () => {
                           <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
                         </motion.div>
                         <p className="text-xs sm:text-sm font-semibold text-gray-700 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 sm:px-3 sm:py-1 font-primary">
-                          {project.sections.length} sections
+                          {t('dashboard.projects.sectionsCount', { count: project.sections.length })}
                         </p>
                       </div>
                     </div>
@@ -633,7 +633,7 @@ const Dashboard: React.FC = () => {
                       >
                         <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1.5 sm:mr-2 ${project.isPublished ? 'bg-green-500' : 'bg-yellow-500'
                           }`}></div>
-                        <span className="font-primary">{project.isPublished ? 'Live' : 'Draft'}</span>
+                        <span className="font-primary">{project.isPublished ? t('dashboard.projects.live') : t('dashboard.projects.draft')}</span>
                       </motion.span>
                     </div>
 
@@ -665,7 +665,7 @@ const Dashboard: React.FC = () => {
                                 className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Eye className="w-4 h-4" />
-                                Preview
+                                {t('dashboard.projects.preview')}
                               </button>
                               <button
                                 onClick={() => {
@@ -675,7 +675,7 @@ const Dashboard: React.FC = () => {
                                 className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Copy className="w-4 h-4" />
-                                Duplicate
+                                {t('dashboard.projects.duplicate')}
                               </button>
                               <div className="border-t border-gray-100 my-1"></div>
                               <button
@@ -686,7 +686,7 @@ const Dashboard: React.FC = () => {
                                 className="w-full px-4 py-3 text-left text-sm text-red-600 hover:bg-red-50 flex items-center gap-3 transition-colors font-primary"
                               >
                                 <Trash2 className="w-4 h-4" />
-                                Delete
+                                {t('dashboard.projects.delete')}
                               </button>
                             </motion.div>
                           )}
@@ -725,7 +725,7 @@ const Dashboard: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         <Layers className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span className="font-medium font-primary">{project.sections.length} sections</span>
+                        <span className="font-medium font-primary">{t('dashboard.projects.sectionsCount', { count: project.sections.length })}</span>
                       </div>
                     </div>
 
@@ -737,7 +737,7 @@ const Dashboard: React.FC = () => {
                         className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 font-semibold text-sm shadow-md font-heading"
                       >
                         <Edit className="w-3 h-3 sm:w-4 sm:h-4" />
-                        Edit
+                        {t('dashboard.projects.edit')}
                       </motion.button>
                       <motion.button
                         onClick={() => navigate(`/preview/${project.id}`)}
@@ -787,8 +787,8 @@ const Dashboard: React.FC = () => {
                     <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">Create New Website</h2>
-                    <p className="text-sm sm:text-base text-gray-600 font-primary">Build your professional website</p>
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">{t('dashboard.createModal.title')}</h2>
+                    <p className="text-sm sm:text-base text-gray-600 font-primary">{t('dashboard.createModal.subtitle')}</p>
                   </div>
                 </div>
                 {!isCreating && (
@@ -805,13 +805,13 @@ const Dashboard: React.FC = () => {
                 {/* Website Name */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    Website Name *
+                    {t('dashboard.createModal.websiteName')} *
                   </label>
                   <input
                     type="text"
                     value={newProjectName}
                     onChange={(e) => setNewProjectName(e.target.value)}
-                    placeholder="My Awesome Website"
+                    placeholder={t('dashboard.createModal.websiteNamePlaceholder')}
                     className="w-full px-4 py-3 sm:py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-primary"
                     required
                     disabled={isCreating}
@@ -821,7 +821,7 @@ const Dashboard: React.FC = () => {
                 {/* Website URL */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    Website URL *
+                    {t('dashboard.createModal.websiteUrl')} *
                   </label>
                   <div className="flex items-center">
                     <span className="px-3 py-3 sm:py-4 bg-gray-100 text-gray-600 rounded-l-xl border border-r-0 border-gray-300 text-sm sm:text-base font-mono">
@@ -831,7 +831,7 @@ const Dashboard: React.FC = () => {
                       type="text"
                       value={newWebsiteUrl}
                       onChange={(e) => handleWebsiteUrlChange(e.target.value)}
-                      placeholder="my-website"
+                      placeholder={t('dashboard.createModal.websiteUrlPlaceholder')}
                       className={`flex-1 px-4 py-3 sm:py-4 border rounded-r-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base sm:text-lg font-mono ${urlError ? 'border-red-500' : 'border-gray-300'
                         }`}
                       required
@@ -847,18 +847,18 @@ const Dashboard: React.FC = () => {
                   {!urlError && newWebsiteUrl && (
                     <div className="flex items-center gap-2 mt-2 text-green-600">
                       <Check className="w-4 h-4" />
-                      <span className="text-sm font-primary">URL is available</span>
+                      <span className="text-sm font-primary">{t('dashboard.createModal.urlAvailable')}</span>
                     </div>
                   )}
                   <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
-                    Only letters, numbers, hyphens, and underscores allowed
+                    {t('dashboard.createModal.urlRules')}
                   </p>
                 </div>
 
                 {/* Category */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    Website Category *
+                    {t('dashboard.createModal.websiteCategory')} *
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {categories.map((category) => {
@@ -888,25 +888,25 @@ const Dashboard: React.FC = () => {
                 {/* SEO Keywords */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    SEO Keywords (Optional)
+                    {t('dashboard.createModal.seoKeywords')}
                   </label>
                   <input
                     type="text"
                     value={newSeoKeywords}
                     onChange={(e) => setNewSeoKeywords(e.target.value)}
-                    placeholder="business, website, professional, services"
+                    placeholder={t('dashboard.createModal.seoKeywordsPlaceholder')}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent font-primary text-base"
                     disabled={isCreating}
                   />
                   <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
-                    Separate keywords with commas
+                    {t('dashboard.createModal.seoKeywordsDesc')}
                   </p>
                 </div>
 
                 {/* Logo File Upload */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    Logo Upload (Optional)
+                    {t('dashboard.createModal.logoUpload')}
                   </label>
                   <div className="flex items-center gap-4">
                     <div className="flex-1 relative">
@@ -925,7 +925,7 @@ const Dashboard: React.FC = () => {
                         <div className="flex items-center gap-3">
                           <Upload className="w-5 h-5 text-gray-500" />
                           <span className="text-gray-700">
-                            {newLogo ? newLogo.name : 'Choose logo file'}
+                            {newLogo ? newLogo.name : t('dashboard.createModal.chooseLogoFile')}
                           </span>
                         </div>
                       </label>
@@ -951,14 +951,14 @@ const Dashboard: React.FC = () => {
                     )}
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
-                    Recommended: PNG or SVG format, max 5MB. Will be automatically added to header, footer, and relevant sections.
+                    {t('dashboard.createModal.logoUploadDesc')}
                   </p>
                 </div>
 
                 {/* Favicon File Upload */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 font-primary">
-                    Favicon Upload (Optional)
+                    {t('dashboard.createModal.faviconUpload')}
                   </label>
                   <div className="flex items-center gap-4">
                     <div className="flex-1 relative">
@@ -977,7 +977,7 @@ const Dashboard: React.FC = () => {
                         <div className="flex items-center gap-3">
                           <ImageIcon className="w-5 h-5 text-gray-500" />
                           <span className="text-gray-700">
-                            {newFavicon ? newFavicon.name : 'Choose favicon file'}
+                            {newFavicon ? newFavicon.name : t('dashboard.createModal.chooseFaviconFile')}
                           </span>
                         </div>
                       </label>
@@ -1003,7 +1003,7 @@ const Dashboard: React.FC = () => {
                     )}
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 mt-2 font-primary">
-                    Recommended: ICO, PNG format, 16x16 or 32x32 pixels, max 1MB. Displayed in browser tabs.
+                    {t('dashboard.createModal.faviconUploadDesc')}
                   </p>
                 </div>
 
@@ -1016,7 +1016,7 @@ const Dashboard: React.FC = () => {
                     disabled={isCreating}
                     className="flex-1 px-4 py-3 sm:px-6 sm:py-4 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-semibold font-primary text-base disabled:opacity-50"
                   >
-                    Cancel
+                    {t('common.cancel')}
                   </motion.button>
                   <motion.button
                     type="submit"
@@ -1028,12 +1028,12 @@ const Dashboard: React.FC = () => {
                     {isCreating ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Creating...
+                        {t('dashboard.createModal.creating')}
                       </>
                     ) : (
                       <>
                         <Plus className="w-5 h-5" />
-                        Create Website
+                        {t('dashboard.createModal.createWebsite')}
                       </>
                     )}
                   </motion.button>

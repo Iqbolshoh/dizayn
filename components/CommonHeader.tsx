@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-const { t } = useTranslation();
 import {
   Layout,
   ChevronDown,
@@ -44,10 +43,10 @@ const CommonHeader: React.FC = () => {
   ];
 
   const navItems = [
-    { label: 'Dashboard', href: '/dashboard', icon: Layout },
-    { label: 'Templates', href: '/my-templates', icon: Palette },
-    { label: 'Billing', href: '/billing', icon: CreditCard },
-    { label: 'Team', href: '/team', icon: Users },
+    { label: t('header.nav.dashboard'), href: '/dashboard', icon: Layout },
+    { label: t('header.nav.templates'), href: '/my-templates', icon: Palette },
+    { label: t('header.nav.billing'), href: '/billing', icon: CreditCard },
+    { label: t('header.nav.team'), href: '/team', icon: Users },
   ];
 
   const isActive = (path: string) => {
@@ -182,7 +181,7 @@ const CommonHeader: React.FC = () => {
                     onClick={() => setIsProfileDropdownOpen(false)}
                   >
                     <User className="w-4 h-4 mr-3" />
-                    Profile
+                    {t('header.profile.profile')}
                   </Link>
 
                   <Link
@@ -191,7 +190,7 @@ const CommonHeader: React.FC = () => {
                     onClick={() => setIsProfileDropdownOpen(false)}
                   >
                     <Settings className="w-4 h-4 mr-3" />
-                    Settings
+                    {t('header.profile.settings')}
                   </Link>
 
                   <Link
@@ -200,7 +199,7 @@ const CommonHeader: React.FC = () => {
                     onClick={() => setIsProfileDropdownOpen(false)}
                   >
                     <HelpCircle className="w-4 h-4 mr-3" />
-                    Support
+                    {t('header.profile.support')}
                   </Link>
 
                   <div className="border-t border-gray-100 my-1"></div>
@@ -210,7 +209,7 @@ const CommonHeader: React.FC = () => {
                     className="flex items-center px-4 py-3 text-sm text-red-600 hover:bg-red-50 w-full text-left transition-colors"
                   >
                     <LogOut className="w-4 h-4 mr-3" />
-                    Logout
+                    {t('header.profile.logout')}
                   </button>
                 </div>
               )}

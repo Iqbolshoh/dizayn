@@ -126,7 +126,7 @@ const Preview: React.FC = () => {
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 font-heading">{currentProject.name}</h1>
-                <p className="text-sm text-gray-600 font-primary">Live Preview Mode</p>
+                <p className="text-sm text-gray-600 font-primary">{t('preview.livePreviewMode')}</p>
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@ const Preview: React.FC = () => {
               className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium font-primary"
             >
               <Edit3 className="w-4 h-4" />
-              Edit
+              {t('preview.edit')}
             </button>
 
             <button
@@ -145,7 +145,7 @@ const Preview: React.FC = () => {
               className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors font-medium font-primary"
             >
               <Share2 className="w-4 h-4" />
-              Share
+              {t('preview.share')}
             </button>
 
             <button
@@ -153,7 +153,7 @@ const Preview: React.FC = () => {
               className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors font-medium font-primary"
             >
               <Globe className="w-4 h-4" />
-              Publish
+              {t('preview.publish')}
             </button>
           </div>
         </div>
@@ -173,16 +173,16 @@ const Preview: React.FC = () => {
                 </div>
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4 font-heading">
-                Your website is empty
+                {t('preview.emptyState.title')}
               </h2>
               <p className="text-gray-600 mb-8 text-lg font-primary">
-                Add some sections to see your website come to life
+                {t('preview.emptyState.description')}
               </p>
               <button
                 onClick={() => navigate(`/editor/${currentProject.id}`)}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg text-lg font-heading"
               >
-                Start Building
+                {t('preview.emptyState.startBuilding')}
               </button>
             </div>
           </div>
@@ -212,7 +212,7 @@ const Preview: React.FC = () => {
           className="bg-primary-600 rounded-2xl px-6 py-3 text-white flex items-center gap-3 shadow-lg"
         >
           <div className="w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
-          <span className="font-medium font-primary">Preview Mode Active</span>
+          <span className="font-medium font-primary">{t('preview.previewModeActive')}</span>
         </motion.div>
       </div>
     </div>
