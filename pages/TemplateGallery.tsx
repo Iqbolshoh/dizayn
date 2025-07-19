@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -12,8 +12,6 @@ import {
   Eye,
   Heart,
   Crown,
-  Zap,
-  Users,
   Briefcase,
   ShoppingBag,
   Camera,
@@ -25,21 +23,9 @@ import {
   Gamepad2,
   User,
   Building,
-  ExternalLink,
-  Play,
-  Check,
   Plus,
-  Sparkles,
-  TrendingUp,
-  Clock,
-  Award,
   Palette,
   Layout,
-  Code,
-  Smartphone,
-  Globe,
-  Shield,
-  Target,
   X,
 } from 'lucide-react';
 import { optimizedStorage, TemplateGalleryItem } from '../utils/optimizedStorage';
@@ -205,15 +191,15 @@ const TemplateGallery: React.FC = () => {
                 key={id}
                 onClick={() => setSelectedCategory(id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all font-medium ${selectedCategory === id
-                    ? 'bg-red-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                  ? 'bg-red-600 text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                   }`}
               >
                 <Icon className="w-4 h-4" />
                 <span className="font-primary">{name}</span>
                 <span className={`text-xs px-2 py-1 rounded-full ${selectedCategory === id
-                    ? 'bg-white/20 text-white'
-                    : 'bg-gray-100 text-gray-600'
+                  ? 'bg-white/20 text-white'
+                  : 'bg-gray-100 text-gray-600'
                   }`}>
                   {count}
                 </span>
@@ -236,8 +222,8 @@ const TemplateGallery: React.FC = () => {
             </div>
           ) : (
             <div className={`grid gap-6 ${viewMode === 'grid'
-                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-                : 'grid-cols-1'
+              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+              : 'grid-cols-1'
               }`}>
               {filteredTemplates.map((template, index) => (
                 <motion.div
