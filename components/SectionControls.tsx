@@ -146,21 +146,21 @@ const SectionControls: React.FC<SectionControlsProps> = ({
       initial={{ opacity: 0, y: -20, scale: 0.8 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      className="absolute -top-20 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-1 bg-white/95 backdrop-blur-xl rounded-2xl shadow-elegant-lg border border-gray-200/50 px-3 py-2 font-sans"
+      className="absolute -top-16 sm:-top-20 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-1 bg-white/95 backdrop-blur-xl rounded-xl sm:rounded-2xl shadow-elegant-lg border border-gray-200/50 px-2 sm:px-3 py-1.5 sm:py-2 font-sans"
     >
       {/* Section Info */}
-      <div className="flex items-center gap-2 text-xs text-gray-500 mr-2 px-2">
+      <div className="flex items-center gap-1 sm:gap-2 text-xs text-gray-500 mr-1 sm:mr-2 px-1 sm:px-2">
         {template?.icon && (
-          <div className="w-4 h-4 flex items-center justify-center">
+          <div className="w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center">
             {React.createElement(getIconComponent(template.icon), {
-              className: "w-4 h-4"
+              className: "w-3 h-3 sm:w-4 sm:h-4"
             })}
           </div>
         )}
-        <span className="font-medium">{template?.name || 'Section'}</span>
+        <span className="font-medium hidden sm:inline">{template?.name || 'Section'}</span>
       </div>
       
-      <div className="w-px h-6 bg-gray-300"></div>
+      <div className="w-px h-4 sm:h-6 bg-gray-300"></div>
 
       {/* Add Above */}
       <motion.button
@@ -170,10 +170,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-green-50 rounded-lg sm:rounded-xl text-green-600 transition-colors"
         title={t('sectionControls.addAbove')}
       >
-        <Plus className="w-4 h-4" />
+        <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
 
       {/* Move Up */}
@@ -185,14 +185,14 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         disabled={!canMoveUp}
-        className={`p-2 rounded-xl transition-colors ${
+        className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-colors ${
           canMoveUp 
             ? 'hover:bg-primary-50 text-primary-600' 
             : 'text-gray-300 cursor-not-allowed'
         }`}
         title={t('sectionControls.moveUp')}
       >
-        <ArrowUp className="w-4 h-4" />
+        <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
 
       {/* Move Down */}
@@ -204,27 +204,27 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         disabled={!canMoveDown}
-        className={`p-2 rounded-xl transition-colors ${
+        className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-colors ${
           canMoveDown 
             ? 'hover:bg-primary-50 text-primary-600' 
             : 'text-gray-300 cursor-not-allowed'
         }`}
         title={t('sectionControls.moveDown')}
       >
-        <ArrowDown className="w-4 h-4" />
+        <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
 
-      <div className="w-px h-6 bg-gray-300"></div>
+      <div className="w-px h-4 sm:h-6 bg-gray-300"></div>
       
       {/* Drag Handle */}
       <motion.button
         {...dragHandleProps}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-gray-100 rounded-xl cursor-grab active:cursor-grabbing transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg sm:rounded-xl cursor-grab active:cursor-grabbing transition-colors"
         title={t('sectionControls.dragToReorder')}
       >
-        <GripVertical className="w-4 h-4 text-gray-500" />
+        <GripVertical className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500" />
       </motion.button>
       
       {/* Edit */}
@@ -235,10 +235,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-primary-50 rounded-lg sm:rounded-xl text-primary-600 transition-colors"
         title={t('sectionControls.editSection')}
       >
-        <Edit className="w-4 h-4" />
+        <Edit className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
 
       {/* Visibility Toggle */}
@@ -250,14 +250,14 @@ const SectionControls: React.FC<SectionControlsProps> = ({
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={`p-2 rounded-xl transition-colors ${
+          className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-colors ${
             isVisible 
               ? 'hover:bg-yellow-50 text-yellow-600' 
               : 'hover:bg-gray-50 text-gray-400'
           }`}
           title={isVisible ? t('sectionControls.hideSection') : t('sectionControls.showSection')}
         >
-          {isVisible ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+          {isVisible ? <Eye className="w-3 h-3 sm:w-4 sm:h-4" /> : <EyeOff className="w-3 h-3 sm:w-4 sm:h-4" />}
         </motion.button>
       )}
       
@@ -269,13 +269,13 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-green-50 rounded-lg sm:rounded-xl text-green-600 transition-colors"
         title={t('sectionControls.duplicateSection')}
       >
-        <Copy className="w-4 h-4" />
+        <Copy className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
       
-      <div className="w-px h-6 bg-gray-300"></div>
+      <div className="w-px h-4 sm:h-6 bg-gray-300"></div>
 
       {/* Add Below */}
       <motion.button
@@ -285,10 +285,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-green-50 rounded-xl text-green-600 transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-green-50 rounded-lg sm:rounded-xl text-green-600 transition-colors"
         title={t('sectionControls.addBelow')}
       >
-        <Plus className="w-4 h-4" />
+        <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
       
       {/* Delete */}
@@ -299,10 +299,10 @@ const SectionControls: React.FC<SectionControlsProps> = ({
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="p-2 hover:bg-primary-50 rounded-xl text-primary-600 transition-colors"
+        className="p-1.5 sm:p-2 hover:bg-primary-50 rounded-lg sm:rounded-xl text-primary-600 transition-colors"
         title={t('sectionControls.deleteSection')}
       >
-        <Trash2 className="w-4 h-4" />
+        <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
       </motion.button>
     </motion.div>
   );

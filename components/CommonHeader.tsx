@@ -10,7 +10,9 @@ import {
   CreditCard,
   Users,
   HelpCircle,
-  Palette
+  Palette,
+  Menu,
+  X
 } from 'lucide-react'
 
 interface Language {
@@ -26,6 +28,8 @@ const CommonHeader: React.FC = () => {
   const { t, i18n } = useTranslation()
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   const languages: Language[] = [
     { code: 'en', name: t('header.language.english'), flag: '🇬🇧', flagIcon: '/images/flags/gb.svg' },
     { code: 'ru', name: t('header.language.russian'), flag: '🇷🇺', flagIcon: '/images/flags/ru.svg' },
@@ -57,6 +61,7 @@ const CommonHeader: React.FC = () => {
     i18n.changeLanguage(language.code)
     setSelectedLanguage(language)
     setIsLanguageDropdownOpen(false)
+    setIsMobileMenuOpen(false)
   }
 
   const handleLogout = () => {
@@ -67,33 +72,34 @@ const CommonHeader: React.FC = () => {
   return (
     <nav className="bg-white/95 backdrop-blur-xl shadow-elegant border-b border-gray-200 sticky top-0 z-50 transition-all duration-300 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+        <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
           <div className="flex items-center">
             <Link to="/dashboard" className="flex items-center space-x-2 sm:space-x-3 group">
               <div className="relative">
                 <img
                   src="/images/logo_2.png"
-                  className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl shadow-elegant group-hover:shadow-glow transition-all duration-300 group-hover:scale-105"
+                  className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 rounded-xl shadow-elegant group-hover:shadow-glow transition-all duration-300 group-hover:scale-105"
                   alt="Logo"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="font-display font-bold text-lg sm:text-2xl">
+              <div className="font-display font-bold text-base sm:text-lg lg:text-2xl">
                 <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Templates</span>
                 <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">.uz</span>
               </div>
             </Link>
           </div>
 
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:block">
+            <div className="ml-6 xl:ml-10 flex items-baseline space-x-1">
               {navItems.map((item) => {
                 const IconComponent = item.icon
                 return (
                   <Link
                     key={item.href}
                     to={item.href}
-                    className={`relative px-3 sm:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-xl group flex items-center gap-2 font-sans ${isActive(item.href)
+                    className={`relative px-3 xl:px-4 py-2 text-sm font-medium transition-all duration-300 rounded-xl group flex items-center gap-2 font-sans ${isActive(item.href)
                       ? 'text-primary-600 bg-primary-50 shadow-inner-glow'
                       : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                       }`}
@@ -108,33 +114,34 @@ const CommonHeader: React.FC = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-3 sm:space-x-4">
+          {/* Desktop Right Side */}
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
             <div className="relative">
               <button
-                className="flex items-center space-x-2 px-2 sm:px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-xl hover:bg-gray-50 font-sans"
+                className="flex items-center space-x-2 px-2 xl:px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-xl hover:bg-gray-50 font-sans"
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
               >
                 <img
                   src={selectedLanguage.flagIcon}
                   alt={selectedLanguage.name}
-                  className="w-4 sm:w-5 h-3 sm:h-4 rounded-sm shadow-sm"
+                  className="w-4 xl:w-5 h-3 xl:h-4 rounded-sm shadow-sm"
                 />
-                <span className="text-xs sm:text-sm font-medium">{selectedLanguage.name}</span>
-                <ChevronDown className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm font-medium hidden xl:inline">{selectedLanguage.name}</span>
+                <ChevronDown className={`w-3 xl:w-4 h-3 xl:h-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLanguageDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 sm:w-48 bg-white rounded-xl shadow-elegant-lg border border-gray-200 py-2 z-50 backdrop-blur-lg">
+                <div className="absolute right-0 mt-2 w-40 xl:w-48 bg-white rounded-xl shadow-elegant-lg border border-gray-200 py-2 z-50 backdrop-blur-lg">
                   {languages.map((language) => (
                     <button
                       key={language.code}
-                      className="flex items-center px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 w-full text-left transition-colors font-sans"
+                      className="flex items-center px-3 xl:px-4 py-2 xl:py-3 text-xs xl:text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 w-full text-left transition-colors font-sans"
                       onClick={() => handleLanguageChange(language)}
                     >
                       <img
                         src={language.flagIcon}
                         alt={language.name}
-                        className="w-4 sm:w-5 h-3 sm:h-4 mr-2 sm:mr-3 rounded-sm shadow-sm"
+                        className="w-4 xl:w-5 h-3 xl:h-4 mr-2 xl:mr-3 rounded-sm shadow-sm"
                       />
                       {language.name}
                     </button>
@@ -146,12 +153,12 @@ const CommonHeader: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
-                className="flex items-center space-x-2 px-2 sm:px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-xl hover:bg-gray-50 font-sans"
+                className="flex items-center space-x-2 px-2 xl:px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-xl hover:bg-gray-50 font-sans"
               >
                 <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-glow">
                   <User className="w-4 h-4 text-white" />
                 </div>
-                <ChevronDown className={`w-3 sm:w-4 h-3 sm:h-4 transition-transform duration-200 ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3 xl:w-4 h-3 xl:h-4 transition-transform duration-200 ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isProfileDropdownOpen && (
@@ -178,14 +185,106 @@ const CommonHeader: React.FC = () => {
             </div>
           </div>
 
-          <div className="md:hidden">
-            <button className="p-2 text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600 rounded-xl hover:bg-gray-50 transition-colors">
-              <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center space-x-2">
+            {/* Mobile Language Selector */}
+            <div className="relative">
+              <button
+                className="flex items-center space-x-1 px-2 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-xl hover:bg-gray-50 font-sans"
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              >
+                <img
+                  src={selectedLanguage.flagIcon}
+                  alt={selectedLanguage.name}
+                  className="w-4 h-3 rounded-sm shadow-sm"
+                />
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-elegant-lg border border-gray-200 py-2 z-50 backdrop-blur-lg">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      className="flex items-center px-3 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-600 w-full text-left transition-colors font-sans"
+                      onClick={() => handleLanguageChange(language)}
+                    >
+                      <img
+                        src={language.flagIcon}
+                        alt={language.name}
+                        className="w-4 h-3 mr-2 rounded-sm shadow-sm"
+                      />
+                      {language.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button 
+              className="p-2 text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600 rounded-xl hover:bg-gray-50 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden border-t border-gray-200 py-4 space-y-2 bg-white/95 backdrop-blur-xl">
+            {navItems.map((item) => {
+              const IconComponent = item.icon
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`flex items-center gap-3 px-4 py-3 text-base font-medium transition-all duration-300 rounded-xl mx-2 ${isActive(item.href)
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                    }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <IconComponent className="w-5 h-5" />
+                  {item.label}
+                </Link>
+              )
+            })}
+            
+            <div className="border-t border-gray-200 mt-4 pt-4 mx-2">
+              <Link 
+                to="/profile" 
+                className="flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors rounded-xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <User className="w-5 h-5" />
+                {t('header.profile.profile')}
+              </Link>
+              <Link 
+                to="/settings" 
+                className="flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors rounded-xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Settings className="w-5 h-5" />
+                {t('header.profile.settings')}
+              </Link>
+              <button 
+                onClick={() => {
+                  handleLogout();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-3 px-4 py-3 text-base font-medium text-primary-600 hover:bg-primary-50 transition-colors rounded-xl w-full text-left"
+              >
+                <LogOut className="w-5 h-5" />
+                {t('header.profile.logout')}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

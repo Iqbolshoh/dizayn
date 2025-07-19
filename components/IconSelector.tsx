@@ -112,11 +112,11 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header with Live Preview */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-primary-50 via-secondary-50 to-primary-50 flex-shrink-0">
+          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-primary-50 via-secondary-50 to-primary-50 flex-shrink-0">
             <div className="flex items-center gap-4">
               {/* Live Preview */}
               <motion.div
-                className="w-16 h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-glow"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-glow"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -129,15 +129,15 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
                     transition={{ duration: 0.3 }}
                   >
                     {React.createElement(getIconComponent(selectedIcon), {
-                      className: "w-8 h-8 text-white"
+                      className: "w-6 h-6 sm:w-8 sm:h-8 text-white"
                     })}
                   </motion.div>
                 </AnimatePresence>
               </motion.div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 font-display">{t('iconSelector.title')}</h2>
-                <p className="text-base text-gray-600 font-sans">
+                <h2 className="text-lg sm:text-2xl font-bold text-gray-900 font-display">{t('iconSelector.title')}</h2>
+                <p className="text-sm sm:text-base text-gray-600 font-sans">
                   {t('iconSelector.currentlySelected')}: <span className="font-semibold text-primary-600">{selectedIcon}</span>
                 </p>
               </div>
@@ -145,40 +145,40 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
 
             <button
               onClick={onClose}
-              className="p-3 hover:bg-white/90 rounded-2xl transition-colors group"
+              className="p-2 sm:p-3 hover:bg-white/90 rounded-2xl transition-colors group"
             >
-              <X className="w-6 h-6 text-gray-500 group-hover:text-gray-700" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 group-hover:text-gray-700" />
             </button>
           </div>
 
           {/* Search Bar */}
-          <div className="p-6 border-b border-gray-200 bg-white flex-shrink-0">
+          <div className="p-4 sm:p-6 border-b border-gray-200 bg-white flex-shrink-0">
             <div className="relative">
-              <Search className="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder={t('iconSelector.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 text-lg font-sans placeholder-gray-500"
+                className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 text-base sm:text-lg font-sans placeholder-gray-500"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 hover:bg-gray-200 rounded-full transition-colors"
+                  className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 p-1 hover:bg-gray-200 rounded-full transition-colors"
                 >
-                  <X className="w-4 h-4 text-gray-400" />
+                  <X className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
                 </button>
               )}
             </div>
           </div>
 
           {/* Categories */}
-          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex-shrink-0">
-            <div className="flex flex-wrap gap-2">
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 bg-gray-50 flex-shrink-0">
+            <div className="flex flex-wrap gap-1 sm:gap-2">
               <button
                 onClick={() => setSelectedCategory('All')}
-                className={`px-4 py-2 rounded-xl font-medium transition-all text-sm font-sans ${selectedCategory === 'All'
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-medium transition-all text-xs sm:text-sm font-sans ${selectedCategory === 'All'
                   ? 'bg-primary-600 text-white shadow-glow'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                   }`}
@@ -189,7 +189,7 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-xl font-medium transition-all text-sm font-sans ${selectedCategory === category
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-medium transition-all text-xs sm:text-sm font-sans ${selectedCategory === category
                     ? 'bg-primary-600 text-white shadow-glow'
                     : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                     }`}
@@ -202,23 +202,23 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
 
           {/* Icons Grid */}
           <div className="flex-1 overflow-y-auto">
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {filteredIcons.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-16"
+                  className="text-center py-8 sm:py-16"
                 >
-                  <div className="w-20 h-20 bg-gray-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                    <Search className="w-10 h-10 text-gray-400" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-100 rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <Search className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-display">{t('iconSelector.noIconsFound')}</h3>
-                  <p className="text-base text-gray-600 max-w-md mx-auto font-sans">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 font-display">{t('iconSelector.noIconsFound')}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 max-w-md mx-auto font-sans">
                     {t('iconSelector.tryAdjustingSearch')}
                   </p>
                 </motion.div>
               ) : (
-                <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-3">
+                <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 xl:grid-cols-14 gap-2 sm:gap-3">
                   {filteredIcons.map((iconName, index) => {
                     const IconComponent = getIconComponent(iconName);
                     const isSelected = selectedIcon === iconName;
@@ -238,7 +238,7 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
                           }`}
                         title={iconName}
                       >
-                        <IconComponent className="w-6 h-6 mx-auto transition-transform duration-200" />
+                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 mx-auto transition-transform duration-200" />
 
                         {/* Selection indicator */}
                         <AnimatePresence>
@@ -247,15 +247,15 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
                               initial={{ scale: 0, opacity: 0 }}
                               animate={{ scale: 1, opacity: 1 }}
                               exit={{ scale: 0, opacity: 0 }}
-                              className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center shadow-glow"
+                              className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center shadow-glow"
                             >
-                              <Check className="w-3 h-3 text-white" />
+                              <Check className="w-2 h-2 sm:w-3 sm:h-3 text-white" />
                             </motion.div>
                           )}
                         </AnimatePresence>
 
                         {/* Hover tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 font-sans">
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 sm:px-3 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 font-sans hidden sm:block">
                           {iconName}
                           <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                         </div>
@@ -280,25 +280,25 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
           </div>
 
           {/* Footer */}
-          <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between flex-shrink-0">
-            <div className="flex items-center gap-3 text-sm text-gray-600 font-sans">
-              <Sparkles className="w-5 h-5 text-primary-600" />
+          <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 bg-gray-50 flex flex-col sm:flex-row items-center justify-between gap-3 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600 font-sans">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600" />
               <span className="font-medium">
                 {filteredIcons.length} {t('iconSelector.iconsAvailable')}
               </span>
               {searchTerm && (
-                <span className="text-primary-600">
+                <span className="text-primary-600 hidden sm:inline">
                   • {t('iconSelector.filteredBy')} "{searchTerm}"
                 </span>
               )}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <motion.button
                 onClick={onClose}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors font-medium font-sans"
+                className="px-4 sm:px-6 py-2 sm:py-3 text-gray-600 hover:text-gray-800 transition-colors font-medium font-sans text-sm sm:text-base"
               >
                 {t('iconSelector.cancel')}
               </motion.button>
@@ -307,7 +307,7 @@ const IconSelector: React.FC<IconSelectorProps> = ({ currentIcon, onSelect, onCl
                 onClick={onClose}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium shadow-glow font-display"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium shadow-glow font-display text-sm sm:text-base"
               >
                 {t('iconSelector.done')}
               </motion.button>
